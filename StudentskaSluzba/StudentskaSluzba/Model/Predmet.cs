@@ -1,7 +1,9 @@
 ﻿using StudentskaSluzba.Serializer;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,12 +13,84 @@ namespace StudentskaSluzba.Model
     public class Predmet : ISerializable
     {
         public int Id { get; set; }
-        public string Sifra { get; set; }
-        public string Naziv { get; set; }
-        public Semestar Semestar { get; set; }
-        public int GodinaStudija { get; set; }
-        public int PredmetniProfesorId { get; set; }
-        public int BrojESPB { get; set; }
+        private string _sifra;
+        public string Sifra
+        {
+            get => _sifra;
+            set
+            {
+                if (value != _sifra)
+                {
+                    _sifra = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+        private string _naziv;
+        public string Naziv
+        {
+            get => _naziv;
+            set
+            {
+                if (value != _naziv)
+                {
+                    _naziv = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+        private Semestar _semestar;
+        public Semestar Semestar
+        {
+            get => _semestar;
+            set
+            {
+                if (value != _semestar)
+                {
+                    _semestar = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+        private int _godinaStudija;
+        public int GodinaStudija
+        {
+            get => _godinaStudija;
+            set
+            {
+                if (value != _godinaStudija)
+                {
+                    _godinaStudija = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+        private int _predmetniProfesorId;
+        public int PredmetniProfesorId
+        {
+            get => _predmetniProfesorId;
+            set
+            {
+                if (value != _predmetniProfesorId)
+                {
+                    _predmetniProfesorId = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+        private int _brojESPB;
+        public int BrojESPB
+        {
+            get => _brojESPB;
+            set
+            {
+                if (value != _brojESPB)
+                {
+                    _brojESPB = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
         public Profesor PredmetniProfesor { get; set; }
         public List<Student> Polozili { get; set; }
         public List<Student> NisuPolozili { get; set; }
@@ -75,6 +149,13 @@ namespace StudentskaSluzba.Model
             GodinaStudija = int.Parse(values[4]);
             PredmetniProfesorId = int.Parse(values[5]);
             BrojESPB = int.Parse(values[6]);
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }
