@@ -55,6 +55,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controller\AdresaController.cs" />
+    <Compile Include="Controller\KatedraController.cs" />
+    <Compile Include="Controller\OcenaController.cs" />
+    <Compile Include="Controller\PredmetController.cs" />
+    <Compile Include="Controller\ProfesorController.cs" />
+    <Compile Include="Controller\StudentController.cs" />
     <Compile Include="Model\DAO\AdresaDAO.cs" />
     <Compile Include="Model\DAO\KatedraDAO.cs" />
     <Compile Include="Model\DAO\OcenaDAO.cs" />
@@ -127,7 +133,6 @@
     <Resource Include="Icons\TrashCan.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Controller\" />
     <Folder Include="Data\" />
     <Folder Include="View\" />
   </ItemGroup>

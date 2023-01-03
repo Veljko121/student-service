@@ -77,14 +77,12 @@
                         SelectedItem="{Binding Path=SelectedStudent, UpdateSourceTrigger=PropertyChanged}"
                         AutoGenerateColumns="False" IsReadOnly="True">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Broj indeksa" Binding="{Binding BrojIndeksa}"></DataGridTextColumn>
-                            <DataGridTextColumn Header="Ime" Binding="{Binding Ime}"></DataGridTextColumn>
-                            <DataGridTextColumn Header="Prezime" Binding="{Binding Prezime}"></DataGridTextColumn>
-                            <DataGridTextColumn Header="Kontakt telefon" Binding="{Binding KontaktTelefon}"></DataGridTextColumn>
-                            <DataGridTextColumn Header="E-mail" Binding="{Binding Email}"></DataGridTextColumn>
-                            <DataGridTextColumn Header="Godina upisa" Binding="{Binding GodinaUpisa}"></DataGridTextColumn>
-                            <DataGridTextColumn Header="Status" Binding="{Binding Status}"></DataGridTextColumn>
-                            <DataGridTextColumn Header="Prosek" Binding="{Binding Prosek}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Broj indeksa" Width="*" Binding="{Binding BrojIndeksa}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Ime" Width="*" Binding="{Binding Ime}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Prezime" Width="*" Binding="{Binding Prezime}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Godina upisa" Width="*" Binding="{Binding GodinaUpisa}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Status" Width="*" Binding="{Binding Status}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Prosek" Width="*" Binding="{Binding Prosek}"></DataGridTextColumn>
                         </DataGrid.Columns>
                     </DataGrid>
                 </TabItem>
@@ -94,13 +92,13 @@
                         SelectedItem="{Binding Path=SelectedStudent, UpdateSourceTrigger=PropertyChanged}"
                         AutoGenerateColumns="False" IsReadOnly="True">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Ime" Binding="{Binding LastName}"></DataGridTextColumn>
-                            <DataGridTextColumn Header="Prezime" Binding="{Binding Index}"></DataGridTextColumn>
-                            <DataGridTextColumn Header="Kontakt telefon" Binding="{Binding FirstName}"></DataGridTextColumn>
-                            <DataGridTextColumn Header="E-mail" Binding="{Binding FirstName}"></DataGridTextColumn>
-                            <DataGridTextColumn Header="Broj licne karte" Binding="{Binding FirstName}"></DataGridTextColumn>
-                            <DataGridTextColumn Header="Zvanje" Binding="{Binding FirstName}"></DataGridTextColumn>
-                            <DataGridTextColumn Header="Godine staza" Binding="{Binding FirstName}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Ime" Width="*" Binding="{Binding LastName}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Prezime" Width="*" Binding="{Binding Index}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Kontakt telefon" Width="*" Binding="{Binding FirstName}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="E-mail" Width="*" Binding="{Binding FirstName}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Broj licne karte" Width="*" Binding="{Binding FirstName}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Zvanje" Width="*" Binding="{Binding FirstName}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Godine staza" Width="*" Binding="{Binding FirstName}"></DataGridTextColumn>
                         </DataGrid.Columns>
                     </DataGrid>
                 </TabItem>
@@ -110,11 +108,11 @@
                         SelectedItem="{Binding Path=SelectedStudent, UpdateSourceTrigger=PropertyChanged}"
                         AutoGenerateColumns="False" IsReadOnly="True">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Sifra" Binding="{Binding LastName}"></DataGridTextColumn>
-                            <DataGridTextColumn Header="Naziv" Binding="{Binding Index}"></DataGridTextColumn>
-                            <DataGridTextColumn Header="Semestar" Binding="{Binding FirstName}"></DataGridTextColumn>
-                            <DataGridTextColumn Header="Godina" Binding="{Binding FirstName}"></DataGridTextColumn>
-                            <DataGridTextColumn Header="ESPB" Binding="{Binding FirstName}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Sifra" Width="*" Binding="{Binding LastName}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Naziv" Width="*" Binding="{Binding Index}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Semestar" Width="*" Binding="{Binding FirstName}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Godina" Width="*" Binding="{Binding FirstName}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="ESPB" Width="*" Binding="{Binding FirstName}"></DataGridTextColumn>
                         </DataGrid.Columns>
                     </DataGrid>
                 </TabItem>
