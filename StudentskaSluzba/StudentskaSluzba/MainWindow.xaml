@@ -55,20 +55,30 @@
                 </MenuItem>
             </Menu>
 
-            <ToolBar DockPanel.Dock="Top" Height="30">
-                <Button ToolTip="Add" >
-                    <Image Source="Icons\Plus.png" />
-                </Button>
-                <Button ToolTip="Update" >
-                    <Image Source="Icons\Pencil.png" />
-                </Button>
-                <Button ToolTip="Delete" >
-                    <Image Source="Icons\TrashCan.png" />
-                </Button>
-                <TextBox Width="100" BorderBrush="Black"/>
-                <Button ToolTip="Search" HorizontalAlignment="Right" BorderBrush="Black">
-                    <Image Source="Icons\MagnifyingGlass.png" />
-                </Button>
+            <ToolBar DockPanel.Dock="Top" Height="30" Name="toolBar1" VerticalAlignment="Top">
+                <DockPanel Width="{Binding Path=ActualWidth, RelativeSource={RelativeSource AncestorType={x:Type ToolBarPanel}}}">
+                    <DockPanel.Resources>
+                        <Style TargetType="{x:Type Button}" BasedOn="{StaticResource {x:Static ToolBar.ButtonStyleKey}}">
+                        </Style>
+                        <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource {x:Static ToolBar.TextBoxStyleKey}}">
+                        </Style>
+                    </DockPanel.Resources>
+                    <Button ToolTip="Add" >
+                        <Image Source="Icons\Plus.png" />
+                    </Button>
+                    <Button ToolTip="Update" >
+                        <Image Source="Icons\Pencil.png" />
+                    </Button>
+                    <Button ToolTip="Delete" >
+                        <Image Source="Icons\TrashCan.png" />
+                    </Button>
+                    <DockPanel>
+                        <TextBox Width="100" DockPanel.Dock="Right" BorderBrush="Black"/>
+                        <Button ToolTip="Search" HorizontalAlignment="Right" BorderBrush="Black">
+                            <Image Source="Icons\MagnifyingGlass.png" />
+                        </Button>
+                    </DockPanel>
+                </DockPanel>
             </ToolBar>
             <TabControl DockPanel.Dock="Top">
                 <TabItem Header="Studenti"  MouseUp="TabStudenti_Click">
