@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StudentskaSluzba.Serializer;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 namespace StudentskaSluzba.Model
 {
     public enum Semestar { L, Z };
-    internal class Predmet
+    internal class Predmet : ISerializable
     {
         public int Id { get; set; }
         public string Sifra { get; set; }

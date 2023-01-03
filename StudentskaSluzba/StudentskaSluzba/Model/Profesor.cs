@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StudentskaSluzba.Serializer;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace StudentskaSluzba.Model
 {
-    internal class Profesor
+    internal class Profesor : ISerializable
     {
         public int Id { get; set; }
         public string Prezime { get; set; }
