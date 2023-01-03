@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace StudentskaSluzba.Model
 {
-    internal class Profesor : ISerializable
+    public class Profesor : ISerializable
     {
         public int Id { get; set; }
         public string Prezime { get; set; }

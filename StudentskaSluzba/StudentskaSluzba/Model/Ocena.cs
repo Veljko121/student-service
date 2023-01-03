@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace StudentskaSluzba.Model
 {
-    internal class Ocena : ISerializable
+    public class Ocena : ISerializable
     {
         public int Id { get; set; }
         public int StudentId { get; set; }

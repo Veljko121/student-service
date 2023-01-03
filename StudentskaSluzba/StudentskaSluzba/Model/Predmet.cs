@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace StudentskaSluzba.Model
 {
     public enum Semestar { L, Z };
-    internal class Predmet : ISerializable
+    public class Predmet : ISerializable
     {
         public int Id { get; set; }
         public string Sifra { get; set; }

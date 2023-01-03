@@ -1,27 +1,162 @@
 ﻿using StudentskaSluzba.Serializer;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace StudentskaSluzba.Model
 {
     public enum Status { B, S };
-    internal class Student : ISerializable
+    public class Student : ISerializable
     {
         public int Id { get; set; }
-        public string Prezime { get; set; }
-        public string Ime { get; set; }
-        public DateTime DatumRodjenja { get; set; }
-        public int AdresaStanovanjaId { get; set; }
-        public string KontaktTelefon { get; set; }
-        public string Email { get; set; }
-        public string BrojIndeksa { get; set; }
-        public int GodinaUpisa { get; set; }
-        public int TrenutnaGodinaStudija { get; set; }
-        public Status Status { get; set; }
-        public double ProsecnaOcena { get; set; }
+        private string _prezime;
+        public string Prezime
+        {
+            get => _prezime;
+            set
+            {
+                if (value != _prezime)
+                {
+                    _prezime = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+        private string _ime;
+        public string Ime
+        {
+            get => _ime;
+            set
+            {
+                if (value != _ime)
+                {
+                    _prezime = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+        private DateTime _datumRodjenja;
+        public DateTime DatumRodjenja
+        {
+            get => _datumRodjenja;
+            set
+            {
+                if (value != _datumRodjenja)
+                {
+                    _datumRodjenja = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+        private int _adresaStanovanjaId;
+        public int AdresaStanovanjaId
+        {
+            get => _adresaStanovanjaId;
+            set
+            {
+                if (value != _adresaStanovanjaId)
+                {
+                    _adresaStanovanjaId = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+        private string _kontaktTelefon;
+        public string KontaktTelefon
+        {
+            get => _kontaktTelefon;
+            set
+            {
+                if (value != _kontaktTelefon)
+                {
+                    _kontaktTelefon = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+        private string _email;
+        public string Email
+        {
+            get => _email;
+            set
+            {
+                if (value != _email)
+                {
+                    _email = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+        private string _brojIndeksa;
+        public string BrojIndeksa
+        {
+            get => _brojIndeksa;
+            set
+            {
+                if (value != _brojIndeksa)
+                {
+                    _brojIndeksa = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+        private int _godinaUpisa;
+        public int GodinaUpisa
+        {
+            get => _godinaUpisa;
+            set
+            {
+                if (value != _godinaUpisa)
+                {
+                    _godinaUpisa = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+        private int _trenutnaGodinaStudija;
+        public int TrenutnaGodinaStudija
+        {
+            get => _trenutnaGodinaStudija;
+            set
+            {
+                if (value != _trenutnaGodinaStudija)
+                {
+                    _trenutnaGodinaStudija = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+        private Status _status;
+        public Status Status
+        {
+            get => _status;
+            set
+            {
+                if (value != _status)
+                {
+                    _status = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+        private double _prosecnaOcena;
+        public double ProsecnaOcena
+        {
+            get => _prosecnaOcena;
+            set
+            {
+                if (value != _prosecnaOcena)
+                {
+                    _prosecnaOcena = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
         public Adresa AdresaStanovanja { get; set; }
         public List<Ocena> PolozeniIspiti { get; set; }
         public List<Predmet> NepolozeniIspiti { get; set; }
@@ -100,6 +235,13 @@ namespace StudentskaSluzba.Model
             TrenutnaGodinaStudija = int.Parse(values[9]);
             Status = (Status)int.Parse(values[10]);
             ProsecnaOcena = double.Parse(values[11]);
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }
