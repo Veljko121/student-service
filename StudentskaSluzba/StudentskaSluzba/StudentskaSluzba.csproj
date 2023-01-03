@@ -104,5 +104,22 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\Close.png" />
+    <Resource Include="Icons\MagnifyingGlass.png" />
+    <Resource Include="Icons\Open.png" />
+    <Resource Include="Icons\Pencil.png" />
+    <Resource Include="Icons\Plus.png" />
+    <Resource Include="Icons\QuestionMark.png" />
+    <Resource Include="Icons\Save.png" />
+    <Resource Include="Icons\TrashCan.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Controller\" />
+    <Folder Include="Data\" />
+    <Folder Include="Model\DAO\" />
+    <Folder Include="Storage\" />
+    <Folder Include="View\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

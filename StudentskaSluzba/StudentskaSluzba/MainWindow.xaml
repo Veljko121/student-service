@@ -5,8 +5,127 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StudentskaSluzba"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Studentska sluzba" 
+        Width="1024"
+        Height="576"
+        WindowStartupLocation="CenterScreen" >
     <Grid>
-        
+        <DockPanel>
+            <Menu DockPanel.Dock="Top" Height="20">
+                <MenuItem Header="_File">
+                    <MenuItem Header="_New">
+                        <MenuItem.Icon>
+                            <Image Source="Icons\Plus.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="_Save">
+                        <MenuItem.Icon>
+                            <Image Source="Icons\Save.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="_Open">
+                        <MenuItem.Icon>
+                            <Image Source="Icons\Open.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="_Close">
+                        <MenuItem.Icon>
+                            <Image Source="Icons\Close.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem Header="_Edit">
+                    <MenuItem Header="_Edit">
+                        <MenuItem.Icon>
+                            <Image Source="Icons\Pencil.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="_Delete">
+                        <MenuItem.Icon>
+                            <Image Source="Icons\TrashCan.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem Header="_Help">
+                    <MenuItem Header="_About">
+                        <MenuItem.Icon>
+                            <Image Source="Icons\QuestionMark.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+            </Menu>
+
+            <ToolBar DockPanel.Dock="Top" Height="30">
+                <Button ToolTip="Add">
+                    <Image Source="Icons\Plus.png" />
+                </Button>
+                <Button ToolTip="Update">
+                    <Image Source="Icons\Pencil.png" />
+                </Button>
+                <Button ToolTip="Delete">
+                    <Image Source="Icons\TrashCan.png" />
+                </Button>
+                <Button ToolTip="Search" HorizontalAlignment="Right" BorderBrush="Black">
+                    <Image Source="Icons\MagnifyingGlass.png" />
+                </Button>
+                <TextBox Width="100" BorderBrush="Black"/>
+            </ToolBar>
+            <TabControl DockPanel.Dock="Top">
+                <TabItem Header="Studenti">
+                    <DataGrid DockPanel.Dock="Bottom"
+                        ItemsSource="{Binding Path=Students, UpdateSourceTrigger=PropertyChanged}"
+                        SelectedItem="{Binding Path=SelectedStudent, UpdateSourceTrigger=PropertyChanged}"
+                        AutoGenerateColumns="False" IsReadOnly="True">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Broj indeksa" Binding="{Binding BrojIndeksa}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Ime" Binding="{Binding Ime}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Prezime" Binding="{Binding Prezime}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Kontakt telefon" Binding="{Binding KontaktTelefon}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="E-mail" Binding="{Binding Email}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Godina upisa" Binding="{Binding GodinaUpisa}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Status" Binding="{Binding Status}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Prosek" Binding="{Binding Prosek}"></DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </TabItem>
+                <TabItem Header="Profesori">
+                    <DataGrid DockPanel.Dock="Bottom"
+                        ItemsSource="{Binding Path=Students, UpdateSourceTrigger=PropertyChanged}"
+                        SelectedItem="{Binding Path=SelectedStudent, UpdateSourceTrigger=PropertyChanged}"
+                        AutoGenerateColumns="False" IsReadOnly="True">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Ime" Binding="{Binding LastName}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Prezime" Binding="{Binding Index}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Kontakt telefon" Binding="{Binding FirstName}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="E-mail" Binding="{Binding FirstName}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Broj licne karte" Binding="{Binding FirstName}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Zvanje" Binding="{Binding FirstName}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Godine staza" Binding="{Binding FirstName}"></DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </TabItem>
+                <TabItem Header="Predmeti">
+                    <DataGrid DockPanel.Dock="Bottom"
+                        ItemsSource="{Binding Path=Students, UpdateSourceTrigger=PropertyChanged}"
+                        SelectedItem="{Binding Path=SelectedStudent, UpdateSourceTrigger=PropertyChanged}"
+                        AutoGenerateColumns="False" IsReadOnly="True">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Sifra" Binding="{Binding LastName}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Naziv" Binding="{Binding Index}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Semestar" Binding="{Binding FirstName}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Godina" Binding="{Binding FirstName}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="ESPB" Binding="{Binding FirstName}"></DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </TabItem>
+            </TabControl>
+            <StatusBar DockPanel.Dock="Bottom">
+                <StatusBarItem>
+                    <TextBlock Name="lblCursorPosition" Text="Studentska sluzba" />
+                </StatusBarItem>
+            </StatusBar>
+
+            <StackPanel></StackPanel>
+        </DockPanel>
     </Grid>
 </Window>
