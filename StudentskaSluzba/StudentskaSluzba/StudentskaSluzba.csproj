@@ -59,12 +59,6 @@
     <Compile Include="Observer\ISubject.cs" />
     <Compile Include="Serializer\Serializable.cs" />
     <Compile Include="Serializer\Serializer.cs" />
-    <Compile Include="Storage\AdresaStorage.cs" />
-    <Compile Include="Storage\KatedraStorage.cs" />
-    <Compile Include="Storage\OcenaStorage.cs" />
-    <Compile Include="Storage\PredmetStorage.cs" />
-    <Compile Include="Storage\ProfesorStorage.cs" />
-    <Compile Include="Storage\StudentStorage.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
