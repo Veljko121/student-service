@@ -176,9 +176,9 @@ namespace StudentskaSluzba.Model
             Status = Status.S;
             ProsecnaOcena = 0.0;
 
-            AdresaStanovanja = new Adresa();
-            PolozeniIspiti = new List<Ocena>();
-            NepolozeniIspiti = new List<Predmet>();
+            //AdresaStanovanja = new Adresa();
+            //PolozeniIspiti = new List<Ocena>();
+            //NepolozeniIspiti = new List<Predmet>();
         }
 
         public Student(int Id, string Prezime, string Ime, DateTime DatumRodjenja, int AdresaStanovanjaId, string KontaktTelefon, string Email, string BrojIndeksa, int GodinaUpisa, int TrenutnaGodinaStudija, Status Status, int ProsecnaOcena)
@@ -196,9 +196,9 @@ namespace StudentskaSluzba.Model
             this.Status = Status;
             this.ProsecnaOcena = ProsecnaOcena;
 
-            AdresaStanovanja = new Adresa();
-            PolozeniIspiti = new List<Ocena>();
-            NepolozeniIspiti = new List<Predmet>();
+            //AdresaStanovanja = new Adresa();
+            //PolozeniIspiti = new List<Ocena>();
+            //NepolozeniIspiti = new List<Predmet>();
         }
 
         public string[] ToCSV()

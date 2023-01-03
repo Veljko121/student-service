@@ -105,9 +105,9 @@ namespace StudentskaSluzba.Model
             PredmetniProfesorId = -1;
             BrojESPB = 0;
 
-            PredmetniProfesor = new Profesor();
-            Polozili = new List<Student>();
-            NisuPolozili = new List<Student>();
+            //PredmetniProfesor = new Profesor();
+            //Polozili = new List<Student>();
+            //NisuPolozili = new List<Student>();
         }
 
         public Predmet(int Id, string Sifra, string Naziv, Semestar Semestar, int GodinaStudija, int PredmetniProfesorId, int BrojESPB)
@@ -120,9 +120,9 @@ namespace StudentskaSluzba.Model
             this.PredmetniProfesorId = PredmetniProfesorId;
             this.BrojESPB = BrojESPB;
 
-            PredmetniProfesor = new Profesor();
-            Polozili = new List<Student>();
-            NisuPolozili = new List<Student>();
+            //PredmetniProfesor = new Profesor();
+            //Polozili = new List<Student>();
+            //NisuPolozili = new List<Student>();
         }
 
         public string[] ToCSV()

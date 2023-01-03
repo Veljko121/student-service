@@ -25,8 +25,8 @@ namespace StudentskaSluzba.Model
             VrednostOcene = -1;
             DatumPolaganja = new DateTime();
 
-            Student = new Student();
-            Predmet = new Predmet();
+            //Student = new Student();
+            //Predmet = new Predmet();
         }
 
         public Ocena(int Id, int StudentId, int PredmetId, int VrednostOcene, DateTime DatumPolaganja)
@@ -37,8 +37,8 @@ namespace StudentskaSluzba.Model
             this.VrednostOcene = VrednostOcene;
             this.DatumPolaganja = DatumPolaganja;
 
-            Student = new Student();
-            Predmet = new Predmet();
+            //Student = new Student();
+            //Predmet = new Predmet();
         }
 
         public string[] ToCSV()

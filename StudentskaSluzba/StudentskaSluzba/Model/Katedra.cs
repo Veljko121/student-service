@@ -23,8 +23,8 @@ namespace StudentskaSluzba.Model
             Naziv = "";
             SefKatedreId = -1;
 
-            SefKatedre = new Profesor();
-            Profesori = new List<Profesor>();
+            //SefKatedre = new Profesor();
+            //Profesori = new List<Profesor>();
         }
         public Katedra(int Id, string SifraKatedre, string Naziv, int SefKatedreId)
         {
@@ -33,8 +33,8 @@ namespace StudentskaSluzba.Model
             this.Naziv = Naziv;
             this.SefKatedreId = SefKatedreId;
 
-            SefKatedre = new Profesor();
-            Profesori = new List<Profesor>();
+            //SefKatedre = new Profesor();
+            //Profesori = new List<Profesor>();
         }
 
         public string[] ToCSV()
