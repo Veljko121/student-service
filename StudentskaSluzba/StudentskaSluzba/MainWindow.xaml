@@ -13,41 +13,41 @@
         <DockPanel>
             <Menu DockPanel.Dock="Top" Height="20">
                 <MenuItem Header="_File">
-                    <MenuItem Header="_New">
+                    <MenuItem Header="_New" InputGestureText="Ctrl + N">
                         <MenuItem.Icon>
                             <Image Source="Icons\Plus.png" />
                         </MenuItem.Icon>
                     </MenuItem>
-                    <MenuItem Header="_Save">
+                    <MenuItem Header="_Save" InputGestureText="Ctrl + S">
                         <MenuItem.Icon>
                             <Image Source="Icons\Save.png" />
                         </MenuItem.Icon>
                     </MenuItem>
-                    <MenuItem Header="_Open">
+                    <MenuItem Header="_Open" InputGestureText="Ctrl + O">
                         <MenuItem.Icon>
                             <Image Source="Icons\Open.png" />
                         </MenuItem.Icon>
                     </MenuItem>
-                    <MenuItem Header="_Close">
+                    <MenuItem Header="_Close" InputGestureText="Ctrl + C">
                         <MenuItem.Icon>
                             <Image Source="Icons\Close.png" />
                         </MenuItem.Icon>
                     </MenuItem>
                 </MenuItem>
                 <MenuItem Header="_Edit">
-                    <MenuItem Header="_Edit">
+                    <MenuItem Header="_Edit" InputGestureText="Ctrl + E">
                         <MenuItem.Icon>
                             <Image Source="Icons\Pencil.png" />
                         </MenuItem.Icon>
                     </MenuItem>
-                    <MenuItem Header="_Delete">
+                    <MenuItem Header="_Delete" InputGestureText="Ctrl + D">
                         <MenuItem.Icon>
                             <Image Source="Icons\TrashCan.png" />
                         </MenuItem.Icon>
                     </MenuItem>
                 </MenuItem>
                 <MenuItem Header="_Help">
-                    <MenuItem Header="_About">
+                    <MenuItem Header="_About" InputGestureText="Ctrl + A">
                         <MenuItem.Icon>
                             <Image Source="Icons\QuestionMark.png" />
                         </MenuItem.Icon>
