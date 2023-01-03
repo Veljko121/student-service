@@ -83,7 +83,7 @@
             <TabControl DockPanel.Dock="Top">
                 <TabItem Header="Studenti"  MouseUp="TabStudenti_Click">
                     <DataGrid DockPanel.Dock="Bottom"
-                        ItemsSource="{Binding Path=Students, UpdateSourceTrigger=PropertyChanged}"
+                        ItemsSource="{Binding Path=Studenti, UpdateSourceTrigger=PropertyChanged}"
                         SelectedItem="{Binding Path=SelectedStudent, UpdateSourceTrigger=PropertyChanged}"
                         AutoGenerateColumns="False" IsReadOnly="True">
                         <DataGrid.Columns>
@@ -92,7 +92,7 @@
                             <DataGridTextColumn Header="Prezime" Width="*" Binding="{Binding Prezime}"></DataGridTextColumn>
                             <DataGridTextColumn Header="Godina upisa" Width="*" Binding="{Binding GodinaUpisa}"></DataGridTextColumn>
                             <DataGridTextColumn Header="Status" Width="*" Binding="{Binding Status}"></DataGridTextColumn>
-                            <DataGridTextColumn Header="Prosek" Width="*" Binding="{Binding Prosek}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Prosek" Width="*" Binding="{Binding ProsecnaOcena}"></DataGridTextColumn>
                         </DataGrid.Columns>
                     </DataGrid>
                 </TabItem>
