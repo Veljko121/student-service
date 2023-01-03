@@ -33,7 +33,7 @@ namespace StudentskaSluzba.Model
             {
                 if (value != _ime)
                 {
-                    _prezime = value;
+                    _ime = value;
                     OnPropertyChanged();
                 }
             }

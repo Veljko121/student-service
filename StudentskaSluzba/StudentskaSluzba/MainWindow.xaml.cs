@@ -26,14 +26,14 @@ namespace StudentskaSluzba
     public partial class MainWindow : Window, IObserver
     {
         private StudentController _StudentController;
-        //private ProfesorController _ProfesorController;
-        //private PredmetController _PredmetController;
+        private ProfesorController _ProfesorController;
+        private PredmetController _PredmetController;
         public ObservableCollection<Student> Studenti { get; set; }
-       // public ObservableCollection<Profesor>  Profesori { get; set; }
-        //public ObservableCollection<Predmet> Predmeti { get; set; }
+        public ObservableCollection<Profesor>  Profesori { get; set; }
+        public ObservableCollection<Predmet> Predmeti { get; set; }
         public Student SelectedStudent { get; set; }
-        //public Profesor SelectedProfesor { get; set; }
-        //public Predmet SelectedPredmet { get; set; }
+        public Profesor SelectedProfesor { get; set; }
+        public Predmet SelectedPredmet { get; set; }
 
         public int SelectedTab { get; set; }
 
@@ -46,14 +46,6 @@ namespace StudentskaSluzba
             _StudentController = new StudentController();
             _StudentController.Subscribe(this);
             Studenti = new ObservableCollection<Student>(_StudentController.GetAllStudents());
-
-            /*_ProfesorController = new ProfesorController();
-            _ProfesorController.Subscribe(this);
-            Profesori = new ObservableCollection<Profesor>(_ProfesorController.GetAllProfesori());
-
-            _PredmetController = new PredmetController();
-            _PredmetController.Subscribe(this);
-            Predmeti = new ObservableCollection<Predmet>(_PredmetController.GetAllPredmeti());*/
         }
 
         private void VremeDatum(object sender, RoutedEventArgs e)
@@ -68,14 +60,29 @@ namespace StudentskaSluzba
         private void TabStudenti_Click(object sender, RoutedEventArgs e)
         {
             this.StatusBarTextBlock.Text = "Studentska sluzba - Studenti";
+
+            SelectedTab = 1;
+            _StudentController = new StudentController();
+            _StudentController.Subscribe(this);
+            Studenti = new ObservableCollection<Student>(_StudentController.GetAllStudents());
         }
         private void TabPredmeti_Click(object sender, RoutedEventArgs e)
         {
             this.StatusBarTextBlock.Text = "Studentska sluzba - Predmeti";
+
+            SelectedTab = 3;
+            _PredmetController = new PredmetController();
+            _PredmetController.Subscribe(this);
+            Predmeti = new ObservableCollection<Predmet>(_PredmetController.GetAllPredmeti());
         }
         private void TabProfesori_Click(object sender, RoutedEventArgs e)
         {
             this.StatusBarTextBlock.Text = "Studentska sluzba - Profesori";
+
+            SelectedTab = 2;
+            _ProfesorController = new ProfesorController();
+            _ProfesorController.Subscribe(this);
+            Profesori = new ObservableCollection<Profesor>(_ProfesorController.GetAllProfesori());
         }
 
         public void Update()

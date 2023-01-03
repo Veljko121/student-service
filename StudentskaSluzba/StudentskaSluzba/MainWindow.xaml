@@ -98,31 +98,31 @@
                 </TabItem>
                 <TabItem Header="Profesori"  MouseUp="TabProfesori_Click">
                     <DataGrid DockPanel.Dock="Bottom"
-                        ItemsSource="{Binding Path=Students, UpdateSourceTrigger=PropertyChanged}"
-                        SelectedItem="{Binding Path=SelectedStudent, UpdateSourceTrigger=PropertyChanged}"
+                        ItemsSource="{Binding Path=Profesori, UpdateSourceTrigger=PropertyChanged}"
+                        SelectedItem="{Binding Path=SelectedProfesor, UpdateSourceTrigger=PropertyChanged}"
                         AutoGenerateColumns="False" IsReadOnly="True">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Ime" Width="*" Binding="{Binding LastName}"></DataGridTextColumn>
-                            <DataGridTextColumn Header="Prezime" Width="*" Binding="{Binding Index}"></DataGridTextColumn>
-                            <DataGridTextColumn Header="Kontakt telefon" Width="*" Binding="{Binding FirstName}"></DataGridTextColumn>
-                            <DataGridTextColumn Header="E-mail" Width="*" Binding="{Binding FirstName}"></DataGridTextColumn>
-                            <DataGridTextColumn Header="Broj licne karte" Width="*" Binding="{Binding FirstName}"></DataGridTextColumn>
-                            <DataGridTextColumn Header="Zvanje" Width="*" Binding="{Binding FirstName}"></DataGridTextColumn>
-                            <DataGridTextColumn Header="Godine staza" Width="*" Binding="{Binding FirstName}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Ime" Width="*" Binding="{Binding Ime}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Prezime" Width="*" Binding="{Binding Prezime}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Kontakt telefon" Width="*" Binding="{Binding Telefon}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="E-mail" Width="*" Binding="{Binding Email}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Broj licne karte" Width="*" Binding="{Binding BrojLicne}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Zvanje" Width="*" Binding="{Binding Zvanje}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Godine staza" Width="*" Binding="{Binding GodineStaza}"></DataGridTextColumn>
                         </DataGrid.Columns>
                     </DataGrid>
                 </TabItem>
                 <TabItem Header="Predmeti" MouseUp="TabPredmeti_Click">
                     <DataGrid DockPanel.Dock="Bottom"
-                        ItemsSource="{Binding Path=Students, UpdateSourceTrigger=PropertyChanged}"
-                        SelectedItem="{Binding Path=SelectedStudent, UpdateSourceTrigger=PropertyChanged}"
+                        ItemsSource="{Binding Path=Predmeti, UpdateSourceTrigger=PropertyChanged}"
+                        SelectedItem="{Binding Path=SelectedPredmet, UpdateSourceTrigger=PropertyChanged}"
                         AutoGenerateColumns="False" IsReadOnly="True">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Sifra" Width="*" Binding="{Binding LastName}"></DataGridTextColumn>
-                            <DataGridTextColumn Header="Naziv" Width="*" Binding="{Binding Index}"></DataGridTextColumn>
-                            <DataGridTextColumn Header="Semestar" Width="*" Binding="{Binding FirstName}"></DataGridTextColumn>
-                            <DataGridTextColumn Header="Godina" Width="*" Binding="{Binding FirstName}"></DataGridTextColumn>
-                            <DataGridTextColumn Header="ESPB" Width="*" Binding="{Binding FirstName}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Sifra" Width="*" Binding="{Binding Sifra}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Naziv" Width="*" Binding="{Binding Naziv}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Semestar" Width="*" Binding="{Binding Semestar}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Godina" Width="*" Binding="{Binding GodinaStudija}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="ESPB" Width="*" Binding="{Binding BrojESPB}"></DataGridTextColumn>
                         </DataGrid.Columns>
                     </DataGrid>
                 </TabItem>
