@@ -71,7 +71,7 @@
                 </Button>
             </ToolBar>
             <TabControl DockPanel.Dock="Top">
-                <TabItem Header="Studenti">
+                <TabItem Header="Studenti"  MouseUp="TabStudenti_Click">
                     <DataGrid DockPanel.Dock="Bottom"
                         ItemsSource="{Binding Path=Students, UpdateSourceTrigger=PropertyChanged}"
                         SelectedItem="{Binding Path=SelectedStudent, UpdateSourceTrigger=PropertyChanged}"
@@ -86,7 +86,7 @@
                         </DataGrid.Columns>
                     </DataGrid>
                 </TabItem>
-                <TabItem Header="Profesori">
+                <TabItem Header="Profesori"  MouseUp="TabProfesori_Click">
                     <DataGrid DockPanel.Dock="Bottom"
                         ItemsSource="{Binding Path=Students, UpdateSourceTrigger=PropertyChanged}"
                         SelectedItem="{Binding Path=SelectedStudent, UpdateSourceTrigger=PropertyChanged}"
@@ -102,7 +102,7 @@
                         </DataGrid.Columns>
                     </DataGrid>
                 </TabItem>
-                <TabItem Header="Predmeti">
+                <TabItem Header="Predmeti" MouseUp="TabPredmeti_Click">
                     <DataGrid DockPanel.Dock="Bottom"
                         ItemsSource="{Binding Path=Students, UpdateSourceTrigger=PropertyChanged}"
                         SelectedItem="{Binding Path=SelectedStudent, UpdateSourceTrigger=PropertyChanged}"
@@ -118,11 +118,13 @@
                 </TabItem>
             </TabControl>
             <StatusBar DockPanel.Dock="Bottom">
-                <StatusBarItem>
-                    <TextBlock Name="lblCursorPosition" Text="Studentska sluzba" />
+                <StatusBarItem HorizontalAlignment="Left">
+                    <TextBlock x:Name="StatusBarTextBlock" Text="Studentska sluzba - Studenti"/>
+                </StatusBarItem>
+                <StatusBarItem HorizontalAlignment="Right" HorizontalContentAlignment="Right">
+                    <TextBlock x:Name="myDateTime" TextAlignment="Right" Loaded="VremeDatum"/>
                 </StatusBarItem>
             </StatusBar>
-
             <StackPanel></StackPanel>
         </DockPanel>
     </Grid>

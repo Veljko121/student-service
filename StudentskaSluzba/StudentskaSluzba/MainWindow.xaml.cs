@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace StudentskaSluzba
 {
@@ -23,6 +24,28 @@ namespace StudentskaSluzba
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void VremeDatum(object sender, RoutedEventArgs e)
+        {
+            DispatcherTimer timer = new DispatcherTimer(TimeSpan.FromSeconds(1), DispatcherPriority.Normal, (object s, EventArgs ev) =>
+            {
+                this.myDateTime.Text = DateTime.Now.ToString("dd/MM/yyyy     hh:mm:ss");
+            }, this.Dispatcher);
+            timer.Start();
+        }
+
+        private void TabStudenti_Click(object sender, RoutedEventArgs e)
+        {
+            this.StatusBarTextBlock.Text = "Studentska sluzba - Studenti";
+        }
+        private void TabPredmeti_Click(object sender, RoutedEventArgs e)
+        {
+            this.StatusBarTextBlock.Text = "Studentska sluzba - Predmeti";
+        }
+        private void TabProfesori_Click(object sender, RoutedEventArgs e)
+        {
+            this.StatusBarTextBlock.Text = "Studentska sluzba - Profesori";
         }
     }
 }
