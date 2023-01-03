@@ -56,19 +56,19 @@
             </Menu>
 
             <ToolBar DockPanel.Dock="Top" Height="30">
-                <Button ToolTip="Add">
+                <Button ToolTip="Add" >
                     <Image Source="Icons\Plus.png" />
                 </Button>
-                <Button ToolTip="Update">
+                <Button ToolTip="Update" >
                     <Image Source="Icons\Pencil.png" />
                 </Button>
-                <Button ToolTip="Delete">
+                <Button ToolTip="Delete" >
                     <Image Source="Icons\TrashCan.png" />
                 </Button>
+                <TextBox Width="100" BorderBrush="Black"/>
                 <Button ToolTip="Search" HorizontalAlignment="Right" BorderBrush="Black">
                     <Image Source="Icons\MagnifyingGlass.png" />
                 </Button>
-                <TextBox Width="100" BorderBrush="Black"/>
             </ToolBar>
             <TabControl DockPanel.Dock="Top">
                 <TabItem Header="Studenti">
