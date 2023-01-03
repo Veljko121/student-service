@@ -55,6 +55,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Observer\IObserver.cs" />
+    <Compile Include="Observer\ISubject.cs" />
     <Compile Include="Serializer\Serializable.cs" />
     <Compile Include="Serializer\Serializer.cs" />
     <Page Include="MainWindow.xaml">
