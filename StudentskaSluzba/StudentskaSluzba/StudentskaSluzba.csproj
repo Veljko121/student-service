@@ -55,6 +55,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\DAO\AdresaDAO.cs" />
+    <Compile Include="Model\DAO\KatedraDAO.cs" />
+    <Compile Include="Model\DAO\OcenaDAO.cs" />
+    <Compile Include="Model\DAO\PredmetDAO.cs" />
+    <Compile Include="Model\DAO\ProfesorDAO.cs" />
+    <Compile Include="Model\DAO\StudentDAO.cs" />
     <Compile Include="Observer\IObserver.cs" />
     <Compile Include="Observer\ISubject.cs" />
     <Compile Include="Serializer\Serializable.cs" />
@@ -123,7 +129,6 @@
   <ItemGroup>
     <Folder Include="Controller\" />
     <Folder Include="Data\" />
-    <Folder Include="Model\DAO\" />
     <Folder Include="View\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
