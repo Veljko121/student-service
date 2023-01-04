@@ -291,12 +291,17 @@ namespace StudentskaSluzba.Model
                     if (!match.Success)
                         return "Invalid BrojLicne format.";
                 }
+                else if (columnName == "Zvanje")
+                {
+                    if (string.IsNullOrEmpty(BrojLicne.ToString()))
+                        return "Zvanje is required";
+                }
 
                 return null;
             }
         }
 
-        private readonly string[] _validatedProperties = { "Ime", "Prezime", "BrojTelefona", "Email", "DatumRodjenja", "BrojLicne" };
+        private readonly string[] _validatedProperties = { "Ime", "Prezime", "BrojTelefona", "Email", "DatumRodjenja", "BrojLicne", "Zvanje" };
 
         public bool IsValid
         {
