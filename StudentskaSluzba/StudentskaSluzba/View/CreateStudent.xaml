@@ -119,11 +119,11 @@
                 <ComboBoxItem FontSize="10" Tag="3">III (treća)</ComboBoxItem>
                 <ComboBoxItem FontSize="10" Tag="4">IV (četvrta)</ComboBoxItem>
             </ComboBox>
-            <ComboBox SelectedValuePath="Content" x:Name="comboBoxStatus" Grid.Row="9" Grid.Column="1" Height="25" FontSize="10"
+            <ComboBox SelectedValuePath="Content" x:Name="comboBoxStatus" Grid.Row="9" Grid.Column="1" Height="25"
                      SelectedValue="{Binding Path=Student.Status, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
                      Validation.ErrorTemplate="{StaticResource ValidationTemplate}">
-                <ComboBoxItem FontSize="10" Tag="0">Budžet</ComboBoxItem>
-                <ComboBoxItem FontSize="10" Tag="1">Samofinansiranje</ComboBoxItem>
+                <ComboBoxItem FontSize="10" Tag="1">Budžet</ComboBoxItem>
+                <ComboBoxItem FontSize="10" Tag="2">Samofinansiranje</ComboBoxItem>
             </ComboBox>
         </Grid>
         <WrapPanel Grid.Row="1" FlowDirection="RightToLeft">
