@@ -138,10 +138,13 @@
                      Validation.ErrorTemplate="{StaticResource ValidationTemplate}">
                 </TextBox>
             </Grid>
-            <TextBox Grid.Row="7" Grid.Column="1" Height="20"
-                     Text="{Binding Path=Profesor.Zvanje, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+            <ComboBox SelectedValuePath="Content" x:Name="comboBoxZvanje" Grid.Row="7" Grid.Column="1" Height="25"
+                     SelectedValue="{Binding Path=Profesor.Zvanje, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
                      Validation.ErrorTemplate="{StaticResource ValidationTemplate}">
-            </TextBox>
+                <ComboBoxItem FontSize="10" Tag="1">Redovni profesor</ComboBoxItem>
+                <ComboBoxItem FontSize="10" Tag="2">Vanredni profesor</ComboBoxItem>
+                <ComboBoxItem FontSize="10" Tag="3">Ostalo</ComboBoxItem>
+            </ComboBox>
             <TextBox Grid.Row="8" Grid.Column="1" Height="20"
                      Text="{Binding Path=Profesor.GodineStaza, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
                      Validation.ErrorTemplate="{StaticResource ValidationTemplate}">
