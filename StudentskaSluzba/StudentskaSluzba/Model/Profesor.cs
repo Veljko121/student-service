@@ -163,18 +163,18 @@ namespace StudentskaSluzba.Model
 
         public Profesor()
         {
-            //Id = -1;
-            //Prezime = "";
-            //Ime = "";
-            //DatumRodjenja = new DateTime();
-            //AdresaStanovanjaId = -1;
-            //Telefon = "";
-            //Email = "";
-            //AdresaKancelarijeId = -1;
-            //BrojLicne = "";
-            //Zvanje = "Redovni profesor";
+            Id = -1;
+            Prezime = "";
+            Ime = "";
+            DatumRodjenja = new DateTime();
+            AdresaStanovanjaId = -1;
+            Telefon = "";
+            Email = "";
+            AdresaKancelarijeId = -1;
+            BrojLicne = "";
+            Zvanje = "Redovni profesor";
             //GodineStaza = 0;
-            //KatedraId = -1;
+            KatedraId = -1;
 
             //AdresaStanovanja = new Adresa();
             //AdresaKancelarije = new Adresa();
