@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace StudentskaSluzba.Model
@@ -237,6 +238,65 @@ namespace StudentskaSluzba.Model
             GodineStaza = int.Parse(values[10]);
             KatedraId = int.Parse(values[11]);
         }
+
+        private Regex _EmailRegex = new Regex("[A-Za-z0-9]+@[A-Za-z0-9]+.[A-Za-z0-9]+");
+        private Regex _BrojTelefonaRegex = new Regex("^[\\+]?[(]?[0-9]{3}[)]?[-\\s\\.]?[0-9]{3}[-\\s\\.]?[0-9]{4,6}$");
+        private Regex _BrojLicneRegex = new Regex("[0-9]{9}");
+
+        public string Error => null;
+
+        public string this[string columnName]
+        {
+            get
+            {
+                if (columnName == "Ime")
+                {
+                    if (string.IsNullOrEmpty(Ime))
+                        return "First name is required";
+                }
+                else if (columnName == "Prezime")
+                {
+                    if (string.IsNullOrEmpty(Prezime))
+                        return "Last name is required";
+                }
+                else if (columnName == "BrojTelefona")
+                {
+                    if (string.IsNullOrEmpty(Telefon))
+                        return "Broj telefona is required";
+
+                    Match match = _BrojTelefonaRegex.Match(Telefon);
+                    if (!match.Success)
+                        return "Invalid phone number format.";
+                }
+                else if (columnName == "Email")
+                {
+                    if (string.IsNullOrEmpty(Email))
+                        return "Email is required";
+
+                    Match match = _EmailRegex.Match(Email);
+                    if (!match.Success)
+                        return "Invalid email address format.";
+                }
+                else if (columnName == "DatumRodjenja")
+                {
+                    if (string.IsNullOrEmpty(DatumRodjenja.ToLongDateString()))
+                        return "DatumRodjenja is required";
+                }
+                else if (columnName == "BrojLicne")
+                {
+                    if (string.IsNullOrEmpty(BrojLicne.ToString()))
+                        return "BrojLicne is required";
+
+                    Match match = _BrojLicneRegex.Match(BrojLicne);
+                    if (!match.Success)
+                        return "Invalid BrojLicne format.";
+                }
+
+                return null;
+            }
+        }
+
+        private readonly string[] _validatedProperties = { "Ime", "Prezime", "BrojTelefona", "Email", "DatumRodjenja", "BrojLicne" };
 
         public event PropertyChangedEventHandler PropertyChanged;
 
