@@ -17,6 +17,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
 using StudentskaSluzba.Observer;
+using StudentskaSluzba.View;
 
 namespace StudentskaSluzba
 {
@@ -28,6 +29,7 @@ namespace StudentskaSluzba
         private StudentController _StudentController;
         private ProfesorController _ProfesorController;
         private PredmetController _PredmetController;
+        private AdresaController _AdresaController;
         public ObservableCollection<Student> Studenti { get; set; }
         public ObservableCollection<Profesor>  Profesori { get; set; }
         public ObservableCollection<Predmet> Predmeti { get; set; }
@@ -54,6 +56,8 @@ namespace StudentskaSluzba
             _PredmetController = new PredmetController();
             _PredmetController.Subscribe(this);
             Predmeti = new ObservableCollection<Predmet>(_PredmetController.GetAllPredmeti());
+
+            _AdresaController = new AdresaController();
         }
 
         private void VremeDatum(object sender, RoutedEventArgs e)
@@ -85,6 +89,25 @@ namespace StudentskaSluzba
             this.StatusBarTextBlock.Text = "Studentska sluzba - Profesori";
 
             SelectedTab = 2;
+        }
+
+        private void CreateWindow_Click(object sender, RoutedEventArgs e)
+        {
+            switch (SelectedTab)
+            {
+                case 1:
+                    CreateStudent createStudent = new CreateStudent(_StudentController, _AdresaController);
+                    createStudent.Show();
+                    break;
+                case 2:
+                    CreateProfesor createProfesor = new CreateProfesor(_ProfesorController, _AdresaController);
+                    createProfesor.Show();
+                    break;
+                case 3:
+                    CreatePredmet createPredmet= new CreatePredmet(_PredmetController);
+                    createPredmet.Show();
+                    break;
+            }
         }
 
         public void Update()

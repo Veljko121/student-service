@@ -66,8 +66,8 @@
 
         </Grid>
         <WrapPanel Grid.Row="1" FlowDirection="RightToLeft">
-            <Button Content="Odustani" IsCancel="True" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50, 20, 0, 5"/>
-            <Button Content="Potvrdi" IsDefault="True" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20, 20, 0, 5"/>
+            <Button Content="Odustani" IsCancel="True" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50, 20, 0, 5" Click="CancelButton_Click"/>
+            <Button Content="Potvrdi" IsDefault="True" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20, 20, 0, 5" Click="CreateProfesor_Click"/>
         </WrapPanel>
     </Grid>
 </Window>

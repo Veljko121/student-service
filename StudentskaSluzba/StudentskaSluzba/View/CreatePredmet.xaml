@@ -34,22 +34,22 @@
                      Height="30"></TextBox>
             <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Path=Sifra, UpdateSourceTrigger=PropertyChanged}"
                      Height="30"></TextBox>
-            <ListBox Grid.Row="2" Grid.Column="1" Height="30">
-                <ListBoxItem>Zimski</ListBoxItem>
-                <ListBoxItem>Letnji</ListBoxItem>
-            </ListBox>
-            <ListBox Grid.Row="3" Grid.Column="1" Height="30">
-                <ListBoxItem>I (Prva)</ListBoxItem>
-                <ListBoxItem>II (Druga)</ListBoxItem>
-                <ListBoxItem>III (Treca)</ListBoxItem>
-                <ListBoxItem>IV (Cetvrta)</ListBoxItem>
-            </ListBox>
+            <ComboBox Grid.Row="2" Grid.Column="1" Height="30">
+                <ComboBoxItem>Zimski</ComboBoxItem>
+                <ComboBoxItem>Letnji</ComboBoxItem>
+            </ComboBox>
+            <ComboBox Grid.Row="3" Grid.Column="1" Height="30">
+                <ComboBoxItem>I (Prva)</ComboBoxItem>
+                <ComboBoxItem>II (Druga)</ComboBoxItem>
+                <ComboBoxItem>III (Treca)</ComboBoxItem>
+                <ComboBoxItem>IV (Cetvrta)</ComboBoxItem>
+            </ComboBox>
             <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding Path=ESPB, UpdateSourceTrigger=PropertyChanged}"
                      Height="30"></TextBox>
         </Grid>
         <WrapPanel Grid.Row="1" FlowDirection="RightToLeft">
-            <Button Content="Odustani" IsCancel="True" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50, -30, 20, 5"/>
-            <Button Content="Potvrdi" IsDefault="True" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20, -30, 20, 5"/>
+            <Button Content="Odustani" IsCancel="True" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50, -30, 20, 5" Click="CancelButton_Click"/>
+            <Button Content="Potvrdi" IsDefault="True" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20, -30, 20, 5" Click="CreatePredmet_Click"/>
         </WrapPanel>
     </Grid>
 </Window>

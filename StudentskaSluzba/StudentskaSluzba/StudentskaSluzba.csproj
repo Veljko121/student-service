@@ -142,6 +142,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Data\adrese.csv" />
     <None Include="Data\predmeti.csv" />
     <None Include="Data\profesori.csv" />
     <None Include="Data\studenti.csv" />

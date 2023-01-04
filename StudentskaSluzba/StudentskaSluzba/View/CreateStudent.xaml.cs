@@ -1,6 +1,10 @@
-﻿using System;
+﻿using StudentskaSluzba.Controller;
+using StudentskaSluzba.Model;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -17,11 +21,58 @@ namespace StudentskaSluzba.View
     /// <summary>
     /// Interaction logic for CreateStudent.xaml
     /// </summary>
-    public partial class CreateStudent : Window
+    public partial class CreateStudent : Window, INotifyPropertyChanged
     {
-        public CreateStudent()
+        private StudentController _StudentController;
+        private AdresaController _AdresaController;
+
+        public Student Student { get; set; }
+        public Adresa AdresaStanovanja{ get; set; }
+
+        public CreateStudent(StudentController StudentController, AdresaController AdresaController)
         {
             InitializeComponent();
+            DataContext = this;
+            Student = new Student();
+            AdresaStanovanja = new Adresa();
+
+            _StudentController = StudentController;
+            _AdresaController = AdresaController;
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        private void CreateStudent_Click(object sender, RoutedEventArgs e)
+        {
+            if (Student.IsValid)
+            {
+                _StudentController.Create(Student);
+                Close();
+            }
+            else
+            {
+                MessageBox.Show("Student se ne može napraviti, jer nisu sva polja validno popunjena.");
+            }
+
+            if (AdresaStanovanja.IsValid)
+            {
+                _AdresaController.Create(AdresaStanovanja);
+                Close();
+            }
+            else
+            {
+                MessageBox.Show("Adresa stanovanja se ne može napraviti, jer nisu sva polja validno popunjena.");
+            }
+        }
+
+        private void CancelButton_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }

@@ -63,7 +63,7 @@
                         <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource {x:Static ToolBar.TextBoxStyleKey}}">
                         </Style>
                     </DockPanel.Resources>
-                    <Button ToolTip="Add" >
+                    <Button ToolTip="Add" Click="CreateWindow_Click">
                         <Image Source="Icons\Plus.png" />
                     </Button>
                     <Button ToolTip="Update" >
@@ -104,11 +104,8 @@
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Ime" Width="*" Binding="{Binding Ime}"></DataGridTextColumn>
                             <DataGridTextColumn Header="Prezime" Width="*" Binding="{Binding Prezime}"></DataGridTextColumn>
-                            <DataGridTextColumn Header="Kontakt telefon" Width="*" Binding="{Binding Telefon}"></DataGridTextColumn>
-                            <DataGridTextColumn Header="E-mail" Width="*" Binding="{Binding Email}"></DataGridTextColumn>
-                            <DataGridTextColumn Header="Broj licne karte" Width="*" Binding="{Binding BrojLicne}"></DataGridTextColumn>
                             <DataGridTextColumn Header="Zvanje" Width="*" Binding="{Binding Zvanje}"></DataGridTextColumn>
-                            <DataGridTextColumn Header="Godine staza" Width="*" Binding="{Binding GodineStaza}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="E-mail" Width="*" Binding="{Binding Email}"></DataGridTextColumn>
                         </DataGrid.Columns>
                     </DataGrid>
                 </TabItem>
@@ -120,9 +117,9 @@
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Sifra" Width="*" Binding="{Binding Sifra}"></DataGridTextColumn>
                             <DataGridTextColumn Header="Naziv" Width="*" Binding="{Binding Naziv}"></DataGridTextColumn>
-                            <DataGridTextColumn Header="Semestar" Width="*" Binding="{Binding Semestar}"></DataGridTextColumn>
-                            <DataGridTextColumn Header="Godina" Width="*" Binding="{Binding GodinaStudija}"></DataGridTextColumn>
                             <DataGridTextColumn Header="ESPB" Width="*" Binding="{Binding BrojESPB}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Godina" Width="*" Binding="{Binding GodinaStudija}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Semestar" Width="*" Binding="{Binding Semestar}"></DataGridTextColumn>
                         </DataGrid.Columns>
                     </DataGrid>
                 </TabItem>

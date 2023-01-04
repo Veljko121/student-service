@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace StudentskaSluzba.Controller
 {
-    internal class KatedraController
+    public class KatedraController
     {
         private KatedraDAO _katedre;
 

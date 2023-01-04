@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace StudentskaSluzba.Controller
 {
-    internal class AdresaController
+    public class AdresaController
     {
         private AdresaDAO _adrese;
 

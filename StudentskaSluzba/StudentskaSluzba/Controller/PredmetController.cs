@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace StudentskaSluzba.Controller
 {
-    internal class PredmetController
+    public class PredmetController
     {
         private PredmetDAO _predmeti;
 
