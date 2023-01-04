@@ -173,7 +173,7 @@ namespace StudentskaSluzba.Model
             BrojIndeksa = "";
             GodinaUpisa = 0;
             TrenutnaGodinaStudija = "I (prva)";
-            Status = "budžet";
+            Status = "Budžet";
             ProsecnaOcena = 0.0;
 
             //AdresaStanovanja = new Adresa();
