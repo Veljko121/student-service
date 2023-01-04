@@ -53,5 +53,52 @@ namespace StudentskaSluzba.Model
             Grad = values[3];
             Drzava = values[4];
         }
+
+        public string Error => null;
+
+        public string this[string columnName]
+        {
+            get
+            {
+                if (columnName == "Ulica")
+                {
+                    if (string.IsNullOrEmpty(Ulica))
+                        return "Ulica is required";
+                }
+                else if (columnName == ")")
+                {
+                    if (string.IsNullOrEmpty(Broj))
+                        return "Broj is required";
+                }
+                else if (columnName == "Grad")
+                {
+                    if (string.IsNullOrEmpty(Grad))
+                        return "Grad is required";
+                }
+                else if (columnName == "Drzava")
+                {
+                    if (string.IsNullOrEmpty(Drzava))
+                        return "Drzava is required";
+                }
+
+                return null;
+            }
+        }
+
+        private readonly string[] _validatedProperties = { "Ulica", "Broj", "Grad", "Drzava" };
+
+        public bool IsValid
+        {
+            get
+            {
+                foreach (var property in _validatedProperties)
+                {
+                    if (this[property] != null)
+                        return false;
+                }
+
+                return true;
+            }
+        }
     }
 }
