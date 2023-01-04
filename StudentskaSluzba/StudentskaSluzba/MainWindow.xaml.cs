@@ -112,16 +112,35 @@ namespace StudentskaSluzba
 
         private void UpdateList()
         {
-            Students.Clear();
-            foreach (var student in _controller.GetAllStudents())
+            switch (SelectedTab)
             {
-                Students.Add(student);
+                case 1:
+                    Studenti.Clear();
+                    foreach (var student in _StudentController.GetAllStudents())
+                    {
+                        Studenti.Add(student);
+                    }
+                    break;
+                case 2:
+                    Profesori.Clear();
+                    foreach (var student in _ProfesorController.GetAllProfesori())
+                    {
+                        Profesori.Add(student);
+                    }
+                    break;
+                case 3:
+                    Predmeti.Clear();
+                    foreach (var student in _PredmetController.GetAllPredmeti())
+                    {
+                        Predmeti.Add(student);
+                    }
+                    break;
             }
         }
 
         public void Update()
         {
-            UpdateStudentsList();
+            UpdateList();
         }
     }
 }
