@@ -259,7 +259,7 @@ namespace StudentskaSluzba.Model
                     if (string.IsNullOrEmpty(Prezime))
                         return "Last name is required";
                 }
-                else if (columnName == "BrojTelefona")
+                else if (columnName == "Telefon")
                 {
                     if (string.IsNullOrEmpty(Telefon))
                         return "Broj telefona is required";
