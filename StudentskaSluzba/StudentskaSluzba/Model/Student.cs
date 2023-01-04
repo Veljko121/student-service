@@ -6,6 +6,7 @@ using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace StudentskaSluzba.Model
@@ -235,6 +236,74 @@ namespace StudentskaSluzba.Model
             TrenutnaGodinaStudija = int.Parse(values[9]);
             Status = (Status)int.Parse(values[10]);
             ProsecnaOcena = double.Parse(values[11]);
+        }
+
+        private Regex _IndexRegex = new Regex("[A-Z]{2} [0-9]{1,3}/[0-9]{4}");
+        private Regex _EmailRegex = new Regex("[A-Za-z0-9]+@[A-Za-z0-9]+.[A-Za-z0-9]+");
+        private Regex _BrojTelefonaRegex = new Regex("^[\\+]?[(]?[0-9]{3}[)]?[-\\s\\.]?[0-9]{3}[-\\s\\.]?[0-9]{4,6}$");
+
+        public string Error => null;
+
+        public string this[string columnName]
+        {
+            get
+            {
+                if (columnName == "Indeks")
+                {
+                    if (string.IsNullOrEmpty(BrojIndeksa))
+                        return "Index is required";
+
+                    Match match = _IndexRegex.Match(BrojIndeksa);
+                    if (!match.Success)
+                        return "Index should be in format: XY 123/YYYY";
+                }
+                else if (columnName == "Ime")
+                {
+                    if (string.IsNullOrEmpty(Ime))
+                        return "First name is required";
+                }
+                else if (columnName == "Prezime")
+                {
+                    if (string.IsNullOrEmpty(Prezime))
+                        return "Last name is required";
+                }
+                else if (columnName == "BrojTelefona")
+                {
+                    if (string.IsNullOrEmpty(KontaktTelefon))
+                        return "Broj telefona is required";
+
+                    Match match = _BrojTelefonaRegex.Match(KontaktTelefon);
+                    if (!match.Success)
+                        return "Invalid phone number format.";
+                }
+                else if (columnName == "Email")
+                {
+                    if (string.IsNullOrEmpty(Email))
+                        return "Email is required";
+
+                    Match match = _EmailRegex.Match(Email);
+                    if (!match.Success)
+                        return "Invalid email address format.";
+                }
+
+                return null;
+            }
+        }
+
+        private readonly string[] _validatedProperties = { "BrojIndeksa", "Ime", "Prezime", "BrojTelefona", "Email" };
+
+        public bool IsValid
+        {
+            get
+            {
+                foreach (var property in _validatedProperties)
+                {
+                    if (this[property] != null)
+                        return false;
+                }
+
+                return true;
+            }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
