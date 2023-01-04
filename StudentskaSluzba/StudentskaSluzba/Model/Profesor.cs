@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace StudentskaSluzba.Model
 {
-    public class Profesor : ISerializable
+    public class Profesor : ISerializable, INotifyPropertyChanged, IDataErrorInfo
     {
         public int Id { get; set; }
         private string _prezime;

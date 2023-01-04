@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 namespace StudentskaSluzba.Model
 {
     public enum Semestar { L, Z };
-    public class Predmet : ISerializable
+    public class Predmet : ISerializable, INotifyPropertyChanged, IDataErrorInfo
     {
         public int Id { get; set; }
         private string _sifra;

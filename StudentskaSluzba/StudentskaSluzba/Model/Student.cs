@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace StudentskaSluzba.Model
 {
-    public class Student : ISerializable
+    public class Student : ISerializable, INotifyPropertyChanged, IDataErrorInfo
     {
         public int Id { get; set; }
         private string _prezime;
@@ -266,7 +266,7 @@ namespace StudentskaSluzba.Model
                     if (string.IsNullOrEmpty(Prezime))
                         return "Last name is required";
                 }
-                else if (columnName == "BrojTelefona")
+                else if (columnName == "KontaktTelefon")
                 {
                     if (string.IsNullOrEmpty(KontaktTelefon))
                         return "Broj telefona is required";
@@ -299,7 +299,7 @@ namespace StudentskaSluzba.Model
             }
         }
 
-        private readonly string[] _validatedProperties = { "BrojIndeksa", "Ime", "Prezime", "BrojTelefona", "Email", "DatumRodjenja", "GodinaUpisa" };
+        private readonly string[] _validatedProperties = { "BrojIndeksa", "Ime", "Prezime", "KontaktTelefon", "Email", "DatumRodjenja", "GodinaUpisa" };
 
         public bool IsValid
         {
