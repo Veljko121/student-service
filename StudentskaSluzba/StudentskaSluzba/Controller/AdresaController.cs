@@ -23,9 +23,10 @@ namespace StudentskaSluzba.Controller
             return _adrese.GetAll();
         }
 
-        public void Create(Adresa adresa)
+        public int Create(Adresa adresa)
         {
             _adrese.Add(adresa);
+            return adresa.Id;
         }
 
         public void Delete(Adresa adresa)

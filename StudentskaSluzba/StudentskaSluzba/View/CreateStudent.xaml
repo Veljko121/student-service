@@ -63,7 +63,7 @@
                      Validation.ErrorTemplate="{StaticResource ValidationTemplate}">
             </TextBox>
             <DatePicker Grid.Row="3" Grid.Column="1" Height="25"
-                     SelectedDate="{Binding Path=Student.Prezime, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                     SelectedDate="{Binding Path=Student.DatumRodjenja, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
                      Validation.ErrorTemplate="{StaticResource ValidationTemplate}">
             </DatePicker>
             <Grid Grid.Row="4" Grid.Column="1">
@@ -100,7 +100,7 @@
                 </TextBox>
             </Grid>
             <TextBox Grid.Row="5" Grid.Column="1" Height="20"
-                     Text="{Binding Path=Student.Telefon, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                     Text="{Binding Path=Student.KontaktTelefon, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
                      Validation.ErrorTemplate="{StaticResource ValidationTemplate}">
             </TextBox>
             <TextBox Grid.Row="6" Grid.Column="1" Height="20"
@@ -111,7 +111,7 @@
                      Text="{Binding Path=Student.GodinaUpisa, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
                      Validation.ErrorTemplate="{StaticResource ValidationTemplate}">
             </TextBox>
-            <ComboBox Grid.Row="8" Grid.Column="1" Height="25"
+            <ComboBox SelectedValuePath="Content" x:Name="comboBoxGodina" Grid.Row="8" Grid.Column="1" Height="25"
                      SelectedValue="{Binding Path=Student.TrenutnaGodinaStudija, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
                      Validation.ErrorTemplate="{StaticResource ValidationTemplate}">
                 <ComboBoxItem FontSize="10" Tag="1">I (prva)</ComboBoxItem>
@@ -119,7 +119,7 @@
                 <ComboBoxItem FontSize="10" Tag="3">III (treća)</ComboBoxItem>
                 <ComboBoxItem FontSize="10" Tag="4">IV (četvrta)</ComboBoxItem>
             </ComboBox>
-            <ComboBox Grid.Row="9" Grid.Column="1" Height="25" FontSize="10"
+            <ComboBox SelectedValuePath="Content" x:Name="comboBoxStatus" Grid.Row="9" Grid.Column="1" Height="25" FontSize="10"
                      SelectedValue="{Binding Path=Student.Status, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
                      Validation.ErrorTemplate="{StaticResource ValidationTemplate}">
                 <ComboBoxItem FontSize="10" Tag="0">Budžet</ComboBoxItem>

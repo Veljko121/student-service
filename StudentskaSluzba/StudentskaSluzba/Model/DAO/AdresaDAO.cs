@@ -24,6 +24,9 @@ namespace StudentskaSluzba.Model.DAO
 
         public int NextId()
         {
+            if (_adrese.Count == 0)
+                return 0;
+
             return _adrese.Max(s => s.Id) + 1;
         }
 

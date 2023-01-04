@@ -49,24 +49,23 @@ namespace StudentskaSluzba.View
 
         private void CreateStudent_Click(object sender, RoutedEventArgs e)
         {
-            if (Student.IsValid)
+            if (Student.IsValid && AdresaStanovanja.IsValid)
             {
+
+                Student.AdresaStanovanjaId = _AdresaController.Create(AdresaStanovanja);
                 _StudentController.Create(Student);
                 Close();
             }
             else
             {
-                MessageBox.Show("Student se ne može napraviti, jer nisu sva polja validno popunjena.");
-            }
-
-            if (AdresaStanovanja.IsValid)
-            {
-                _AdresaController.Create(AdresaStanovanja);
-                Close();
-            }
-            else
-            {
-                MessageBox.Show("Adresa stanovanja se ne može napraviti, jer nisu sva polja validno popunjena.");
+                if (!Student.IsValid)
+                {
+                    MessageBox.Show("Student se ne može napraviti, jer nisu sva polja validno popunjena.");
+                }
+                if (!AdresaStanovanja.IsValid)
+                {
+                    MessageBox.Show("Adresa se ne može napraviti, jer nisu sva polja validno popunjena.");
+                }
             }
         }
 

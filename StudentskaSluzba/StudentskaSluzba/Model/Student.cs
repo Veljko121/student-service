@@ -247,7 +247,7 @@ namespace StudentskaSluzba.Model
         {
             get
             {
-                if (columnName == "Indeks")
+                if (columnName == "BrojIndeksa")
                 {
                     if (string.IsNullOrEmpty(BrojIndeksa))
                         return "Index is required";
