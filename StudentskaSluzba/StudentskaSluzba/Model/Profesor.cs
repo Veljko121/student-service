@@ -298,6 +298,20 @@ namespace StudentskaSluzba.Model
 
         private readonly string[] _validatedProperties = { "Ime", "Prezime", "BrojTelefona", "Email", "DatumRodjenja", "BrojLicne" };
 
+        public bool IsValid
+        {
+            get
+            {
+                foreach (var property in _validatedProperties)
+                {
+                    if (this[property] != null)
+                        return false;
+                }
+
+                return true;
+            }
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)

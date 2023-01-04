@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace StudentskaSluzba.Model
@@ -149,6 +150,53 @@ namespace StudentskaSluzba.Model
             GodinaStudija = int.Parse(values[4]);
             PredmetniProfesorId = int.Parse(values[5]);
             BrojESPB = int.Parse(values[6]);
+        }
+
+        public string Error => null;
+
+        public string this[string columnName]
+        {
+            get
+            {
+                if (columnName == "Sifra")
+                {
+                    if (string.IsNullOrEmpty(Sifra))
+                        return "Sifra is required";
+                }
+                else if (columnName == "Naziv")
+                {
+                    if (string.IsNullOrEmpty(Naziv))
+                        return "Naziv is required";
+                }
+                else if (columnName == "GodinaStudija")
+                {
+                    if (string.IsNullOrEmpty(GodinaStudija.ToString()))
+                        return "GodinaStudija is required";
+                }
+                else if (columnName == "BrojESPB")
+                {
+                    if (string.IsNullOrEmpty(BrojESPB.ToString()))
+                        return "BrojESPB is required";
+                }
+
+                return null;
+            }
+        }
+
+        private readonly string[] _validatedProperties = { "Sifra", "Naziv", "GodinaStudija", "BrojESPB" };
+
+        public bool IsValid
+        {
+            get
+            {
+                foreach (var property in _validatedProperties)
+                {
+                    if (this[property] != null)
+                        return false;
+                }
+
+                return true;
+            }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
