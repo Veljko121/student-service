@@ -40,8 +40,8 @@ namespace StudentskaSluzba.Model
                 }
             }
         }
-        private Semestar _semestar;
-        public Semestar Semestar
+        private string _semestar;
+        public string Semestar
         {
             get => _semestar;
             set
@@ -53,8 +53,8 @@ namespace StudentskaSluzba.Model
                 }
             }
         }
-        private int _godinaStudija;
-        public int GodinaStudija
+        private string _godinaStudija;
+        public string GodinaStudija
         {
             get => _godinaStudija;
             set
@@ -101,8 +101,8 @@ namespace StudentskaSluzba.Model
             Id = -1;
             Sifra = "";
             Naziv = "";
-            Semestar = Semestar.Z;
-            GodinaStudija = 0;
+            Semestar = "Zimski";
+            GodinaStudija = "I (prva)";
             PredmetniProfesorId = -1;
             BrojESPB = 0;
 
@@ -111,7 +111,7 @@ namespace StudentskaSluzba.Model
             //NisuPolozili = new List<Student>();
         }
 
-        public Predmet(int Id, string Sifra, string Naziv, Semestar Semestar, int GodinaStudija, int PredmetniProfesorId, int BrojESPB)
+        public Predmet(int Id, string Sifra, string Naziv, string Semestar, string GodinaStudija, int PredmetniProfesorId, int BrojESPB)
         {
             this.Id = Id;
             this.Sifra = Sifra;
@@ -133,7 +133,7 @@ namespace StudentskaSluzba.Model
                 Id.ToString(),
                 Sifra,
                 Naziv,
-                Convert.ToInt32(Semestar).ToString(),
+                Semestar,
                 GodinaStudija.ToString(),
                 PredmetniProfesorId.ToString(),
                 BrojESPB.ToString()
@@ -146,8 +146,8 @@ namespace StudentskaSluzba.Model
             Id = int.Parse(values[0]);
             Sifra = values[1];
             Naziv = values[2];
-            Semestar = (Semestar)int.Parse(values[3]);
-            GodinaStudija = int.Parse(values[4]);
+            Semestar = values[3];
+            GodinaStudija = values[4];
             PredmetniProfesorId = int.Parse(values[5]);
             BrojESPB = int.Parse(values[6]);
         }
