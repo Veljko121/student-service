@@ -53,7 +53,7 @@ namespace StudentskaSluzba.View
             {
 
                 Student.AdresaStanovanjaId = _AdresaController.Create(AdresaStanovanja);
-                _StudentController.Create(Student);
+                _StudentController.Create(Student); 
                 Close();
             }
             else
@@ -64,7 +64,7 @@ namespace StudentskaSluzba.View
                 }
                 if (!AdresaStanovanja.IsValid)
                 {
-                    MessageBox.Show("Adresa se ne može napraviti, jer nisu sva polja validno popunjena.");
+                    MessageBox.Show("Adresa stanovanja se ne može napraviti, jer nisu sva polja validno popunjena.");
                 }
             }
         }
