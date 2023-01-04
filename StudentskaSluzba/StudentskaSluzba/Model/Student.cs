@@ -285,12 +285,22 @@ namespace StudentskaSluzba.Model
                     if (!match.Success)
                         return "Invalid email address format.";
                 }
+                else if (columnName == "DatumRodjenja")
+                {
+                    if (string.IsNullOrEmpty(DatumRodjenja.ToLongDateString()))
+                        return "DatumRodjenja name is required";
+                }
+                else if (columnName == "GodinaUpisa")
+                {
+                    if (string.IsNullOrEmpty(GodinaUpisa.ToString()))
+                        return "GodinaUpisa name is required";
+                }
 
                 return null;
             }
         }
 
-        private readonly string[] _validatedProperties = { "BrojIndeksa", "Ime", "Prezime", "BrojTelefona", "Email" };
+        private readonly string[] _validatedProperties = { "BrojIndeksa", "Ime", "Prezime", "BrojTelefona", "Email", "DatumRodjenja", "GodinaUpisa" };
 
         public bool IsValid
         {
