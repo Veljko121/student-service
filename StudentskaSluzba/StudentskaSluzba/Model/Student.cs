@@ -163,18 +163,18 @@ namespace StudentskaSluzba.Model
 
         public Student()
         {
-            Id = -1;
-            Prezime = "";
-            Ime = "";
-            DatumRodjenja = new DateTime();
-            AdresaStanovanjaId = -1;
-            KontaktTelefon = "";
-            Email = "";
-            BrojIndeksa = "";
-            GodinaUpisa = 0;
-            TrenutnaGodinaStudija = "I (prva)";
-            Status = "Budžet";
-            ProsecnaOcena = 0.0;
+            //Id = -1;
+            //Prezime = "";
+            //Ime = "";
+            //DatumRodjenja = new DateTime();
+            //AdresaStanovanjaId = -1;
+            //KontaktTelefon = "";
+            //Email = "";
+            //BrojIndeksa = "";
+            //GodinaUpisa = 0;
+            //TrenutnaGodinaStudija = "I (prva)";
+            //Status = "Budžet";
+            //ProsecnaOcena = 0.0;
 
             //AdresaStanovanja = new Adresa();
             //PolozeniIspiti = new List<Ocena>();

@@ -168,11 +168,6 @@ namespace StudentskaSluzba.Model
                     if (string.IsNullOrEmpty(Naziv))
                         return "Naziv is required";
                 }
-                else if (columnName == "GodinaStudija")
-                {
-                    if (string.IsNullOrEmpty(GodinaStudija.ToString()))
-                        return "GodinaStudija is required";
-                }
                 else if (columnName == "BrojESPB")
                 {
                     if (string.IsNullOrEmpty(BrojESPB.ToString()))
@@ -183,7 +178,7 @@ namespace StudentskaSluzba.Model
             }
         }
 
-        private readonly string[] _validatedProperties = { "Sifra", "Naziv", "GodinaStudija", "BrojESPB" };
+        private readonly string[] _validatedProperties = { "Sifra", "Naziv", "BrojESPB" };
 
         public bool IsValid
         {

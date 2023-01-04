@@ -163,18 +163,18 @@ namespace StudentskaSluzba.Model
 
         public Profesor()
         {
-            Id = -1;
-            Prezime = "";
-            Ime = "";
-            DatumRodjenja = new DateTime();
-            AdresaStanovanjaId = -1;
-            Telefon = "";
-            Email = "";
-            AdresaKancelarijeId = -1;
-            BrojLicne = "";
-            Zvanje = "Redovni profesor";
-            GodineStaza = 0;
-            KatedraId = -1;
+            //Id = -1;
+            //Prezime = "";
+            //Ime = "";
+            //DatumRodjenja = new DateTime();
+            //AdresaStanovanjaId = -1;
+            //Telefon = "";
+            //Email = "";
+            //AdresaKancelarijeId = -1;
+            //BrojLicne = "";
+            //Zvanje = "Redovni profesor";
+            //GodineStaza = 0;
+            //KatedraId = -1;
 
             //AdresaStanovanja = new Adresa();
             //AdresaKancelarije = new Adresa();
@@ -291,17 +291,12 @@ namespace StudentskaSluzba.Model
                     if (!match.Success)
                         return "Invalid BrojLicne format.";
                 }
-                else if (columnName == "Zvanje")
-                {
-                    if (string.IsNullOrEmpty(BrojLicne.ToString()))
-                        return "Zvanje is required";
-                }
 
                 return null;
             }
         }
 
-        private readonly string[] _validatedProperties = { "Ime", "Prezime", "BrojTelefona", "Email", "DatumRodjenja", "BrojLicne", "Zvanje" };
+        private readonly string[] _validatedProperties = { "Ime", "Prezime", "BrojTelefona", "Email", "DatumRodjenja", "BrojLicne" };
 
         public bool IsValid
         {
