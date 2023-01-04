@@ -62,7 +62,7 @@
                      Text="{Binding Path=Student.BrojIndeksa, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
                      Validation.ErrorTemplate="{StaticResource ValidationTemplate}">
             </TextBox>
-            <DatePicker Grid.Row="3" Grid.Column="1" Height="20"
+            <DatePicker Grid.Row="3" Grid.Column="1" Height="25"
                      SelectedDate="{Binding Path=Student.Prezime, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
                      Validation.ErrorTemplate="{StaticResource ValidationTemplate}">
             </DatePicker>
@@ -114,16 +114,16 @@
             <ComboBox Grid.Row="8" Grid.Column="1" Height="25"
                      SelectedValue="{Binding Path=Student.TrenutnaGodinaStudija, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
                      Validation.ErrorTemplate="{StaticResource ValidationTemplate}">
-                <ComboBoxItem FontSize="10">I (prva)</ComboBoxItem>
-                <ComboBoxItem>II (druga)</ComboBoxItem>
-                <ComboBoxItem>III (treća)</ComboBoxItem>
-                <ComboBoxItem>IV (četvrta)</ComboBoxItem>
+                <ComboBoxItem FontSize="10" Tag="1">I (prva)</ComboBoxItem>
+                <ComboBoxItem FontSize="10" Tag="2">II (druga)</ComboBoxItem>
+                <ComboBoxItem FontSize="10" Tag="3">III (treća)</ComboBoxItem>
+                <ComboBoxItem FontSize="10" Tag="4">IV (četvrta)</ComboBoxItem>
             </ComboBox>
             <ComboBox Grid.Row="9" Grid.Column="1" Height="25" FontSize="10"
                      SelectedValue="{Binding Path=Student.Status, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
                      Validation.ErrorTemplate="{StaticResource ValidationTemplate}">
-                <ComboBoxItem>Budžet</ComboBoxItem>
-                <ComboBoxItem>Samofinansiranje</ComboBoxItem>
+                <ComboBoxItem FontSize="10" Tag="0">Budžet</ComboBoxItem>
+                <ComboBoxItem FontSize="10" Tag="1">Samofinansiranje</ComboBoxItem>
             </ComboBox>
         </Grid>
         <WrapPanel Grid.Row="1" FlowDirection="RightToLeft">
