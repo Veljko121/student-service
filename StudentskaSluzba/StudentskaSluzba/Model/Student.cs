@@ -172,8 +172,8 @@ namespace StudentskaSluzba.Model
             //Email = "";
             //BrojIndeksa = "";
             //GodinaUpisa = 0;
-            //TrenutnaGodinaStudija = "I (prva)";
-            //Status = "Budžet";
+            TrenutnaGodinaStudija = "I (prva)";
+            Status = "Budžet";
             //ProsecnaOcena = 0.0;
 
             //AdresaStanovanja = new Adresa();
@@ -238,7 +238,7 @@ namespace StudentskaSluzba.Model
         }
 
         private Regex _IndexRegex = new Regex("[A-Z]{2} [0-9]{1,3}/[0-9]{4}");
-        private Regex _EmailRegex = new Regex("[A-Za-z0-9]+@[A-Za-z0-9]+.[A-Za-z0-9]+");
+        private Regex _EmailRegex = new Regex("[A-Za-z0-9]+@[A-Za-z0-9]+\\.[A-Za-z0-9]+");
         private Regex _BrojTelefonaRegex = new Regex("^[\\+]?[(]?[0-9]{3}[)]?[-\\s\\.]?[0-9]{3}[-\\s\\.]?[0-9]{4,6}$");
 
         public string Error => null;

@@ -173,7 +173,7 @@ namespace StudentskaSluzba.Model
             AdresaKancelarijeId = -1;
             BrojLicne = "";
             Zvanje = "Redovni profesor";
-            //GodineStaza = 0;
+            GodineStaza = 0;
             KatedraId = -1;
 
             //AdresaStanovanja = new Adresa();
@@ -239,7 +239,7 @@ namespace StudentskaSluzba.Model
             KatedraId = int.Parse(values[11]);
         }
 
-        private Regex _EmailRegex = new Regex("[A-Za-z0-9]+@[A-Za-z0-9]+.[A-Za-z0-9]+");
+        private Regex _EmailRegex = new Regex("[A-Za-z0-9]+@[A-Za-z0-9]+\\.[A-Za-z0-9]+");
         private Regex _BrojTelefonaRegex = new Regex("^[\\+]?[(]?[0-9]{3}[)]?[-\\s\\.]?[0-9]{3}[-\\s\\.]?[0-9]{4,6}$");
         private Regex _BrojLicneRegex = new Regex("[0-9]{9}");
 
