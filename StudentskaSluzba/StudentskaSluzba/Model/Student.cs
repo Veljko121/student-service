@@ -11,7 +11,6 @@ using System.Threading.Tasks;
 
 namespace StudentskaSluzba.Model
 {
-    public enum Status { B, S };
     public class Student : ISerializable
     {
         public int Id { get; set; }
@@ -119,8 +118,8 @@ namespace StudentskaSluzba.Model
                 }
             }
         }
-        private int _trenutnaGodinaStudija;
-        public int TrenutnaGodinaStudija
+        private string _trenutnaGodinaStudija;
+        public string TrenutnaGodinaStudija
         {
             get => _trenutnaGodinaStudija;
             set
@@ -132,8 +131,8 @@ namespace StudentskaSluzba.Model
                 }
             }
         }
-        private Status _status;
-        public Status Status
+        private string _status;
+        public string Status
         {
             get => _status;
             set
@@ -173,8 +172,8 @@ namespace StudentskaSluzba.Model
             Email = "";
             BrojIndeksa = "";
             GodinaUpisa = 0;
-            TrenutnaGodinaStudija = 0;
-            Status = Status.S;
+            TrenutnaGodinaStudija = "I (prva)";
+            Status = "budžet";
             ProsecnaOcena = 0.0;
 
             //AdresaStanovanja = new Adresa();
@@ -182,7 +181,7 @@ namespace StudentskaSluzba.Model
             //NepolozeniIspiti = new List<Predmet>();
         }
 
-        public Student(int Id, string Prezime, string Ime, DateTime DatumRodjenja, int AdresaStanovanjaId, string KontaktTelefon, string Email, string BrojIndeksa, int GodinaUpisa, int TrenutnaGodinaStudija, Status Status, int ProsecnaOcena)
+        public Student(int Id, string Prezime, string Ime, DateTime DatumRodjenja, int AdresaStanovanjaId, string KontaktTelefon, string Email, string BrojIndeksa, int GodinaUpisa, string TrenutnaGodinaStudija, string Status, int ProsecnaOcena)
         {
             this.Id = Id;
             this.Prezime = Prezime;
@@ -215,8 +214,8 @@ namespace StudentskaSluzba.Model
                 Email,
                 BrojIndeksa,
                 GodinaUpisa.ToString(),
-                TrenutnaGodinaStudija.ToString(),
-                Convert.ToInt32(Status).ToString(),
+                TrenutnaGodinaStudija,
+                Status,
                 ProsecnaOcena.ToString()
             };
             return csvValues;
@@ -233,8 +232,8 @@ namespace StudentskaSluzba.Model
             Email = values[6];
             BrojIndeksa = values[7];
             GodinaUpisa = int.Parse(values[8]);
-            TrenutnaGodinaStudija = int.Parse(values[9]);
-            Status = (Status)int.Parse(values[10]);
+            TrenutnaGodinaStudija = values[9];
+            Status = values[10];
             ProsecnaOcena = double.Parse(values[11]);
         }
 
