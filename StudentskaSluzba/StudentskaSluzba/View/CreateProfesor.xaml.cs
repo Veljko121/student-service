@@ -55,6 +55,7 @@ namespace StudentskaSluzba.View
             {
 
                 Profesor.AdresaStanovanjaId = _AdresaController.Create(AdresaStanovanja);
+                Profesor.AdresaKancelarijeId = _AdresaController.Create(AdresaKancelarije);
                 _ProfesorController.Create(Profesor);
                 Close();
             }

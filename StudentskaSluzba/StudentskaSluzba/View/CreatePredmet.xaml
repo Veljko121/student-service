@@ -55,7 +55,7 @@
                 <ComboBoxItem FontSize="10" Tag="2">Letnji</ComboBoxItem>
             </ComboBox>
             <ComboBox SelectedValuePath="Content" x:Name="comboBoxGodina" Grid.Row="3" Grid.Column="1" Height="25"
-                     SelectedValue="{Binding Path=Predmet.Godina, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                     SelectedValue="{Binding Path=Predmet.GodinaStudija, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
                      Validation.ErrorTemplate="{StaticResource ValidationTemplate}">
                 <ComboBoxItem FontSize="10" Tag="1">I (prva)</ComboBoxItem>
                 <ComboBoxItem FontSize="10" Tag="2">II (druga)</ComboBoxItem>
