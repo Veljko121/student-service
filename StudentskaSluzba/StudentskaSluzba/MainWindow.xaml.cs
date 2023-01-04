@@ -110,9 +110,18 @@ namespace StudentskaSluzba
             }
         }
 
+        private void UpdateList()
+        {
+            Students.Clear();
+            foreach (var student in _controller.GetAllStudents())
+            {
+                Students.Add(student);
+            }
+        }
+
         public void Update()
         {
-            //UpdateStudentsList();
+            UpdateStudentsList();
         }
     }
 }

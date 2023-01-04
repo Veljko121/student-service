@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StudentskaSluzba.View"
         mc:Ignorable="d"
-        Title="Dodavanje predmeta" Height="425" Width="400"
+        Title="Dodavanje predmeta" Height="450" Width="400"
         WindowStartupLocation="CenterScreen" >
     <Window.Resources>
         <ControlTemplate x:Key="ValidationTemplate">
@@ -41,11 +41,11 @@
             <Label Grid.Row="3" Grid.Column="0" Height="30">Godina</Label>
             <Label Grid.Row="4" Grid.Column="0" Height="30">ESPB</Label>
             <TextBox Grid.Row="0" Grid.Column="1" Height="20"
-                     Text="{Binding Path=Premet.Naziv, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                     Text="{Binding Path=Predmet.Naziv, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
                      Validation.ErrorTemplate="{StaticResource ValidationTemplate}">
             </TextBox>
             <TextBox Grid.Row="1" Grid.Column="1" Height="20"
-                     Text="{Binding Path=Premet.Sifra, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                     Text="{Binding Path=Predmet.Sifra, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
                      Validation.ErrorTemplate="{StaticResource ValidationTemplate}">
             </TextBox>
             <ComboBox SelectedValuePath="Content" x:Name="comboBoxSemestar" Grid.Row="2" Grid.Column="1" Height="25"
@@ -63,7 +63,7 @@
                 <ComboBoxItem FontSize="10" Tag="4">IV (četvrta)</ComboBoxItem>
             </ComboBox>
             <TextBox Grid.Row="4" Grid.Column="1" Height="20"
-                     Text="{Binding Path=Premet.BrojESPB, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                     Text="{Binding Path=Predmet.BrojESPB, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
                      Validation.ErrorTemplate="{StaticResource ValidationTemplate}">
             </TextBox>
         </Grid>
