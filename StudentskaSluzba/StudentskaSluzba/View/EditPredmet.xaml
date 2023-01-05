@@ -71,7 +71,7 @@
         </Grid>
         <WrapPanel Grid.Row="1" FlowDirection="RightToLeft">
             <Button Content="Odustani" IsCancel="True" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50, -30, 20, 5" Click="CancelButton_Click"/>
-            <Button Content="Potvrdi" IsDefault="True" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20, -30, 20, 5" Click="CreatePredmet_Click"/>
+            <Button Content="Potvrdi" IsDefault="True" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20, -30, 20, 5" Click="EditPredmet_Click"/>
         </WrapPanel>
     </Grid>
 </Window>
