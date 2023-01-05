@@ -24,6 +24,10 @@ namespace StudentskaSluzba.Model.DAO
 
         public int NextId()
         {
+            if (_profesori.Count == 0)
+            {
+                return 0;
+            }
             return _profesori.Max(s => s.Id) + 1;
         }
 

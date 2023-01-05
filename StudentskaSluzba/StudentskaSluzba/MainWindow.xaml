@@ -69,7 +69,7 @@
                     <Button ToolTip="Update"  Click="EditWindow_Click">
                         <Image Source="Icons\Pencil.png" />
                     </Button>
-                    <Button ToolTip="Delete" >
+                    <Button ToolTip="Delete" Click="DeleteButton_Click">
                         <Image Source="Icons\TrashCan.png" />
                     </Button>
                     <DockPanel>

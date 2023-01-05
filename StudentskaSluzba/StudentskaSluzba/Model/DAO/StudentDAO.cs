@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace StudentskaSluzba.Model.DAO
 {
@@ -24,6 +25,10 @@ namespace StudentskaSluzba.Model.DAO
 
         public int NextId()
         {
+            if (_studenti.Count == 0)
+            {
+                return 0;
+            }
             return _studenti.Max(s => s.Id) + 1;
         }
 

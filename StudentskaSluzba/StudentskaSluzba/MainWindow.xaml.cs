@@ -144,10 +144,99 @@ namespace StudentskaSluzba
                     }
                     else
                     {
-                        MessageBox.Show("Odaberite predmet kojeg želite da izmenite.");
+                        MessageBox.Show("Odaberite predmet koji želite da izmenite.");
                     }
                     break;
             }
+        }
+
+        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            switch (SelectedTab)
+            {
+                case 1:
+                    if (SelectedStudent != null)
+                    {
+                        MessageBoxResult result = ConfirmStudentDeletion();
+
+                        if (result == MessageBoxResult.Yes)
+                        {
+                            _AdresaController.Delete(_AdresaController.FindByID(SelectedStudent.AdresaStanovanjaId));
+                            _StudentController.Delete(SelectedStudent);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Odaberite studenta kojeg želite da obrišete.");
+                    }
+                    break;
+                case 2:
+                    if (SelectedProfesor != null)
+                    {
+                        MessageBoxResult result = ConfirmProfesorDeletion();
+
+                        if (result == MessageBoxResult.Yes)
+                        {
+                            _AdresaController.Delete(_AdresaController.FindByID(SelectedProfesor.AdresaStanovanjaId));
+                            _AdresaController.Delete(_AdresaController.FindByID(SelectedProfesor.AdresaKancelarijeId));
+                            _ProfesorController.Delete(SelectedProfesor);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Odaberite profesora kojeg želite da obrišete.");
+                    }
+                    break;
+                case 3:
+                    if (SelectedPredmet != null)
+                    {
+                        MessageBoxResult result = ConfirmPredmetDeletion();
+
+                        if (result == MessageBoxResult.Yes)
+                            _PredmetController.Delete(SelectedPredmet);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Odaberite predmet koji želite da obrišete.");
+                    }
+                    break;
+            }
+        }
+
+        private MessageBoxResult ConfirmStudentDeletion()
+        {
+            string sMessageBoxText = $"Da li ste sigurni da želite da izbrišete studenta\n{SelectedStudent}";
+            string sCaption = "Porvrda brisanja";
+
+            MessageBoxButton btnMessageBox = MessageBoxButton.YesNo;
+            MessageBoxImage icnMessageBox = MessageBoxImage.Warning;
+
+            MessageBoxResult result = MessageBox.Show(sMessageBoxText, sCaption, btnMessageBox, icnMessageBox);
+            return result;
+        }
+
+        private MessageBoxResult ConfirmProfesorDeletion()
+        {
+            string sMessageBoxText = $"Da li ste sigurni da želite da izbrišete profesora\n{SelectedProfesor}";
+            string sCaption = "Porvrda brisanja";
+
+            MessageBoxButton btnMessageBox = MessageBoxButton.YesNo;
+            MessageBoxImage icnMessageBox = MessageBoxImage.Warning;
+
+            MessageBoxResult result = MessageBox.Show(sMessageBoxText, sCaption, btnMessageBox, icnMessageBox);
+            return result;
+        }
+
+        private MessageBoxResult ConfirmPredmetDeletion()
+        {
+            string sMessageBoxText = $"Da li ste sigurni da želite da izbrišete predmet\n{SelectedPredmet}";
+            string sCaption = "Porvrda brisanja";
+
+            MessageBoxButton btnMessageBox = MessageBoxButton.YesNo;
+            MessageBoxImage icnMessageBox = MessageBoxImage.Warning;
+
+            MessageBoxResult result = MessageBox.Show(sMessageBoxText, sCaption, btnMessageBox, icnMessageBox);
+            return result;
         }
 
         private void UpdateList()
