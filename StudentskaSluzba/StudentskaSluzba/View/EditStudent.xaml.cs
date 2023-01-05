@@ -42,9 +42,7 @@ namespace StudentskaSluzba.View
             StudentOriginal = SelectedStudent;
             AdresaOriginal = _AdresaController.FindByID(StudentOriginal.AdresaStanovanjaId);
 
-            //Student = SelectedStudent;
             Student = new Student(StudentOriginal);
-            //AdresaStanovanja = _AdresaController.FindByID(Student.AdresaStanovanjaId);
             AdresaStanovanja = new Adresa(AdresaOriginal);
         }
 
@@ -59,8 +57,23 @@ namespace StudentskaSluzba.View
         {
             if (Student.IsValid && AdresaStanovanja.IsValid)
             {
-                StudentOriginal = Student;
-                AdresaOriginal = AdresaStanovanja;
+                StudentOriginal.Prezime = Student.Prezime;
+                StudentOriginal.Ime = Student.Ime;
+                StudentOriginal.DatumRodjenja = Student.DatumRodjenja;
+                StudentOriginal.AdresaStanovanjaId = Student.AdresaStanovanjaId;
+                StudentOriginal.KontaktTelefon = Student.KontaktTelefon;
+                StudentOriginal.Email = Student.Email;
+                StudentOriginal.BrojIndeksa = Student.BrojIndeksa;
+                StudentOriginal.GodinaUpisa = Student.GodinaUpisa;
+                StudentOriginal.TrenutnaGodinaStudija = Student.TrenutnaGodinaStudija;
+                StudentOriginal.Status = Student.Status;
+                StudentOriginal.ProsecnaOcena = Student.ProsecnaOcena;
+
+                AdresaOriginal.Ulica = AdresaStanovanja.Ulica;
+                AdresaOriginal.Broj= AdresaStanovanja.Broj;
+                AdresaOriginal.Grad = AdresaStanovanja.Grad;
+                AdresaOriginal.Drzava = AdresaStanovanja.Drzava;
+
                 Close();
             }
             else
