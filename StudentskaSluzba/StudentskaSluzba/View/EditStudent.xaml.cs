@@ -26,10 +26,10 @@ namespace StudentskaSluzba.View
         private StudentController _StudentController;
         private AdresaController _AdresaController;
 
-        private Student Student;
-        private Adresa AdresaStanovanja;
-        private Student StudentOriginal;
-        private Adresa AdresaOriginal;
+        public Student Student { get; set; }
+        public Adresa AdresaStanovanja { get; set; }
+        public Student StudentOriginal { get; set; }
+        public Adresa AdresaOriginal { get; set; }
 
         public EditStudent(StudentController StudentController, AdresaController AdresaController, Student SelectedStudent)
         {
