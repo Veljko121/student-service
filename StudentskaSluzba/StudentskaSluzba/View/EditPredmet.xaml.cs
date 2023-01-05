@@ -1,6 +1,10 @@
-﻿using System;
+﻿using StudentskaSluzba.Controller;
+using StudentskaSluzba.Model;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -17,11 +21,53 @@ namespace StudentskaSluzba.View
     /// <summary>
     /// Interaction logic for EditPredmet.xaml
     /// </summary>
-    public partial class EditPredmet : Window
+    public partial class EditPredmet : Window, INotifyPropertyChanged
     {
-        public EditPredmet()
+        private PredmetController _PredmetController;
+
+        private Predmet Predmet;
+        private Predmet PredmetOriginal;
+
+        public EditPredmet(PredmetController PredmetController, Predmet SelectedPredmet)
         {
             InitializeComponent();
+            DataContext = this;
+
+            _PredmetController = PredmetController;
+
+            PredmetOriginal = SelectedPredmet;
+
+            Predmet = new Predmet(PredmetOriginal);
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        private void EditPredmet_Click(object sender, RoutedEventArgs e)
+        {
+            if (Predmet.IsValid)
+            {
+                PredmetOriginal.Sifra = Predmet.Sifra;
+                PredmetOriginal.Naziv = Predmet.Naziv;
+                PredmetOriginal.Semestar = Predmet.Semestar;
+                PredmetOriginal.GodinaStudija = Predmet.GodinaStudija;
+                PredmetOriginal.BrojESPB = Predmet.BrojESPB;
+
+                Close();
+            }
+            else
+            {
+                MessageBox.Show("Predmet se ne može izmeniti, jer nisu sva polja validno popunjena.");
+            }
+        }
+
+        private void CancelButton_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }

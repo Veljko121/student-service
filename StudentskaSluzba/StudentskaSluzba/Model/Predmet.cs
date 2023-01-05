@@ -126,6 +126,17 @@ namespace StudentskaSluzba.Model
             //NisuPolozili = new List<Student>();
         }
 
+        public Predmet(Predmet predmet)
+        {
+            this.Id = predmet.Id;
+            this.Sifra = predmet.Sifra;
+            this.Naziv = predmet.Naziv;
+            this.Semestar = predmet.Semestar;
+            this.GodinaStudija = predmet.GodinaStudija;
+            this.PredmetniProfesorId = predmet.PredmetniProfesorId;
+            this.BrojESPB = predmet.BrojESPB;
+        }
+
         public string[] ToCSV()
         {
             string[] csvValues =

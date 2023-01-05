@@ -203,6 +203,21 @@ namespace StudentskaSluzba.Model
             //SpisakPredmeta = new List<Predmet>();
         }
 
+        public Profesor(Profesor profesor) {
+            this.Id = profesor.Id;
+            this.Prezime = profesor.Prezime;
+            this.Ime = profesor.Ime;
+            this.DatumRodjenja = profesor.DatumRodjenja;
+            this.AdresaStanovanjaId = profesor.AdresaStanovanjaId;
+            this.Telefon = profesor.Telefon;
+            this.Email = profesor.Email;
+            this.AdresaKancelarijeId = profesor.AdresaKancelarijeId;
+            this.BrojLicne = profesor.BrojLicne;
+            this.Zvanje = profesor.Zvanje;
+            this.GodineStaza = profesor.GodineStaza;
+            this.KatedraId = profesor.KatedraId;
+        }
+
         public string[] ToCSV()
         {
             string[] csvValues =

@@ -128,7 +128,7 @@ namespace StudentskaSluzba
                 case 2:
                     if (SelectedProfesor != null)
                     {
-                        EditProfesor editProfesor = new EditProfesor(_StudentController, _AdresaController, SelectedProfesor);
+                        EditProfesor editProfesor = new EditProfesor(_ProfesorController, _AdresaController, SelectedProfesor);
                         editProfesor.Show();
                     }
                     else
@@ -139,7 +139,7 @@ namespace StudentskaSluzba
                 case 3:
                     if (SelectedPredmet != null)
                     {
-                        EditPredmet editPredmet = new EditPredmet(_StudentController, _AdresaController, SelectedPredmet);
+                        EditPredmet editPredmet = new EditPredmet(_PredmetController, SelectedPredmet);
                         editPredmet.Show();
                     }
                     else
