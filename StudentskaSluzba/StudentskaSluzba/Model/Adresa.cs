@@ -32,6 +32,15 @@ namespace StudentskaSluzba.Model
             this.Drzava = Drzava;
         }
 
+        public Adresa(Adresa adresa)
+        {
+            this.Id = adresa.Id;
+            this.Ulica = adresa.Ulica;
+            this.Broj = adresa.Broj;
+            this.Grad = adresa.Grad;
+            this.Drzava = adresa.Drzava;
+        }
+
         public string[] ToCSV()
         {
             string[] csvValues =

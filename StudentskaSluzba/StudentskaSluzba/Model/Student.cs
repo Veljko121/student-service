@@ -201,6 +201,22 @@ namespace StudentskaSluzba.Model
             //NepolozeniIspiti = new List<Predmet>();
         }
 
+        public Student(Student student)
+        {
+            this.Id = student.Id;
+            this.Prezime = student.Prezime;
+            this.Ime = student.Ime;
+            this.DatumRodjenja = student.DatumRodjenja;
+            this.AdresaStanovanjaId = student.AdresaStanovanjaId;
+            this.KontaktTelefon = student.KontaktTelefon;
+            this.Email = student.Email;
+            this.BrojIndeksa = student.BrojIndeksa;
+            this.GodinaUpisa = student.GodinaUpisa;
+            this.TrenutnaGodinaStudija = student.TrenutnaGodinaStudija;
+            this.Status = student.Status;
+            this.ProsecnaOcena = student.ProsecnaOcena;
+        }
+
         public string[] ToCSV()
         {
             string[] csvValues =

@@ -28,6 +28,8 @@ namespace StudentskaSluzba.View
 
         public Student Student { get; set; }
         public Adresa AdresaStanovanja { get; set; }
+        public Student StudentOriginal { get; set; }
+        public Adresa AdresaOriginal { get; set; }
 
         public EditStudent(StudentController StudentController, AdresaController AdresaController, Student SelectedStudent)
         {
@@ -37,8 +39,13 @@ namespace StudentskaSluzba.View
             _StudentController = StudentController;
             _AdresaController = AdresaController;
 
-            Student = SelectedStudent;
-            AdresaStanovanja = _AdresaController.FindByID(Student.AdresaStanovanjaId);
+            StudentOriginal = SelectedStudent;
+            AdresaOriginal = _AdresaController.FindByID(StudentOriginal.AdresaStanovanjaId);
+
+            //Student = SelectedStudent;
+            Student = new Student(StudentOriginal);
+            //AdresaStanovanja = _AdresaController.FindByID(Student.AdresaStanovanjaId);
+            AdresaStanovanja = new Adresa(AdresaOriginal);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -51,7 +58,9 @@ namespace StudentskaSluzba.View
         private void EditStudent_Click(object sender, RoutedEventArgs e)
         {
             if (Student.IsValid && AdresaStanovanja.IsValid)
-            { 
+            {
+                StudentOriginal = Student;
+                AdresaOriginal = AdresaStanovanja;
                 Close();
             }
             else

@@ -129,12 +129,12 @@
                             <ComboBoxItem FontSize="10" Tag="2">Samofinansiranje</ComboBoxItem>
                         </ComboBox>
                     </Grid>
-                   <!-- <WrapPanel Grid.Row="1" FlowDirection="RightToLeft">
+                    <WrapPanel Grid.Row="1" FlowDirection="RightToLeft">
                         <Button Content="Odustani" IsCancel="True" HorizontalAlignment="Left" VerticalAlignment="Top"
                     Margin="20, 5, 20, 5" Click="CancelButton_Click"/>
                         <Button Content="Potvrdi" IsDefault="True" HorizontalAlignment="Left" VerticalAlignment="Top"
-                    Margin="20, 5, 20, 5" Click="CreateStudent_Click"/>
-                    </WrapPanel>-->
+                    Margin="20, 5, 20, 5" Click="EditStudent_Click"/>
+                    </WrapPanel>
                 </Grid>
             </TabItem>
             <TabItem Header="Položeni">
