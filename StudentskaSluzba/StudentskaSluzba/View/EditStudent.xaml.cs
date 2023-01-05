@@ -19,21 +19,26 @@ using System.Windows.Shapes;
 namespace StudentskaSluzba.View
 {
     /// <summary>
-    /// Interaction logic for CreateAdresa.xaml
+    /// Interaction logic for EditStudent.xaml
     /// </summary>
-    public partial class CreateAdresa : Window, INotifyPropertyChanged
+    public partial class EditStudent : Window, INotifyPropertyChanged
     {
+        private StudentController _StudentController;
         private AdresaController _AdresaController;
 
-        public Adresa Adresa { get; set; }
+        public Student Student { get; set; }
+        public Adresa AdresaStanovanja { get; set; }
 
-        public CreateAdresa(AdresaController AdresaController)
+        public EditStudent(StudentController StudentController, AdresaController AdresaController, Student SelectedStudent)
         {
             InitializeComponent();
-            DataContext = this;
-            Adresa = new Adresa();
+            DataContext = this; 
 
+            _StudentController = StudentController;
             _AdresaController = AdresaController;
+
+            Student = SelectedStudent;
+            AdresaStanovanja = _AdresaController.FindByID(Student.AdresaStanovanjaId);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -43,18 +48,24 @@ namespace StudentskaSluzba.View
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-       /*private void CreateStudent_Click(object sender, RoutedEventArgs e)
+        private void EditStudent_Click(object sender, RoutedEventArgs e)
         {
-            if (Adresa.IsValid)
-            {
-                _AdresaController.Create(Adresa);
+            if (Student.IsValid && AdresaStanovanja.IsValid)
+            { 
                 Close();
             }
             else
             {
-                MessageBox.Show("Adresa se ne može napraviti, jer nisu sva polja validno popunjena.");
+                if (!Student.IsValid)
+                {
+                    MessageBox.Show("Student se ne može izmeniti, jer nisu sva polja validno popunjena.");
+                }
+                if (!AdresaStanovanja.IsValid)
+                {
+                    MessageBox.Show("Adresa stanovanja se ne može izmeniti, jer nisu sva polja validno popunjena.");
+                }
             }
-        }*/
+        }
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {

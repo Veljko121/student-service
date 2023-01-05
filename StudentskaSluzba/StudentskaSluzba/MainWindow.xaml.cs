@@ -110,6 +110,32 @@ namespace StudentskaSluzba
             }
         }
 
+        private void EditWindow_Click(object sender, RoutedEventArgs e)
+        {
+            switch (SelectedTab)
+            {
+                case 1:
+                    if (SelectedStudent != null)
+                    {
+                        EditStudent editStudent = new EditStudent(_StudentController, _AdresaController, SelectedStudent);
+                        editStudent.Show();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Odaberite studenta kojeg želite da izbrišete.");
+                    }
+                    break;
+                case 2:
+                    CreateProfesor createProfesor = new CreateProfesor(_ProfesorController, _AdresaController);
+                    createProfesor.Show();
+                    break;
+                case 3:
+                    CreatePredmet createPredmet = new CreatePredmet(_PredmetController);
+                    createPredmet.Show();
+                    break;
+            }
+        }
+
         private void UpdateList()
         {
             switch (SelectedTab)

@@ -67,5 +67,19 @@ namespace StudentskaSluzba.Model.DAO
                 observer.Update();
             }
         }
+
+        public Adresa Find(int id)
+        {
+            foreach (Adresa a in _adrese)
+            {
+                if (a.Id == id)
+                {
+                    return a;
+                }
+                
+            }
+            return null;
+        }
+
     }
 }

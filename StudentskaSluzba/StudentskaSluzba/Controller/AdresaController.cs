@@ -38,5 +38,10 @@ namespace StudentskaSluzba.Controller
         {
             _adrese.Subscribe(observer);
         }
+
+        public Adresa FindByID(int id)
+        {
+            return _adrese.Find(id);
+        }
     }
 }

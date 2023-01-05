@@ -66,7 +66,7 @@
                     <Button ToolTip="Add" Click="CreateWindow_Click">
                         <Image Source="Icons\Plus.png" />
                     </Button>
-                    <Button ToolTip="Update" >
+                    <Button ToolTip="Update"  Click="EditWindow_Click">
                         <Image Source="Icons\Pencil.png" />
                     </Button>
                     <Button ToolTip="Delete" >
