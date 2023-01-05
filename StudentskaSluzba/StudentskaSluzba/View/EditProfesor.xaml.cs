@@ -26,12 +26,12 @@ namespace StudentskaSluzba.View
         private ProfesorController _ProfesorController;
         private AdresaController _AdresaContoller;
 
-        private Profesor Profesor;
-        private Adresa AdresaStanovanja;
-        private Adresa AdresaKancelarije;
-        private Profesor ProfesorOriginal;
-        private Adresa AdresaStanovanjaOriginal;
-        private Adresa AdresaKancelarijeOriginal;
+        public Profesor Profesor { get; set; }
+        public Adresa AdresaStanovanja { get; set; }
+        public Adresa AdresaKancelarije { get; set; }
+        public Profesor ProfesorOriginal { get; set; }
+        public Adresa AdresaStanovanjaOriginal { get; set; }
+        public Adresa AdresaKancelarijeOriginal { get; set; }
         public EditProfesor(ProfesorController ProfesorController, AdresaController AdresaController, Profesor SelectedProfesor)
         {
             InitializeComponent();

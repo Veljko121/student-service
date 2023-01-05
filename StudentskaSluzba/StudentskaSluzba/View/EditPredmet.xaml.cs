@@ -25,8 +25,8 @@ namespace StudentskaSluzba.View
     {
         private PredmetController _PredmetController;
 
-        private Predmet Predmet;
-        private Predmet PredmetOriginal;
+        public Predmet Predmet { get; set; }
+        public Predmet PredmetOriginal { get; set; }
 
         public EditPredmet(PredmetController PredmetController, Predmet SelectedPredmet)
         {
