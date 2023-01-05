@@ -122,16 +122,30 @@ namespace StudentskaSluzba
                     }
                     else
                     {
-                        MessageBox.Show("Odaberite studenta kojeg želite da izbrišete.");
+                        MessageBox.Show("Odaberite studenta kojeg želite da izmenite.");
                     }
                     break;
                 case 2:
-                    CreateProfesor createProfesor = new CreateProfesor(_ProfesorController, _AdresaController);
-                    createProfesor.Show();
+                    if (SelectedProfesor != null)
+                    {
+                        EditProfesor editProfesor = new EditProfesor(_StudentController, _AdresaController, SelectedProfesor);
+                        editProfesor.Show();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Odaberite profesora kojeg želite da izmenite.");
+                    }
                     break;
                 case 3:
-                    CreatePredmet createPredmet = new CreatePredmet(_PredmetController);
-                    createPredmet.Show();
+                    if (SelectedPredmet != null)
+                    {
+                        EditPredmet editPredmet = new EditPredmet(_StudentController, _AdresaController, SelectedPredmet);
+                        editPredmet.Show();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Odaberite predmet kojeg želite da izmenite.");
+                    }
                     break;
             }
         }

@@ -5,8 +5,168 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StudentskaSluzba.View"
         mc:Ignorable="d"
-        Title="EditProfesor" Height="450" Width="800">
+        Title="Izmena profesora" Height="600" Width="400"
+        WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <ControlTemplate x:Key="ValidationTemplate">
+            <StackPanel>
+                <!-- Placeholder for the TextBox itself -->
+                <AdornedElementPlaceholder x:Name="textBox" />
+                <TextBlock Text="{Binding [0].ErrorContent}" Foreground="Red" />
+            </StackPanel>
+        </ControlTemplate>
+    </Window.Resources>
     <Grid>
-        
+        <TabControl>
+            <TabItem Header="Informacije" >
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="500"></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0" Grid.Column="0" Width="350" Height="500">
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Row="0" Grid.Column="0" Height="30">Ime</Label>
+                        <Label Grid.Row="1" Grid.Column="0" Height="30">Prezime</Label>
+                        <Label Grid.Row="2" Grid.Column="0" Height="30">Datum rođenja</Label>
+                        <Label Grid.Row="3" Grid.Column="0" Height="30">Adresa stanovanja</Label>
+                        <Label Grid.Row="4" Grid.Column="0" Height="30">Kontakt telefon</Label>
+                        <Label Grid.Row="5" Grid.Column="0" Height="30">E-mail</Label>
+                        <Label Grid.Row="6" Grid.Column="0" Height="30">Adresa kancelarije</Label>
+                        <Label Grid.Row="7" Grid.Column="0" Height="30">Zvanje</Label>
+                        <Label Grid.Row="8" Grid.Column="0" Height="30">Godine staža</Label>
+                        <Label Grid.Row="9" Grid.Column="0" Height="30">Broj lične karte</Label>
+                        <Label Grid.Row="10" Grid.Column="0" Height="30">Katedra</Label>
+                        <TextBox Grid.Row="0" Grid.Column="1" Height="20"
+                     Text="{Binding Path=Profesor.Ime, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                     Validation.ErrorTemplate="{StaticResource ValidationTemplate}">
+                        </TextBox>
+                        <TextBox Grid.Row="1" Grid.Column="1" Height="20"
+                     Text="{Binding Path=Profesor.Prezime, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                     Validation.ErrorTemplate="{StaticResource ValidationTemplate}">
+                        </TextBox>
+                        <DatePicker Grid.Row="2" Grid.Column="1" Height="25"
+                     SelectedDate="{Binding Path=Profesor.DatumRodjenja, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                     Validation.ErrorTemplate="{StaticResource ValidationTemplate}">
+                        </DatePicker>
+                        <Grid Grid.Row="3" Grid.Column="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Row="0" Grid.Column="0" FontSize="10" HorizontalAlignment="Center" >Ulica</Label>
+                            <Label Grid.Row="0" Grid.Column="1" FontSize="10" HorizontalAlignment="Center" >Broj</Label>
+                            <Label Grid.Row="0" Grid.Column="2" FontSize="10" HorizontalAlignment="Center" >Grad</Label>
+                            <Label Grid.Row="0" Grid.Column="3" FontSize="10" HorizontalAlignment="Center" >Država</Label>
+
+                            <TextBox Grid.Row="1" Grid.Column="0"
+                     Text="{Binding Path=AdresaStanovanja.Ulica, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                     Validation.ErrorTemplate="{StaticResource ValidationTemplate}">
+                            </TextBox>
+                            <TextBox Grid.Row="1" Grid.Column="1"
+                     Text="{Binding Path=AdresaStanovanja.Broj, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                     Validation.ErrorTemplate="{StaticResource ValidationTemplate}">
+                            </TextBox>
+                            <TextBox Grid.Row="1" Grid.Column="2"
+                     Text="{Binding Path=AdresaStanovanja.Grad, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                     Validation.ErrorTemplate="{StaticResource ValidationTemplate}">
+                            </TextBox>
+                            <TextBox Grid.Row="1" Grid.Column="3"
+                     Text="{Binding Path=AdresaStanovanja.Drzava, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                     Validation.ErrorTemplate="{StaticResource ValidationTemplate}">
+                            </TextBox>
+                        </Grid>
+                        <TextBox Grid.Row="4" Grid.Column="1" Height="20"
+                     Text="{Binding Path=Profesor.Telefon, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                     Validation.ErrorTemplate="{StaticResource ValidationTemplate}">
+                        </TextBox>
+                        <TextBox Grid.Row="5" Grid.Column="1" Height="20"
+                     Text="{Binding Path=Profesor.Email, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                     Validation.ErrorTemplate="{StaticResource ValidationTemplate}">
+                        </TextBox>
+                        <Grid Grid.Row="6" Grid.Column="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Row="0" Grid.Column="0" FontSize="10" HorizontalAlignment="Center" >Ulica</Label>
+                            <Label Grid.Row="0" Grid.Column="1" FontSize="10" HorizontalAlignment="Center" >Broj</Label>
+                            <Label Grid.Row="0" Grid.Column="2" FontSize="10" HorizontalAlignment="Center" >Grad</Label>
+                            <Label Grid.Row="0" Grid.Column="3" FontSize="10" HorizontalAlignment="Center" >Država</Label>
+
+                            <TextBox Grid.Row="1" Grid.Column="0"
+                     Text="{Binding Path=AdresaKancelarije.Ulica, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                     Validation.ErrorTemplate="{StaticResource ValidationTemplate}">
+                            </TextBox>
+                            <TextBox Grid.Row="1" Grid.Column="1"
+                     Text="{Binding Path=AdresaKancelarije.Broj, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                     Validation.ErrorTemplate="{StaticResource ValidationTemplate}">
+                            </TextBox>
+                            <TextBox Grid.Row="1" Grid.Column="2"
+                     Text="{Binding Path=AdresaKancelarije.Grad, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                     Validation.ErrorTemplate="{StaticResource ValidationTemplate}">
+                            </TextBox>
+                            <TextBox Grid.Row="1" Grid.Column="3"
+                     Text="{Binding Path=AdresaKancelarije.Drzava, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                     Validation.ErrorTemplate="{StaticResource ValidationTemplate}">
+                            </TextBox>
+                        </Grid>
+                        <ComboBox SelectedValuePath="Content" x:Name="comboBoxZvanje" Grid.Row="7" Grid.Column="1" Height="25"
+                     SelectedValue="{Binding Path=Profesor.Zvanje, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                     Validation.ErrorTemplate="{StaticResource ValidationTemplate}">
+                            <ComboBoxItem FontSize="10" Tag="1">Redovni profesor</ComboBoxItem>
+                            <ComboBoxItem FontSize="10" Tag="2">Vanredni profesor</ComboBoxItem>
+                            <ComboBoxItem FontSize="10" Tag="3">Ostalo</ComboBoxItem>
+                        </ComboBox>
+                        <TextBox Grid.Row="8" Grid.Column="1" Height="20"
+                     Text="{Binding Path=Profesor.GodineStaza, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                     Validation.ErrorTemplate="{StaticResource ValidationTemplate}">
+                        </TextBox>
+                        <TextBox Grid.Row="9" Grid.Column="1" Height="20"
+                     Text="{Binding Path=Profesor.BrojLicne, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                     Validation.ErrorTemplate="{StaticResource ValidationTemplate}">
+                        </TextBox>
+                        <!--<TextBox Grid.Row="10" Grid.Column="1" Text="{Binding Path=Katedra, UpdateSourceTrigger=PropertyChanged}"
+                     Height="30"></TextBox>-->
+
+                    </Grid>
+                    <WrapPanel Grid.Row="1" FlowDirection="RightToLeft">
+                        <Button Content="Odustani" IsCancel="True" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30, 20, 0, 5" Click="CancelButton_Click"/>
+                        <Button Content="Potvrdi" IsDefault="True" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20, 20, 0, 5" Click="EditProfesor_Click"/>
+                    </WrapPanel>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Predmeti">
+            </TabItem>
+        </TabControl>
     </Grid>
 </Window>
