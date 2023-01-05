@@ -74,9 +74,6 @@ namespace StudentskaSluzba
             this.StatusBarTextBlock.Text = "Studentska sluzba - Studenti";
 
             SelectedTab = 1;
-            _StudentController = new StudentController();
-            _StudentController.Subscribe(this);
-            Studenti = new ObservableCollection<Student>(_StudentController.GetAllStudents());
         }
         private void TabPredmeti_Click(object sender, RoutedEventArgs e)
         {
@@ -205,8 +202,8 @@ namespace StudentskaSluzba
 
         private MessageBoxResult ConfirmStudentDeletion()
         {
-            string sMessageBoxText = $"Da li ste sigurni da želite da izbrišete studenta\n{SelectedStudent}";
-            string sCaption = "Porvrda brisanja";
+            string sMessageBoxText = $"Da li ste sigurni da želite da izbrišete studenta: \n{SelectedStudent}";
+            string sCaption = "Potvrda brisanja";
 
             MessageBoxButton btnMessageBox = MessageBoxButton.YesNo;
             MessageBoxImage icnMessageBox = MessageBoxImage.Warning;
@@ -217,8 +214,8 @@ namespace StudentskaSluzba
 
         private MessageBoxResult ConfirmProfesorDeletion()
         {
-            string sMessageBoxText = $"Da li ste sigurni da želite da izbrišete profesora\n{SelectedProfesor}";
-            string sCaption = "Porvrda brisanja";
+            string sMessageBoxText = $"Da li ste sigurni da želite da izbrišete profesora: \n{SelectedProfesor}";
+            string sCaption = "Potvrda brisanja";
 
             MessageBoxButton btnMessageBox = MessageBoxButton.YesNo;
             MessageBoxImage icnMessageBox = MessageBoxImage.Warning;
@@ -229,8 +226,8 @@ namespace StudentskaSluzba
 
         private MessageBoxResult ConfirmPredmetDeletion()
         {
-            string sMessageBoxText = $"Da li ste sigurni da želite da izbrišete predmet\n{SelectedPredmet}";
-            string sCaption = "Porvrda brisanja";
+            string sMessageBoxText = $"Da li ste sigurni da želite da izbrišete predmet: \n{SelectedPredmet}";
+            string sCaption = "Potvrda brisanja";
 
             MessageBoxButton btnMessageBox = MessageBoxButton.YesNo;
             MessageBoxImage icnMessageBox = MessageBoxImage.Warning;

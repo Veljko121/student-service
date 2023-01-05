@@ -253,6 +253,11 @@ namespace StudentskaSluzba.Model
             ProsecnaOcena = double.Parse(values[11]);
         }
 
+        public override string ToString()
+        {
+            return this.BrojIndeksa + " " + this.Ime + " " + this.Prezime;
+        }
+
         private Regex _IndexRegex = new Regex("[A-Z]{2} [0-9]{1,3}/[0-9]{4}");
         private Regex _EmailRegex = new Regex("[A-Za-z0-9]+@[A-Za-z0-9]+\\.[A-Za-z0-9]+");
         private Regex _BrojTelefonaRegex = new Regex("^[\\+]?[(]?[0-9]{3}[)]?[-\\s\\.]?[0-9]{3}[-\\s\\.]?[0-9]{4,6}$");

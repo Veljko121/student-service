@@ -163,6 +163,11 @@ namespace StudentskaSluzba.Model
             BrojESPB = int.Parse(values[6]);
         }
 
+        public override string ToString()
+        {
+            return this.Sifra + " " + this.Naziv;
+        }
+
         public string Error => null;
 
         public string this[string columnName]

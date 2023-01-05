@@ -254,6 +254,11 @@ namespace StudentskaSluzba.Model
             KatedraId = int.Parse(values[11]);
         }
 
+        public override string ToString()
+        {
+            return this.Ime + " " + this.Prezime;
+        }
+
         private Regex _EmailRegex = new Regex("[A-Za-z0-9]+@[A-Za-z0-9]+\\.[A-Za-z0-9]+");
         private Regex _BrojTelefonaRegex = new Regex("^[\\+]?[(]?[0-9]{3}[)]?[-\\s\\.]?[0-9]{3}[-\\s\\.]?[0-9]{4,6}$");
         private Regex _BrojLicneRegex = new Regex("[0-9]{9}");
