@@ -27,14 +27,19 @@ namespace StudentskaSluzba.View
     {
         private StudentController _StudentController;
         private AdresaController _AdresaController;
+        private OcenaController _OcenaController;
 
         public ObservableCollection<Ocena> Polozeni { get; set; }
         public ObservableCollection<Ocena> Nepolozeni { get; set; }
+        public Ocena SelectedPolozeni { get; set; }
+        public Ocena SelectedNepolozeni { get; set; }
 
         public Student Student { get; set; }
         public Adresa AdresaStanovanja { get; set; }
         public Student StudentOriginal { get; set; }
         public Adresa AdresaOriginal { get; set; }
+
+        public int SelectedTab { get; set; }
 
         public EditStudent(StudentController StudentController, AdresaController AdresaController, Student SelectedStudent)
         {
@@ -52,6 +57,16 @@ namespace StudentskaSluzba.View
 
             Student = new Student(StudentOriginal);
             AdresaStanovanja = new Adresa(AdresaOriginal);
+        }
+
+        private void TabNepolozeni_Click(object sender, RoutedEventArgs e)
+        {
+            SelectedTab = 1;
+        }
+
+        private void TabPolozeni_Click(object sender, RoutedEventArgs e)
+        {
+            SelectedTab = 2;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -100,6 +115,36 @@ namespace StudentskaSluzba.View
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
             Close();
+        }
+
+        private void PonistiOcenu_Click(object sender, RoutedEventArgs e)
+        {
+            if (SelectedPolozeni != null)
+            {
+                MessageBoxResult result = ConfirmOcenaDeletion();
+
+                if (result == MessageBoxResult.Yes)
+                {
+                    SelectedPolozeni.VrednostOcene = 5;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Odaberite ocenu kojeg želite da poništite.");
+            }
+            
+        }
+
+        private MessageBoxResult ConfirmOcenaDeletion()
+        {
+            string sMessageBoxText = $"Da li ste sigurni da želite da poništite ocenu:\n{SelectedPolozeni}";
+            string sCaption = "Potvrda brisanja";
+
+            MessageBoxButton btnMessageBox = MessageBoxButton.YesNo;
+            MessageBoxImage icnMessageBox = MessageBoxImage.Warning;
+
+            MessageBoxResult result = MessageBox.Show(sMessageBoxText, sCaption, btnMessageBox, icnMessageBox);
+            return result;
         }
 
 
