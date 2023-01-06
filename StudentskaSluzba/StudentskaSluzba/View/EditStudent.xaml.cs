@@ -1,5 +1,6 @@
 ﻿using StudentskaSluzba.Controller;
 using StudentskaSluzba.Model;
+using StudentskaSluzba.Observer;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -22,10 +23,13 @@ namespace StudentskaSluzba.View
     /// <summary>
     /// Interaction logic for EditStudent.xaml
     /// </summary>
-    public partial class EditStudent : Window, INotifyPropertyChanged
+    public partial class EditStudent : Window, INotifyPropertyChanged, IObserver
     {
         private StudentController _StudentController;
         private AdresaController _AdresaController;
+
+        public ObservableCollection<Ocena> Polozeni { get; set; }
+        public ObservableCollection<Ocena> Nepolozeni { get; set; }
 
         public Student Student { get; set; }
         public Adresa AdresaStanovanja { get; set; }
@@ -39,6 +43,9 @@ namespace StudentskaSluzba.View
 
             _StudentController = StudentController;
             _AdresaController = AdresaController;
+
+            Polozeni = new ObservableCollection<Ocena>(SelectedStudent.PolozeniIspiti);
+            Nepolozeni = new ObservableCollection<Ocena>(SelectedStudent.NepolozeniIspiti);
 
             StudentOriginal = SelectedStudent;
             AdresaOriginal = _AdresaController.FindByID(StudentOriginal.AdresaStanovanjaId);
@@ -93,6 +100,17 @@ namespace StudentskaSluzba.View
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
             Close();
+        }
+
+
+        private void UpdateList()
+        {
+
+        }
+
+        public void Update()
+        {
+            UpdateList();
         }
     }
 }
