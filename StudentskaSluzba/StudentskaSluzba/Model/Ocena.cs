@@ -3,20 +3,46 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace StudentskaSluzba.Model
 {
-    public class Ocena : ISerializable
+    public class Ocena : ISerializable, INotifyPropertyChanged, IDataErrorInfo
     {
         public int Id { get; set; }
         public int StudentId { get; set; }
         public int PredmetId { get; set; }
         public int VrednostOcene { get; set; }
         public DateTime DatumPolaganja { get; set; }
-        public Student Student { get; set; }
-        public Predmet Predmet { get; set; }
+        private Student _student;
+        public Student Student
+        {
+            get => _student;
+            set
+            {
+                if (value != _student)
+                {
+                    _student = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+        private Predmet _predmet;
+        public Predmet Predmet
+        {
+            get => _predmet;
+            set
+            {
+                if (value != _predmet)
+                {
+                    _predmet = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
 
         public Ocena()
         {
@@ -62,6 +88,23 @@ namespace StudentskaSluzba.Model
             PredmetId = int.Parse(values[2]);
             VrednostOcene = int.Parse(values[3]);
             DatumPolaganja = DateTime.Parse(values[4]);
+        }
+
+        public string Error => null;
+
+        public string this[string columnName]
+        {
+            get
+            {
+                return null;
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }
