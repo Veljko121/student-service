@@ -49,6 +49,7 @@ namespace StudentskaSluzba.View
             _StudentController = StudentController;
             _AdresaController = AdresaController;
             _OcenaController = OcenaController;
+            _OcenaController.Subscribe(this);
 
             Polozeni = new ObservableCollection<Ocena>(SelectedStudent.PolozeniIspiti);
             Nepolozeni = new ObservableCollection<Ocena>(SelectedStudent.NepolozeniIspiti);

@@ -86,6 +86,7 @@ namespace StudentskaSluzba.Model.DAO
         {
             foreach (var observer in _observers)
             {
+                
                 observer.Update();
             }
         }
