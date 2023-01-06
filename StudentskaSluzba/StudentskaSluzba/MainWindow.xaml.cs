@@ -26,6 +26,7 @@ namespace StudentskaSluzba
     /// </summary>
     public partial class MainWindow : Window, IObserver
     {
+        private OcenaController _OcenaController;
         private StudentController _StudentController;
         private ProfesorController _ProfesorController;
         private PredmetController _PredmetController;
@@ -33,6 +34,7 @@ namespace StudentskaSluzba
         public ObservableCollection<Student> Studenti { get; set; }
         public ObservableCollection<Profesor>  Profesori { get; set; }
         public ObservableCollection<Predmet> Predmeti { get; set; }
+        public ObservableCollection<Ocena> Ocene { get; set; }
         public Student SelectedStudent { get; set; }
         public Profesor SelectedProfesor { get; set; }
         public Predmet SelectedPredmet { get; set; }
@@ -45,7 +47,11 @@ namespace StudentskaSluzba
             DataContext = this;
             SelectedTab = 1;
 
-            _StudentController = new StudentController();
+            _OcenaController = new OcenaController();
+            _OcenaController.Subscribe(this);
+            Ocene = new ObservableCollection<Ocena>(_OcenaController.GetAllOcene());
+
+            _StudentController = new StudentController(_OcenaController);
             _StudentController.Subscribe(this);
             Studenti = new ObservableCollection<Student>(_StudentController.GetAllStudents());
 

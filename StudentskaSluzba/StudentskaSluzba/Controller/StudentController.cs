@@ -13,9 +13,9 @@ namespace StudentskaSluzba.Controller
     {
         private StudentDAO _students;
 
-        public StudentController()
+        public StudentController(OcenaController ocenaController)
         {
-            _students = new StudentDAO();
+            _students = new StudentDAO(ocenaController.GetAllOcene());
         }
 
         public List<Student> GetAllStudents()

@@ -159,7 +159,7 @@ namespace StudentskaSluzba.Model
         }
         public Adresa AdresaStanovanja { get; set; }
         public List<Ocena> PolozeniIspiti { get; set; }
-        public List<Predmet> NepolozeniIspiti { get; set; }
+        public List<Ocena> NepolozeniIspiti { get; set; }
 
         public Student()
         {
@@ -177,8 +177,8 @@ namespace StudentskaSluzba.Model
             //ProsecnaOcena = 0.0;
 
             //AdresaStanovanja = new Adresa();
-            //PolozeniIspiti = new List<Ocena>();
-            //NepolozeniIspiti = new List<Predmet>();
+            PolozeniIspiti = new List<Ocena>();
+            NepolozeniIspiti = new List<Ocena>();
         }
 
         public Student(int Id, string Prezime, string Ime, DateTime DatumRodjenja, int AdresaStanovanjaId, string KontaktTelefon, string Email, string BrojIndeksa, int GodinaUpisa, string TrenutnaGodinaStudija, string Status, int ProsecnaOcena)
@@ -197,8 +197,8 @@ namespace StudentskaSluzba.Model
             this.ProsecnaOcena = ProsecnaOcena;
 
             //AdresaStanovanja = new Adresa();
-            //PolozeniIspiti = new List<Ocena>();
-            //NepolozeniIspiti = new List<Predmet>();
+            PolozeniIspiti = new List<Ocena>();
+            NepolozeniIspiti = new List<Ocena>();
         }
 
         public Student(Student student)

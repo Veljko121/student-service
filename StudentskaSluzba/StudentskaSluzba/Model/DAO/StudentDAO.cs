@@ -16,10 +16,34 @@ namespace StudentskaSluzba.Model.DAO
         private StudentStorage _storage;
         private List<Student> _studenti;
 
-        public StudentDAO()
+        public StudentDAO(List<Ocena> _ocene)
         {
             _storage = new StudentStorage();
             _studenti = _storage.Load();
+
+            foreach (Student student in _studenti)
+            {
+                foreach (Ocena ocena in _ocene)
+                {
+                    if (student.Id == ocena.StudentId)
+                    {
+                        if (ocena.VrednostOcene >= 6 && ocena.VrednostOcene <= 10)
+                        {
+                            student.PolozeniIspiti.Add(ocena);
+                        }
+                        else
+                        {
+                            student.NepolozeniIspiti.Add(ocena);
+                        }
+                    }
+                }
+                student.ProsecnaOcena = 0;
+                foreach (Ocena ocena in student.PolozeniIspiti)
+                {
+                    student.ProsecnaOcena += ocena.VrednostOcene;
+                }
+                student.ProsecnaOcena /= student.PolozeniIspiti.Count();
+            }
             _observers = new List<IObserver>();
         }
 
