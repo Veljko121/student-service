@@ -38,12 +38,7 @@ namespace StudentskaSluzba.Model.DAO
                         }
                     }
                 }
-                student.ProsecnaOcena = 0;
-                foreach (Ocena ocena in student.PolozeniIspiti)
-                {
-                    student.ProsecnaOcena += ocena.VrednostOcene;
-                }
-                student.ProsecnaOcena /= student.PolozeniIspiti.Count();
+                IzracunajProsek(student);
             }
             _observers = new List<IObserver>();
         }
@@ -93,6 +88,16 @@ namespace StudentskaSluzba.Model.DAO
             {
                 observer.Update();
             }
+        }
+
+        public void IzracunajProsek(Student student)
+        {
+            student.ProsecnaOcena = 0;
+            foreach (Ocena ocena in student.PolozeniIspiti)
+            {
+                student.ProsecnaOcena += ocena.VrednostOcene;
+            }
+            student.ProsecnaOcena /= student.PolozeniIspiti.Count();
         }
     }
 }

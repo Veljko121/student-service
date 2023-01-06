@@ -41,13 +41,14 @@ namespace StudentskaSluzba.View
 
         public int SelectedTab { get; set; }
 
-        public EditStudent(StudentController StudentController, AdresaController AdresaController, Student SelectedStudent)
+        public EditStudent(StudentController StudentController, AdresaController AdresaController, OcenaController OcenaController, Student SelectedStudent)
         {
             InitializeComponent();
             DataContext = this; 
 
             _StudentController = StudentController;
             _AdresaController = AdresaController;
+            _OcenaController = OcenaController;
 
             Polozeni = new ObservableCollection<Ocena>(SelectedStudent.PolozeniIspiti);
             Nepolozeni = new ObservableCollection<Ocena>(SelectedStudent.NepolozeniIspiti);
@@ -125,9 +126,13 @@ namespace StudentskaSluzba.View
 
                 if (result == MessageBoxResult.Yes)
                 {
-                    SelectedPolozeni.VrednostOcene = 5;
-                    StudentOriginal.PolozeniIspiti.Remove(SelectedPolozeni);
-                    StudentOriginal.NepolozeniIspiti.Add(SelectedPolozeni);
+                    //SelectedPolozeni.VrednostOcene = 5;
+                    //StudentOriginal.PolozeniIspiti.Remove(SelectedPolozeni);
+                    //StudentOriginal.NepolozeniIspiti.Add(SelectedPolozeni);
+                    //Polozeni.Remove(SelectedPolozeni);
+                    //Nepolozeni.Add(SelectedPolozeni);
+                    _OcenaController.PonistiOcenu(SelectedPolozeni, StudentOriginal);
+                    _StudentController.IzracunajProsek(StudentOriginal);
                 }
             }
             else

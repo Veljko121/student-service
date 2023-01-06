@@ -37,5 +37,10 @@ namespace StudentskaSluzba.Controller
         {
             _ocene.Subscribe(observer);
         }
+
+        public void PonistiOcenu(Ocena ocena, Student student)
+        {
+            _ocene.PonistiOcenu(ocena, student);
+        }
     }
 }

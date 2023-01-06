@@ -64,5 +64,14 @@ namespace StudentskaSluzba.Model.DAO
                 observer.Update();
             }
         }
+
+        public void PonistiOcenu(Ocena ocena, Student student)
+        {
+            ocena.VrednostOcene = 5;
+            student.PolozeniIspiti.Remove(ocena);
+            student.NepolozeniIspiti.Add(ocena);
+            _storage.Save(_ocene);
+            NotifyObservers();
+        }
     }
 }

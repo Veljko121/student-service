@@ -37,5 +37,10 @@ namespace StudentskaSluzba.Controller
         {
             _students.Subscribe(observer);
         }
+
+        public void IzracunajProsek(Student student)
+        {
+            _students.IzracunajProsek(student);
+        }
     }
 }
