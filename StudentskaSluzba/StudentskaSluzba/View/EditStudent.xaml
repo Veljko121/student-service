@@ -160,7 +160,7 @@
             <TabItem Header="Nepoloženi">
                 <DataGrid DockPanel.Dock="Bottom"
                         ItemsSource="{Binding Path=Nepolozeni, UpdateSourceTrigger=PropertyChanged}"
-                        SelectedItem="{Binding Path=SelectedPolozeni, UpdateSourceTrigger=PropertyChanged}"
+                        SelectedItem="{Binding Path=SelectedNepolozeni, UpdateSourceTrigger=PropertyChanged}"
                         AutoGenerateColumns="False" IsReadOnly="True">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Šifra predmeta" Width="*" Binding="{Binding Predmet.Sifra}"></DataGridTextColumn>
