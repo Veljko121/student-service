@@ -231,8 +231,7 @@ namespace StudentskaSluzba.Model
                 BrojIndeksa,
                 GodinaUpisa.ToString(),
                 TrenutnaGodinaStudija,
-                Status,
-                ProsecnaOcena.ToString()
+                Status
             };
             return csvValues;
         }
@@ -250,7 +249,6 @@ namespace StudentskaSluzba.Model
             GodinaUpisa = int.Parse(values[8]);
             TrenutnaGodinaStudija = values[9];
             Status = values[10];
-            ProsecnaOcena = double.Parse(values[11]);
         }
 
         public override string ToString()

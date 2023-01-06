@@ -252,6 +252,12 @@ namespace StudentskaSluzba
                     {
                         Studenti.Add(student);
                     }
+
+                    Ocene.Clear();
+                    foreach (var ocena in _OcenaController.GetAllOcene())
+                    {
+                        Ocene.Add(ocena);
+                    }
                     break;
                 case 2:
                     Profesori.Clear();

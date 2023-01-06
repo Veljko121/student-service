@@ -126,6 +126,8 @@ namespace StudentskaSluzba.View
                 if (result == MessageBoxResult.Yes)
                 {
                     SelectedPolozeni.VrednostOcene = 5;
+                    StudentOriginal.PolozeniIspiti.Remove(SelectedPolozeni);
+                    StudentOriginal.NepolozeniIspiti.Add(SelectedPolozeni);
                 }
             }
             else
@@ -150,7 +152,17 @@ namespace StudentskaSluzba.View
 
         private void UpdateList()
         {
+            Polozeni.Clear();
+            foreach (var ocena in StudentOriginal.PolozeniIspiti)
+            {
+                Polozeni.Add(ocena);
+            }
 
+            Nepolozeni.Clear();
+            foreach (var ocena in StudentOriginal.NepolozeniIspiti)
+            {
+                Nepolozeni.Add(ocena);
+            }
         }
 
         public void Update()
