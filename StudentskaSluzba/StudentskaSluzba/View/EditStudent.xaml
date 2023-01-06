@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StudentskaSluzba.View"
         mc:Ignorable="d"
-        Title="Izmena studenta" Height="600" Width="400"
+        Title="Izmena studenta" Height="600" Width="500"
         WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <ControlTemplate x:Key="ValidationTemplate">
@@ -138,6 +138,18 @@
                 </Grid>
             </TabItem>
             <TabItem Header="Položeni">
+                <DataGrid DockPanel.Dock="Bottom"
+                        ItemsSource="{Binding Path=Polozeni, UpdateSourceTrigger=PropertyChanged}"
+                        SelectedItem="{Binding Path=SelectedPolozeni, UpdateSourceTrigger=PropertyChanged}"
+                        AutoGenerateColumns="False" IsReadOnly="True">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Šifra predmeta" Width="*" Binding="{Binding BrojIndeksa}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Naziv predmeta" Width="*" Binding="{Binding Ime}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="ESPB" Width="50" Binding="{Binding Prezime}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Ocena" Width="50" Binding="{Binding GodinaUpisa}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Datum" Width="100" Binding="{Binding Status}"></DataGridTextColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
             </TabItem>
             <TabItem Header="Nepoloženi">
             </TabItem>
