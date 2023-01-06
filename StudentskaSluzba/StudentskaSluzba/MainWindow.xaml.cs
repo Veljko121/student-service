@@ -59,7 +59,7 @@ namespace StudentskaSluzba
             _ProfesorController.Subscribe(this);
             Profesori = new ObservableCollection<Profesor>(_ProfesorController.GetAllProfesori());
 
-            _PredmetController = new PredmetController();
+            _PredmetController = new PredmetController(_OcenaController);
             _PredmetController.Subscribe(this);
             Predmeti = new ObservableCollection<Predmet>(_PredmetController.GetAllPredmeti());
 

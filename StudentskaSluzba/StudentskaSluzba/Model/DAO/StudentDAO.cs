@@ -27,6 +27,7 @@ namespace StudentskaSluzba.Model.DAO
                 {
                     if (student.Id == ocena.StudentId)
                     {
+                        ocena.Student = student;
                         if (ocena.VrednostOcene >= 6 && ocena.VrednostOcene <= 10)
                         {
                             student.PolozeniIspiti.Add(ocena);

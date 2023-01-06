@@ -15,10 +15,22 @@ namespace StudentskaSluzba.Model.DAO
         private PredmetStorage _storage;
         private List<Predmet> _predmeti;
 
-        public PredmetDAO()
+        public PredmetDAO(List<Ocena> _ocene)
         {
             _storage = new PredmetStorage();
             _predmeti = _storage.Load();
+
+            foreach (Predmet predmet in _predmeti)
+            {
+                foreach (Ocena ocena in _ocene)
+                {
+                    if (predmet.Id == ocena.PredmetId)
+                    {
+                        ocena.Predmet = predmet;
+                    }
+                }
+            }
+
             _observers = new List<IObserver>();
         }
 

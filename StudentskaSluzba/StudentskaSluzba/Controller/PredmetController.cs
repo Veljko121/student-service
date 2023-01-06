@@ -13,9 +13,9 @@ namespace StudentskaSluzba.Controller
     {
         private PredmetDAO _predmeti;
 
-        public PredmetController()
+        public PredmetController(OcenaController ocenaController)
         {
-            _predmeti = new PredmetDAO();
+            _predmeti = new PredmetDAO(ocenaController.GetAllOcene());
         }
 
         public List<Predmet> GetAllPredmeti()
