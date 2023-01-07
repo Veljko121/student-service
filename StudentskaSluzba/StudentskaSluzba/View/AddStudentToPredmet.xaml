@@ -5,8 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StudentskaSluzba.View"
         mc:Ignorable="d"
-        Title="AddStudentToPredmet" Height="450" Width="800">
+        Title="Izmena studenta" Height="600" Width="500"
+        WindowStartupLocation="CenterScreen">
     <Grid>
-        
+        <StackPanel>
+            <WrapPanel DockPanel.Dock="Bottom" FlowDirection="LeftToRight">
+                <Button Content="Dodaj" IsCancel="True" HorizontalAlignment="Left" VerticalAlignment="Top"
+                    Margin="0, 10, 10, 10" Click="PonistiOcenu_Click"/>
+                <Button Content="Odustani" IsCancel="True" HorizontalAlignment="Left" VerticalAlignment="Top"
+                    Margin="0, 10, 0, 10" Click="PonistiOcenu_Click"/>
+            </WrapPanel>
+            <DataGrid DockPanel.Dock="Top" HeadersVisibility="None"
+                        ItemsSource="{Binding Path=Predmet, UpdateSourceTrigger=PropertyChanged}"
+                        SelectedItem="{Binding Path=SelectedPredmet, UpdateSourceTrigger=PropertyChanged}"
+                        AutoGenerateColumns="False" IsReadOnly="True">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Šifra predmeta" Width="*" Binding="{Binding ToString}"></DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
     </Grid>
 </Window>
