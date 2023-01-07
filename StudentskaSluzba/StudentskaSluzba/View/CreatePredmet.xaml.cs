@@ -27,13 +27,13 @@ namespace StudentskaSluzba.View
 
         public Predmet Predmet { get; set; }
 
-        public CreatePredmet(PredmetController PredmetController)
+        public CreatePredmet(PredmetController predmetController)
         {
             InitializeComponent();
             DataContext = this;
             Predmet = new Predmet();
 
-            _PredmetController = PredmetController;
+            _PredmetController = predmetController;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

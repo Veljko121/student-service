@@ -42,15 +42,15 @@ namespace StudentskaSluzba.View
 
         public int SelectedTab { get; set; }
 
-        public EditStudent(StudentController StudentController, AdresaController AdresaController, OcenaController OcenaController, PredmetController PredmetController, Student SelectedStudent)
+        public EditStudent(StudentController studentController, AdresaController adresaController, OcenaController ocenaController, PredmetController predmetController, Student SelectedStudent)
         {
             InitializeComponent();
             DataContext = this; 
 
-            _StudentController = StudentController;
-            _AdresaController = AdresaController;
-            _OcenaController = OcenaController;
-            _PredmetController = PredmetController;
+            _StudentController = studentController;
+            _AdresaController = adresaController;
+            _OcenaController = ocenaController;
+            _PredmetController = predmetController;
             _OcenaController.Subscribe(this);
 
             Polozeni = new ObservableCollection<Ocena>(SelectedStudent.PolozeniIspiti);
@@ -165,14 +165,14 @@ namespace StudentskaSluzba.View
             }
             else
             {
-                MessageBox.Show("Odaberite predmet koji želite da obrišete.");
+                MessageBox.Show("Odaberite Predmet koji želite da obrišete.");
             }
         }
 
         private MessageBoxResult ConfirmStudentDeletion()
         {
             string ispis = SelectedNepolozeni.Predmet.Sifra + " " + SelectedNepolozeni.Predmet.Naziv;
-            string sMessageBoxText = $"Da li ste sigurni da želite da izbrišete predmet: \n{ispis}";
+            string sMessageBoxText = $"Da li ste sigurni da želite da izbrišete Predmet: \n{ispis}";
             string sCaption = "Potvrda brisanja";
 
             MessageBoxButton btnMessageBox = MessageBoxButton.YesNo;
@@ -188,7 +188,7 @@ namespace StudentskaSluzba.View
 
         private MessageBoxResult ConfirmOcenaDeletion()
         {
-            string ispis = SelectedPolozeni.Predmet.Sifra + " " + SelectedPolozeni.Predmet.Naziv + ", " + SelectedPolozeni.VrednostOcene
+            string ispis = SelectedPolozeni.Predmet.Sifra + " " + SelectedPolozeni.Predmet.Naziv + ", " + SelectedPolozeni.VrednostOcene;
             string sMessageBoxText = $"Da li ste sigurni da želite da poništite ocenu:\n{ispis}";
             string sCaption = "Potvrda brisanja";
 

@@ -32,17 +32,17 @@ namespace StudentskaSluzba.View
         public Profesor ProfesorOriginal { get; set; }
         public Adresa AdresaStanovanjaOriginal { get; set; }
         public Adresa AdresaKancelarijeOriginal { get; set; }
-        public EditProfesor(ProfesorController ProfesorController, AdresaController AdresaController, Profesor SelectedProfesor)
+        public EditProfesor(ProfesorController profesorController, AdresaController adresaController, Profesor SelectedProfesor)
         {
             InitializeComponent();
             DataContext= this;
 
-            _ProfesorController = ProfesorController;
-            _AdresaContoller = AdresaController;
+            _ProfesorController = profesorController;
+            _AdresaContoller = adresaController;
 
             ProfesorOriginal = SelectedProfesor;
-            AdresaStanovanjaOriginal = AdresaController.FindByID(ProfesorOriginal.AdresaStanovanjaId);
-            AdresaKancelarijeOriginal = AdresaController.FindByID(ProfesorOriginal.AdresaKancelarijeId);
+            AdresaStanovanjaOriginal = adresaController.FindByID(ProfesorOriginal.AdresaStanovanjaId);
+            AdresaKancelarijeOriginal = adresaController.FindByID(ProfesorOriginal.AdresaKancelarijeId);
 
             Profesor = new Profesor(ProfesorOriginal);
             AdresaStanovanja = new Adresa(AdresaStanovanjaOriginal);

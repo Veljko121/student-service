@@ -77,19 +77,19 @@ namespace StudentskaSluzba
 
         private void TabStudenti_Click(object sender, RoutedEventArgs e)
         {
-            this.StatusBarTextBlock.Text = "Studentska sluzba - Studenti";
+            this.StatusBarTextBlock.Text = "Studentska služba - Studenti";
 
             SelectedTab = 1;
         }
         private void TabPredmeti_Click(object sender, RoutedEventArgs e)
         {
-            this.StatusBarTextBlock.Text = "Studentska sluzba - Predmeti";
+            this.StatusBarTextBlock.Text = "Studentska služba - Predmeti";
 
             SelectedTab = 3;
         }
         private void TabProfesori_Click(object sender, RoutedEventArgs e)
         {
-            this.StatusBarTextBlock.Text = "Studentska sluzba - Profesori";
+            this.StatusBarTextBlock.Text = "Studentska služba - Profesori";
 
             SelectedTab = 2;
         }
@@ -147,7 +147,7 @@ namespace StudentskaSluzba
                     }
                     else
                     {
-                        MessageBox.Show("Odaberite predmet koji želite da izmenite.");
+                        MessageBox.Show("Odaberite Predmet koji želite da izmenite.");
                     }
                     break;
             }
@@ -200,7 +200,7 @@ namespace StudentskaSluzba
                     }
                     else
                     {
-                        MessageBox.Show("Odaberite predmet koji želite da obrišete.");
+                        MessageBox.Show("Odaberite Predmet koji želite da obrišete.");
                     }
                     break;
             }
@@ -208,7 +208,8 @@ namespace StudentskaSluzba
 
         private MessageBoxResult ConfirmStudentDeletion()
         {
-            string sMessageBoxText = $"Da li ste sigurni da želite da izbrišete studenta: \n{SelectedStudent}";
+            string ispis = SelectedStudent.ToString();
+            string sMessageBoxText = $"Da li ste sigurni da želite da izbrišete studenta: \n{ispis}";
             string sCaption = "Potvrda brisanja";
 
             MessageBoxButton btnMessageBox = MessageBoxButton.YesNo;
@@ -220,7 +221,8 @@ namespace StudentskaSluzba
 
         private MessageBoxResult ConfirmProfesorDeletion()
         {
-            string sMessageBoxText = $"Da li ste sigurni da želite da izbrišete profesora: \n{SelectedProfesor}";
+            string ispis = SelectedProfesor.ToString();
+            string sMessageBoxText = $"Da li ste sigurni da želite da izbrišete profesora: \n{ispis}";
             string sCaption = "Potvrda brisanja";
 
             MessageBoxButton btnMessageBox = MessageBoxButton.YesNo;
@@ -232,7 +234,8 @@ namespace StudentskaSluzba
 
         private MessageBoxResult ConfirmPredmetDeletion()
         {
-            string sMessageBoxText = $"Da li ste sigurni da želite da izbrišete predmet: \n{SelectedPredmet}";
+            string ispis = SelectedPredmet.ToString();
+            string sMessageBoxText = $"Da li ste sigurni da želite da izbrišete Predmet: \n{ispis}";
             string sCaption = "Potvrda brisanja";
 
             MessageBoxButton btnMessageBox = MessageBoxButton.YesNo;

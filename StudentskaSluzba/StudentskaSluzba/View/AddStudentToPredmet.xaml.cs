@@ -33,18 +33,18 @@ namespace StudentskaSluzba.View
         public Predmet SelectedPredmet { get; set; }
         private Student Student;
         private Ocena Ocena;
-        public AddStudentToPredmet(PredmetController PredmetController, OcenaController OcenaController, Student student)
+        public AddStudentToPredmet(PredmetController predmetController, OcenaController ocenaController, Student student)
         {
             InitializeComponent();
             DataContext= this;
 
-            _OcenaController = OcenaController;
-            _PredmetController = PredmetController;
+            _OcenaController = ocenaController;
+            _PredmetController = predmetController;
 
             Predmeti = new ObservableCollection<Predmet>(_PredmetController.GetPredmetiWhereNotStudent(_OcenaController.GetOceneForStudent(student)));
 
             Ocena = new Ocena();
-            Student = student;
+            this.Student = student;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -69,7 +69,7 @@ namespace StudentskaSluzba.View
             }
             else
             {
-                MessageBox.Show("Odaberite predmet na koji želite da dodate studenta.");
+                MessageBox.Show("Odaberite Predmet na koji želite da dodate studenta.");
             }
         }
 
@@ -78,6 +78,4 @@ namespace StudentskaSluzba.View
             Close();
         }
     }
-
-    
 }

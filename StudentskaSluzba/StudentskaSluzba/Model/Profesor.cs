@@ -172,7 +172,7 @@ namespace StudentskaSluzba.Model
             Email = "";
             AdresaKancelarijeId = -1;
             BrojLicne = "";
-            Zvanje = "Redovni profesor";
+            Zvanje = "Redovni Profesor";
             GodineStaza = 0;
             KatedraId = -1;
 

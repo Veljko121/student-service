@@ -28,12 +28,12 @@ namespace StudentskaSluzba.View
         public Predmet Predmet { get; set; }
         public Predmet PredmetOriginal { get; set; }
 
-        public EditPredmet(PredmetController PredmetController, Predmet SelectedPredmet)
+        public EditPredmet(PredmetController predmetController, Predmet SelectedPredmet)
         {
             InitializeComponent();
             DataContext = this;
 
-            _PredmetController = PredmetController;
+            _PredmetController = predmetController;
 
             PredmetOriginal = SelectedPredmet;
 

@@ -30,7 +30,7 @@ namespace StudentskaSluzba.View
         public Adresa AdresaStanovanja { get; set; }
         public Adresa AdresaKancelarije { get; set; }
 
-        public CreateProfesor(ProfesorController ProfesorController, AdresaController AdresaController)
+        public CreateProfesor(ProfesorController profesorController, AdresaController adresaController)
         {
             InitializeComponent();
             DataContext = this;
@@ -38,8 +38,8 @@ namespace StudentskaSluzba.View
             AdresaStanovanja = new Adresa();
             AdresaKancelarije = new Adresa();
 
-            _ProfesorController = ProfesorController;
-            _AdresaController = AdresaController;
+            _ProfesorController = profesorController;
+            _AdresaController = adresaController;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
