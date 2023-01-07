@@ -49,7 +49,7 @@ namespace StudentskaSluzba.Model
             Id = -1;
             StudentId = -1;
             PredmetId = -1;
-            VrednostOcene = -1;
+            VrednostOcene = 5;
             DatumPolaganja = new DateTime();
 
             Student = new Student();

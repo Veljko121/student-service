@@ -1,5 +1,8 @@
-﻿using System;
+﻿using StudentskaSluzba.Controller;
+using StudentskaSluzba.Model;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -21,9 +24,25 @@ namespace StudentskaSluzba.View
     /// </summary>
     public partial class AddStudentToPredmet : Window, INotifyPropertyChanged
     {
-        public AddStudentToPredmet()
+
+        ObservableCollection<Predmet> Predmeti { get; set;  }
+
+        PredmetController _PredmetController;
+        OcenaController _OcenaController;
+
+        Predmet SelectedPredmet;
+        Student Student;
+        Ocena Ocena;
+        public AddStudentToPredmet(PredmetController PredmetController, OcenaController OcenaController, Student student)
         {
             InitializeComponent();
+
+            _OcenaController = OcenaController;
+            _PredmetController = PredmetController;
+
+            Predmeti = new ObservableCollection<Predmet>();
+            Ocena = new Ocena();
+            Student = student;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -35,12 +54,25 @@ namespace StudentskaSluzba.View
 
         private void AddStudent_Click(object sender, RoutedEventArgs e)
         {
+            if (SelectedPredmet != null)
+            {
+                Ocena.Predmet = SelectedPredmet;
+                Ocena.PredmetId = SelectedPredmet.Id;
+                Ocena.Student = Student;
+                Ocena.StudentId = Student.Id;
+                _OcenaController.Create(Ocena);
 
+                Close();
+            }
+            else
+            {
+                MessageBox.Show("Odaberite predmet na koji želite da dodate studenta.");
+            }
         }
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
-
+            Close();
         }
     }
 
