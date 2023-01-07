@@ -107,8 +107,8 @@ namespace StudentskaSluzba.Model
             BrojESPB = 0;
 
             //PredmetniProfesor = new Profesor();
-            //Polozili = new List<Student>();
-            //NisuPolozili = new List<Student>();
+            Polozili = new List<Student>();
+            NisuPolozili = new List<Student>();
         }
 
         public Predmet(int Id, string Sifra, string Naziv, string Semestar, string GodinaStudija, int PredmetniProfesorId, int BrojESPB)
@@ -122,8 +122,8 @@ namespace StudentskaSluzba.Model
             this.BrojESPB = BrojESPB;
 
             //PredmetniProfesor = new Profesor();
-            //Polozili = new List<Student>();
-            //NisuPolozili = new List<Student>();
+            Polozili = new List<Student>();
+            NisuPolozili = new List<Student>();
         }
 
         public Predmet(Predmet predmet)

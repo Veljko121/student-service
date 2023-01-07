@@ -25,7 +25,7 @@ namespace StudentskaSluzba.Model
             SefKatedreId = -1;
 
             //SefKatedre = new Profesor();
-            //Profesori = new List<Profesor>();
+            Profesori = new List<Profesor>();
         }
         public Katedra(int Id, string SifraKatedre, string Naziv, int SefKatedreId)
         {
@@ -35,7 +35,7 @@ namespace StudentskaSluzba.Model
             this.SefKatedreId = SefKatedreId;
 
             //SefKatedre = new Profesor();
-            //Profesori = new List<Profesor>();
+            Profesori = new List<Profesor>();
         }
 
         public string[] ToCSV()

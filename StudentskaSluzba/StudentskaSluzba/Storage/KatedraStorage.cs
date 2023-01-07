@@ -14,6 +14,7 @@ namespace StudentskaSluzba.Storage
 
         private Serializer<Katedra> _serializer;
 
+
         public KatedraStorage()
         {
             _serializer = new Serializer<Katedra>();

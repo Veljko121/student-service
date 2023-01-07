@@ -163,25 +163,25 @@ namespace StudentskaSluzba.Model
 
         public Student()
         {
-            //Id = -1;
-            //Prezime = "";
-            //Ime = "";
-            //DatumRodjenja = new DateTime();
-            //AdresaStanovanjaId = -1;
-            //KontaktTelefon = "";
-            //Email = "";
-            //BrojIndeksa = "";
-            //GodinaUpisa = 0;
+            Id = -1;
+            Prezime = "";
+            Ime = "";
+            DatumRodjenja = new DateTime();
+            AdresaStanovanjaId = -1;
+            KontaktTelefon = "";
+            Email = "";
+            BrojIndeksa = "";
+            GodinaUpisa = 0;
             TrenutnaGodinaStudija = "I (prva)";
             Status = "Budžet";
-            //ProsecnaOcena = 0.0;
+            ProsecnaOcena = 0.0;
 
             //AdresaStanovanja = new Adresa();
             PolozeniIspiti = new List<Ocena>();
             NepolozeniIspiti = new List<Ocena>();
         }
 
-        public Student(int Id, string Prezime, string Ime, DateTime DatumRodjenja, int AdresaStanovanjaId, string KontaktTelefon, string Email, string BrojIndeksa, int GodinaUpisa, string TrenutnaGodinaStudija, string Status, int ProsecnaOcena)
+        public Student(int Id, string Prezime, string Ime, DateTime DatumRodjenja, int AdresaStanovanjaId, string KontaktTelefon, string Email, string BrojIndeksa, int GodinaUpisa, string TrenutnaGodinaStudija, string Status)
         {
             this.Id = Id;
             this.Prezime = Prezime;
@@ -194,7 +194,7 @@ namespace StudentskaSluzba.Model
             this.GodinaUpisa = GodinaUpisa;
             this.TrenutnaGodinaStudija = TrenutnaGodinaStudija;
             this.Status = Status;
-            this.ProsecnaOcena = ProsecnaOcena;
+            this.ProsecnaOcena = 0.0;
 
             //AdresaStanovanja = new Adresa();
             PolozeniIspiti = new List<Ocena>();

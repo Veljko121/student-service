@@ -179,7 +179,7 @@ namespace StudentskaSluzba.Model
             //AdresaStanovanja = new Adresa();
             //AdresaKancelarije = new Adresa();
             //Katedra = new Katedra();
-            //SpisakPredmeta = new List<Predmet>();
+            SpisakPredmeta = new List<Predmet>();
         }
 
         public Profesor(int Id, string Prezime, string Ime, DateTime DatumRodjenja, int AdresaStanovanjaId, string Telefon, string Email, int AdresaKancelarijeId, string BrojLicne, string Zvanje, int GodineStaza, int KatedraId)
@@ -200,7 +200,7 @@ namespace StudentskaSluzba.Model
             //AdresaStanovanja = new Adresa();
             //AdresaKancelarije = new Adresa();
             //Katedra = new Katedra();
-            //SpisakPredmeta = new List<Predmet>();
+            SpisakPredmeta = new List<Predmet>();
         }
 
         public Profesor(Profesor profesor) {
