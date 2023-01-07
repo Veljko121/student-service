@@ -77,6 +77,9 @@
     <Compile Include="Storage\PredmetStorage.cs" />
     <Compile Include="Storage\ProfesorStorage.cs" />
     <Compile Include="Storage\StudentStorage.cs" />
+    <Compile Include="View\AddStudentToPredmet.xaml.cs">
+      <DependentUpon>AddStudentToPredmet.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\CreatePredmet.xaml.cs">
       <DependentUpon>CreatePredmet.xaml</DependentUpon>
     </Compile>
@@ -107,6 +110,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\AddStudentToPredmet.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\CreatePredmet.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
