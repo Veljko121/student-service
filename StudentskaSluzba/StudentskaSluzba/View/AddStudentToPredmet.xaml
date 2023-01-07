@@ -16,11 +16,12 @@
                     Margin="0, 10, 0, 10" Click="CancelButton_Click"/>
             </WrapPanel>
             <DataGrid DockPanel.Dock="Top" HeadersVisibility="None"
-                        ItemsSource="{Binding Path=Predmet, UpdateSourceTrigger=PropertyChanged}"
+                        ItemsSource="{Binding Path=Predmeti, UpdateSourceTrigger=PropertyChanged}"
                         SelectedItem="{Binding Path=SelectedPredmet, UpdateSourceTrigger=PropertyChanged}"
                         AutoGenerateColumns="False" IsReadOnly="True">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Šifra predmeta" Width="*" Binding="{Binding ToString}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Šifra" Width="*" Binding="{Binding Sifra}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Naziv predmeta" Width="*" Binding="{Binding Naziv}"></DataGridTextColumn>
                 </DataGrid.Columns>
             </DataGrid>
         </StackPanel>

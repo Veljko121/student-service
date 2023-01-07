@@ -25,22 +25,23 @@ namespace StudentskaSluzba.View
     public partial class AddStudentToPredmet : Window, INotifyPropertyChanged
     {
 
-        ObservableCollection<Predmet> Predmeti { get; set;  }
+        public ObservableCollection<Predmet> Predmeti { get; set;  }
 
-        PredmetController _PredmetController;
-        OcenaController _OcenaController;
+        private PredmetController _PredmetController;
+        private OcenaController _OcenaController;
 
-        Predmet SelectedPredmet;
-        Student Student;
-        Ocena Ocena;
+        public Predmet SelectedPredmet { get; set; }
+        private Student Student;
+        private Ocena Ocena;
         public AddStudentToPredmet(PredmetController PredmetController, OcenaController OcenaController, Student student)
         {
             InitializeComponent();
+            DataContext= this;
 
             _OcenaController = OcenaController;
             _PredmetController = PredmetController;
 
-            Predmeti = new ObservableCollection<Predmet>(PredmetController.GetPredmetiWhereNotStudent(OcenaController.GetOceneForStudent(student)));
+            Predmeti = new ObservableCollection<Predmet>(_PredmetController.GetPredmetiWhereNotStudent(_OcenaController.GetOceneForStudent(student)));
 
             Ocena = new Ocena();
             Student = student;
