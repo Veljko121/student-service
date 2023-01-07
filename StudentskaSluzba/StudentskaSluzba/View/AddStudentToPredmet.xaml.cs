@@ -62,6 +62,7 @@ namespace StudentskaSluzba.View
                 Ocena.PredmetId = SelectedPredmet.Id;
                 Ocena.Student = Student;
                 Ocena.StudentId = Student.Id;
+                Student.NepolozeniIspiti.Add(Ocena);
                 _OcenaController.Create(Ocena);
 
                 Close();
