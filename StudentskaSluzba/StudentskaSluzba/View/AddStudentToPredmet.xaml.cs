@@ -40,7 +40,8 @@ namespace StudentskaSluzba.View
             _OcenaController = OcenaController;
             _PredmetController = PredmetController;
 
-            Predmeti = new ObservableCollection<Predmet>();
+            Predmeti = new ObservableCollection<Predmet>(PredmetController.GetPredmetiWhereNotStudent(OcenaController.GetOceneForStudent(student)));
+
             Ocena = new Ocena();
             Student = student;
         }

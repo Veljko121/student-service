@@ -147,8 +147,7 @@ namespace StudentskaSluzba.View
 
         private void DodajStudentPredmet_Click(object sender, RoutedEventArgs e)
         {
-            List<Predmet> predmeti = _PredmetController.GetPredmetiWhereNotStudent(_OcenaController.GetOceneForStudent(Student));
-            AddStudentToPredmet addStudentToPredmet = new AddStudentToPredmet();
+            AddStudentToPredmet addStudentToPredmet = new AddStudentToPredmet(_PredmetController, _OcenaController, Student);
             addStudentToPredmet.Show();
         }
 
