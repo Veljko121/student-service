@@ -74,7 +74,7 @@ namespace StudentskaSluzba.Model
                     if (string.IsNullOrEmpty(Ulica))
                         return "Ulica is required";
                 }
-                else if (columnName == ")")
+                else if (columnName == "Broj")
                 {
                     if (string.IsNullOrEmpty(Broj))
                         return "Broj is required";
