@@ -120,7 +120,7 @@ namespace StudentskaSluzba
                 case 1:
                     if (SelectedStudent != null)
                     {
-                        EditStudent editStudent = new EditStudent(_StudentController, _AdresaController, _OcenaController, SelectedStudent);
+                        EditStudent editStudent = new EditStudent(_StudentController, _AdresaController, _OcenaController, _PredmetController, SelectedStudent);
                         editStudent.Show();
                     }
                     else

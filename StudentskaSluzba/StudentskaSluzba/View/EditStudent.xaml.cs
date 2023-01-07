@@ -28,6 +28,7 @@ namespace StudentskaSluzba.View
         private StudentController _StudentController;
         private AdresaController _AdresaController;
         private OcenaController _OcenaController;
+        private PredmetController _PredmetController;
 
         public ObservableCollection<Ocena> Polozeni { get; set; }
         public ObservableCollection<Ocena> Nepolozeni { get; set; }
@@ -41,7 +42,7 @@ namespace StudentskaSluzba.View
 
         public int SelectedTab { get; set; }
 
-        public EditStudent(StudentController StudentController, AdresaController AdresaController, OcenaController OcenaController, Student SelectedStudent)
+        public EditStudent(StudentController StudentController, AdresaController AdresaController, OcenaController OcenaController, PredmetController PredmetController, Student SelectedStudent)
         {
             InitializeComponent();
             DataContext = this; 
@@ -49,6 +50,7 @@ namespace StudentskaSluzba.View
             _StudentController = StudentController;
             _AdresaController = AdresaController;
             _OcenaController = OcenaController;
+            _PredmetController = PredmetController;
             _OcenaController.Subscribe(this);
 
             Polozeni = new ObservableCollection<Ocena>(SelectedStudent.PolozeniIspiti);
@@ -141,6 +143,21 @@ namespace StudentskaSluzba.View
                 MessageBox.Show("Odaberite ocenu kojeg želite da poništite.");
             }
             
+        }
+
+        private void DodajStudentPredmet_Click(object sender, RoutedEventArgs e)
+        {
+            List<Predmet> predmeti = _PredmetController.GetPredmetiWhereNotStudent(_OcenaController.GetOceneForStudent(Student));
+            AddStudentToPredmet addStudentToPredmet = new AddStudentToPredmet();
+            addStudentToPredmet.Show();
+        }
+
+        private void ObrisiStudentPredmet_Click(object sender, RoutedEventArgs e)
+        {
+        }
+
+        private void Polaganje_Click(object sender, RoutedEventArgs e)
+        {
         }
 
         private MessageBoxResult ConfirmOcenaDeletion()

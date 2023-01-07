@@ -42,5 +42,10 @@ namespace StudentskaSluzba.Controller
         {
             _ocene.PonistiOcenu(ocena, student);
         }
+
+        public List<Ocena> GetOceneForStudent(Student student)
+        {
+            return _ocene.GetOceneForStudent(student);
+        }
     }
 }

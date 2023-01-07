@@ -37,5 +37,10 @@ namespace StudentskaSluzba.Controller
         {
             _predmeti.Subscribe(observer);
         }
+
+        public List<Predmet> GetPredmetiWhereNotStudent(List<Ocena> ocene)
+        {
+            return _predmeti.GetPredmetiWhereNotStudent(ocene);
+        }
     }
 }

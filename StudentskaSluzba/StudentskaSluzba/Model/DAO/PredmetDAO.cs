@@ -1,5 +1,6 @@
 ﻿using StudentskaSluzba.Observer;
 using StudentskaSluzba.Storage;
+using StudentskaSluzba.View;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -79,6 +80,31 @@ namespace StudentskaSluzba.Model.DAO
             {
                 observer.Update();
             }
+        }
+
+        public List<Predmet> GetPredmetiWhereNotStudent(List<Ocena> ocene)
+        {
+            List<Predmet> notPredmeti = new List<Predmet>();
+
+            bool found = false;
+            foreach (Predmet predmet in _predmeti)
+            {
+                foreach (Ocena ocena in ocene)
+                {
+                    if (predmet.Id == ocena.PredmetId)
+                    {
+                        found = true;
+                        break;
+                    }
+                }
+                if (!found)
+                {
+                    notPredmeti.Add(predmet);
+                }
+                found = false;
+            }
+
+            return notPredmeti;
         }
     }
 }

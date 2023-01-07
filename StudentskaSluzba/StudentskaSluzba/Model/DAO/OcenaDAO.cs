@@ -74,5 +74,20 @@ namespace StudentskaSluzba.Model.DAO
             _storage.Save(_ocene);
             NotifyObservers();
         }
+
+        public List<Ocena> GetOceneForStudent(Student student)
+        {
+            List<Ocena> ocene = new List<Ocena>();
+
+            foreach (Ocena ocena in _ocene)
+            {
+                if (ocena.StudentId == student.Id)
+                {
+                    ocene.Add(ocena);
+                }
+            }
+
+            return ocene;
+        }
     }
 }
