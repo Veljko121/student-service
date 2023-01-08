@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StudentskaSluzba.View"
         mc:Ignorable="d"
-        Title="CreateOcena" Height="275" Width="300">
+        Title="CreateOcena" Height="225" Width="300">
     <Window.Resources>
         <ControlTemplate x:Key="ValidationTemplate">
             <StackPanel>
@@ -23,9 +23,8 @@
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
 
-            <Grid Grid.Row="0" Grid.Column="0" Width="250" Height="200">
+            <Grid Grid.Row="0" Grid.Column="0" Width="250" Height="160">
                 <Grid.RowDefinitions>
-                    <RowDefinition></RowDefinition>
                     <RowDefinition></RowDefinition>
                     <RowDefinition></RowDefinition>
                     <RowDefinition></RowDefinition>
@@ -35,41 +34,35 @@
                     <ColumnDefinition></ColumnDefinition>
                     <ColumnDefinition></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <Label Grid.Row="0" Grid.Column="0" Height="30">Naziv</Label>
-                <Label Grid.Row="1" Grid.Column="0" Height="30">Šifra</Label>
-                <Label Grid.Row="2" Grid.Column="0" Height="30">Semestar</Label>
-                <Label Grid.Row="3" Grid.Column="0" Height="30">Godina</Label>
-                <Label Grid.Row="4" Grid.Column="0" Height="30">ESPB</Label>
-                <TextBox Grid.Row="0" Grid.Column="1" Height="20"
-                     Text="{Binding Path=Predmet.Naziv, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                <Label Grid.Row="0" Grid.Column="0" Height="30">Šifra</Label>
+                <Label Grid.Row="1" Grid.Column="0" Height="30">Naziv</Label>
+                <Label Grid.Row="2" Grid.Column="0" Height="30">Ocena</Label>
+                <Label Grid.Row="3" Grid.Column="0" Height="30">Datum</Label>
+                <TextBox Grid.Row="0" Grid.Column="1" Height="20" IsReadOnly="True" IsEnabled="False"
+                     Text="{Binding Path=Ocena.Predmet.Sifra, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
                      Validation.ErrorTemplate="{StaticResource ValidationTemplate}">
                 </TextBox>
-                <TextBox Grid.Row="1" Grid.Column="1" Height="20"
-                     Text="{Binding Path=Predmet.Sifra, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                <TextBox Grid.Row="1" Grid.Column="1" Height="20" IsReadOnly="True" IsEnabled="False"
+                     Text="{Binding Path=Ocena.Predmet.Naiv, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
                      Validation.ErrorTemplate="{StaticResource ValidationTemplate}">
                 </TextBox>
-                <ComboBox SelectedValuePath="Content" x:Name="comboBoxSemestar" Grid.Row="2" Grid.Column="1" Height="25"
-                     SelectedValue="{Binding Path=Predmet.Semestar, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                <ComboBox SelectedValuePath="Content" x:Name="comboBoxGodina" Grid.Row="2" Grid.Column="1" Height="25"
+                     SelectedValue="{Binding Path=Ocena.VrednostOcene, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
                      Validation.ErrorTemplate="{StaticResource ValidationTemplate}">
-                    <ComboBoxItem FontSize="10" Tag="1">Zimski</ComboBoxItem>
-                    <ComboBoxItem FontSize="10" Tag="2">Letnji</ComboBoxItem>
+                    <ComboBoxItem FontSize="10" Tag="6">6</ComboBoxItem>
+                    <ComboBoxItem FontSize="10" Tag="7">7</ComboBoxItem>
+                    <ComboBoxItem FontSize="10" Tag="8">8</ComboBoxItem>
+                    <ComboBoxItem FontSize="10" Tag="9">9</ComboBoxItem>
+                    <ComboBoxItem FontSize="10" Tag="10">10</ComboBoxItem>
                 </ComboBox>
-                <ComboBox SelectedValuePath="Content" x:Name="comboBoxGodina" Grid.Row="3" Grid.Column="1" Height="25"
-                     SelectedValue="{Binding Path=Predmet.GodinaStudija, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                <DatePicker Grid.Row="3" Grid.Column="3" Height="25"
+                     SelectedDate="{Binding Path=Ocena.Datum, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
                      Validation.ErrorTemplate="{StaticResource ValidationTemplate}">
-                    <ComboBoxItem FontSize="10" Tag="1">I (prva)</ComboBoxItem>
-                    <ComboBoxItem FontSize="10" Tag="2">II (druga)</ComboBoxItem>
-                    <ComboBoxItem FontSize="10" Tag="3">III (treća)</ComboBoxItem>
-                    <ComboBoxItem FontSize="10" Tag="4">IV (četvrta)</ComboBoxItem>
-                </ComboBox>
-                <TextBox Grid.Row="4" Grid.Column="1" Height="20"
-                     Text="{Binding Path=Predmet.BrojESPB, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
-                     Validation.ErrorTemplate="{StaticResource ValidationTemplate}">
-                </TextBox>
+                </DatePicker>
             </Grid>
             <WrapPanel Grid.Row="1" FlowDirection="RightToLeft">
                 <Button Content="Odustani" IsCancel="True" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="25, 10, 20, 5" Click="CancelButton_Click"/>
-                <Button Content="Potvrdi" IsDefault="True" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0, 10, 20, 5" Click="CreatePredmet_Click"/>
+                <Button Content="Potvrdi" IsDefault="True" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0, 10, 20, 5" Click="CreateOcena_Click"/>
             </WrapPanel>
         </Grid>
     </StackPanel>
