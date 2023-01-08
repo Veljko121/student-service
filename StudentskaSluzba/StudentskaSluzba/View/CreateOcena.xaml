@@ -38,16 +38,16 @@
                 <Label Grid.Row="1" Grid.Column="0" Height="30">Naziv</Label>
                 <Label Grid.Row="2" Grid.Column="0" Height="30">Ocena</Label>
                 <Label Grid.Row="3" Grid.Column="0" Height="30">Datum</Label>
-                <TextBox Grid.Row="0" Grid.Column="1" Height="20" IsReadOnly="True" IsEnabled="False"
-                     Text="{Binding Path=Ocena.Predmet.Sifra, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                <TextBox Grid.Row="0" Grid.Column="1" Height="20" IsReadOnly="True" IsEnabled="False"  Background="Gray"
+                     Text="{Binding Path=_Ocena.Predmet.Sifra, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
                      Validation.ErrorTemplate="{StaticResource ValidationTemplate}">
                 </TextBox>
-                <TextBox Grid.Row="1" Grid.Column="1" Height="20" IsReadOnly="True" IsEnabled="False"
-                     Text="{Binding Path=Ocena.Predmet.Naiv, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                <TextBox Grid.Row="1" Grid.Column="1" Height="20" IsReadOnly="True" IsEnabled="False" Background="Gray"
+                     Text="{Binding Path=_Ocena.Predmet.Naiv, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
                      Validation.ErrorTemplate="{StaticResource ValidationTemplate}">
                 </TextBox>
                 <ComboBox SelectedValuePath="Content" x:Name="comboBoxGodina" Grid.Row="2" Grid.Column="1" Height="25"
-                     SelectedValue="{Binding Path=Ocena.VrednostOcene, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                     SelectedValue="{Binding Path=_Ocena.VrednostOcene, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
                      Validation.ErrorTemplate="{StaticResource ValidationTemplate}">
                     <ComboBoxItem FontSize="10" Tag="6">6</ComboBoxItem>
                     <ComboBoxItem FontSize="10" Tag="7">7</ComboBoxItem>
@@ -56,7 +56,7 @@
                     <ComboBoxItem FontSize="10" Tag="10">10</ComboBoxItem>
                 </ComboBox>
                 <DatePicker Grid.Row="3" Grid.Column="3" Height="25"
-                     SelectedDate="{Binding Path=Ocena.Datum, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                     SelectedDate="{Binding Path=_Ocena.Datum, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
                      Validation.ErrorTemplate="{StaticResource ValidationTemplate}">
                 </DatePicker>
             </Grid>
