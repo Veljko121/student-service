@@ -47,5 +47,10 @@ namespace StudentskaSluzba.Controller
         {
             return _ocene.GetOceneForStudent(student);
         }
+
+        public void PoloziPredmet(Student student, Ocena ocena)
+        {
+            _ocene.PoloziPredmet(student, ocena);
+        }
     }
 }

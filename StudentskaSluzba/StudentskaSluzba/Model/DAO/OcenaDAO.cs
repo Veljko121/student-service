@@ -89,5 +89,13 @@ namespace StudentskaSluzba.Model.DAO
 
             return ocene;
         }
+
+        public void PoloziPredmet(Student student, Ocena ocena)
+        {
+            student.NepolozeniIspiti.Remove(ocena);
+            student.PolozeniIspiti.Add(ocena);
+            _storage.Save(_ocene);
+            NotifyObservers();
+        }
     }
 }

@@ -64,6 +64,8 @@ namespace StudentskaSluzba.View
                 OcenaOriginal.VrednostOcene = _Ocena.VrednostOcene;
                 OcenaOriginal.DatumPolaganja = _Ocena.DatumPolaganja;
 
+                _OcenaController.PoloziPredmet(_Student, OcenaOriginal);
+
                 Close();
             }
             else

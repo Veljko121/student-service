@@ -152,7 +152,7 @@
                             <DataGridTextColumn Header="Naziv predmeta" Width="*" Binding="{Binding Predmet.Naziv}"></DataGridTextColumn>
                             <DataGridTextColumn Header="ESPB" Width="50" Binding="{Binding Predmet.BrojESPB}"></DataGridTextColumn>
                             <DataGridTextColumn Header="Ocena" Width="50" Binding="{Binding VrednostOcene}"></DataGridTextColumn>
-                            <DataGridTextColumn Header="Datum" Width="100" Binding="{Binding DatumPolaganja}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Datum" Width="100" Binding="{Binding DatumPolaganja, StringFormat={}{0:dd/MM/yyyy}}"></DataGridTextColumn>
                         </DataGrid.Columns>
                     </DataGrid>
                     <StackPanel Height="50">

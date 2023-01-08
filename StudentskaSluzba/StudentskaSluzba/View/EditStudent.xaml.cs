@@ -166,8 +166,8 @@ namespace StudentskaSluzba.View
 
         private MessageBoxResult ConfirmStudentDeletion()
         {
-            string ispis = SelectedNepolozeni.Predmet.Sifra + " " + SelectedNepolozeni.Predmet.Naziv;
-            string sMessageBoxText = $"Da li ste sigurni da želite da izbrišete predmet: \n{ispis}";
+            //string ispis = SelectedNepolozeni.Predmet.Sifra + " " + SelectedNepolozeni.Predmet.Naziv;
+            string sMessageBoxText = $"Da li ste sigurni da želite da izbrišete predmet: \n";
             string sCaption = "Potvrda brisanja";
 
             MessageBoxButton btnMessageBox = MessageBoxButton.YesNo;
