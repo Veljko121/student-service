@@ -68,6 +68,15 @@ namespace StudentskaSluzba.Model
             //Predmet = new Predmet();
         }
 
+        public Ocena(Ocena ocena)
+        {
+            this.Id = ocena.Id;
+            this.StudentId = ocena.StudentId;
+            this.PredmetId = ocena.PredmetId;
+            this.VrednostOcene = ocena.VrednostOcene;
+            this.DatumPolaganja = ocena.DatumPolaganja;
+        }
+
         public string[] ToCSV()
         {
             string[] csvValues =
@@ -96,7 +105,29 @@ namespace StudentskaSluzba.Model
         {
             get
             {
+                if (columnName == "VrednostOcene")
+                {
+                    if (string.IsNullOrEmpty(VrednostOcene.ToString()))
+                        return "Vrednost ocene is required";
+                }
+
                 return null;
+            }
+        }
+
+        private readonly string[] _validatedProperties = { "VrednostOcene" };
+
+        public bool IsValid
+        {
+            get
+            {
+                foreach (var property in _validatedProperties)
+                {
+                    if (this[property] != null)
+                        return false;
+                }
+
+                return true;
             }
         }
 
