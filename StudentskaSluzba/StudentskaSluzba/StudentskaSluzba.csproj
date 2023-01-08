@@ -80,6 +80,9 @@
     <Compile Include="View\AddStudentToPredmet.xaml.cs">
       <DependentUpon>AddStudentToPredmet.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\CreateOcena.xaml.cs">
+      <DependentUpon>CreateOcena.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\CreatePredmet.xaml.cs">
       <DependentUpon>CreatePredmet.xaml</DependentUpon>
     </Compile>
@@ -111,6 +114,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="View\AddStudentToPredmet.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CreateOcena.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
