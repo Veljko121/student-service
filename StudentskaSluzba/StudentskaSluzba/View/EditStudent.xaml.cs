@@ -129,11 +129,6 @@ namespace StudentskaSluzba.View
 
                 if (result == MessageBoxResult.Yes)
                 {
-                    //SelectedPolozeni.VrednostOcene = 5;
-                    //StudentOriginal.PolozeniIspiti.Remove(SelectedPolozeni);
-                    //StudentOriginal.NepolozeniIspiti.Add(SelectedPolozeni);
-                    //Polozeni.Remove(SelectedPolozeni);
-                    //Nepolozeni.Add(SelectedPolozeni);
                     _OcenaController.PonistiOcenu(SelectedPolozeni, StudentOriginal);
                     _StudentController.IzracunajProsek(StudentOriginal);
                 }
@@ -165,14 +160,14 @@ namespace StudentskaSluzba.View
             }
             else
             {
-                MessageBox.Show("Odaberite Predmet koji želite da obrišete.");
+                MessageBox.Show("Odaberite predmet koji želite da obrišete.");
             }
         }
 
         private MessageBoxResult ConfirmStudentDeletion()
         {
             string ispis = SelectedNepolozeni.Predmet.Sifra + " " + SelectedNepolozeni.Predmet.Naziv;
-            string sMessageBoxText = $"Da li ste sigurni da želite da izbrišete Predmet: \n{ispis}";
+            string sMessageBoxText = $"Da li ste sigurni da želite da izbrišete predmet: \n{ispis}";
             string sCaption = "Potvrda brisanja";
 
             MessageBoxButton btnMessageBox = MessageBoxButton.YesNo;
@@ -184,6 +179,15 @@ namespace StudentskaSluzba.View
 
         private void Polaganje_Click(object sender, RoutedEventArgs e)
         {
+            if (SelectedNepolozeni != null)
+            {
+                CreateOcena createOcena = new CreateOcena(_StudentController, _OcenaController, StudentOriginal, SelectedNepolozeni);
+                createOcena.Show();
+            }
+            else
+            {
+                MessageBox.Show("Odaberite predmet za koji želite da dodate ocenu.");
+            }
         }
 
         private MessageBoxResult ConfirmOcenaDeletion()
