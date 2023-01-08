@@ -15,8 +15,32 @@ namespace StudentskaSluzba.Model
         public int Id { get; set; }
         public int StudentId { get; set; }
         public int PredmetId { get; set; }
-        public int VrednostOcene { get; set; }
-        public DateTime DatumPolaganja { get; set; }
+        private int _vrednostOcene;
+        public int VrednostOcene
+        {
+            get => _vrednostOcene;
+            set
+            {
+                if (value != _vrednostOcene)
+                {
+                    _vrednostOcene = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+        private DateTime _datumPolaganja;
+        public DateTime DatumPolaganja
+        {
+            get => _datumPolaganja;
+            set
+            {
+                if (value != _datumPolaganja)
+                {
+                    _datumPolaganja = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
         private Student _student;
         public Student Student
         {
@@ -75,6 +99,8 @@ namespace StudentskaSluzba.Model
             this.PredmetId = ocena.PredmetId;
             this.VrednostOcene = ocena.VrednostOcene;
             this.DatumPolaganja = ocena.DatumPolaganja;
+
+            this.Predmet = new Predmet(ocena.Predmet);
         }
 
         public string[] ToCSV()
