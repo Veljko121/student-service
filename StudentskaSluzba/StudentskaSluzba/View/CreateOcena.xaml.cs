@@ -33,7 +33,7 @@ namespace StudentskaSluzba.View
         public CreateOcena(StudentController studentController, OcenaController ocenaController, Student SelectedStudent, Ocena SelectedNepolozeni)
         {
             InitializeComponent();
-
+            DataContext = this;
             _StudentController = studentController;
             _OcenaController = ocenaController;
 
