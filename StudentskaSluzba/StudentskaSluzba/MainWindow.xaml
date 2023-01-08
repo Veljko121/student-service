@@ -8,9 +8,15 @@
         Title="Studentska sluzba" 
         Width="1024"
         Height="576"
+        ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen" >
     <Grid>
-        <DockPanel>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="8*"/>
+            <ColumnDefinition Width="109*"/>
+            <ColumnDefinition Width="907*"/>
+        </Grid.ColumnDefinitions>
+        <DockPanel Grid.ColumnSpan="3">
             <Menu DockPanel.Dock="Top" Height="20">
                 <MenuItem Header="_File">
                     <MenuItem Header="_New" InputGestureText="Ctrl + N">
@@ -73,8 +79,8 @@
                         <Image Source="Icons\TrashCan.png" />
                     </Button>
                     <DockPanel>
-                        <TextBox Width="100" DockPanel.Dock="Right" BorderBrush="Black"/>
-                        <Button ToolTip="Search" HorizontalAlignment="Right" BorderBrush="Black">
+                        <TextBox x:Name="SearchTextBox" Width="100" DockPanel.Dock="Right" BorderBrush="Black"/>
+                        <Button ToolTip="Search" HorizontalAlignment="Right" BorderBrush="Black" Click="Search_Click">
                             <Image Source="Icons\MagnifyingGlass.png" />
                         </Button>
                     </DockPanel>
@@ -82,7 +88,7 @@
             </ToolBar>
             <TabControl DockPanel.Dock="Top">
                 <TabItem Header="Studenti"  MouseUp="TabStudenti_Click">
-                    <DataGrid DockPanel.Dock="Bottom"
+                    <DataGrid x:Name="StudentDataGrid" DockPanel.Dock="Bottom"
                         ItemsSource="{Binding Path=Studenti, UpdateSourceTrigger=PropertyChanged}"
                         SelectedItem="{Binding Path=SelectedStudent, UpdateSourceTrigger=PropertyChanged}"
                         AutoGenerateColumns="False" IsReadOnly="True">
@@ -97,7 +103,7 @@
                     </DataGrid>
                 </TabItem>
                 <TabItem Header="Profesori"  MouseUp="TabProfesori_Click">
-                    <DataGrid DockPanel.Dock="Bottom"
+                    <DataGrid x:Name="ProfesorDataGrid" DockPanel.Dock="Bottom"
                         ItemsSource="{Binding Path=Profesori, UpdateSourceTrigger=PropertyChanged}"
                         SelectedItem="{Binding Path=SelectedProfesor, UpdateSourceTrigger=PropertyChanged}"
                         AutoGenerateColumns="False" IsReadOnly="True">
@@ -110,7 +116,7 @@
                     </DataGrid>
                 </TabItem>
                 <TabItem Header="Predmeti" MouseUp="TabPredmeti_Click">
-                    <DataGrid DockPanel.Dock="Bottom"
+                    <DataGrid x:Name="PredmetDataGrid" DockPanel.Dock="Bottom"
                         ItemsSource="{Binding Path=Predmeti, UpdateSourceTrigger=PropertyChanged}"
                         SelectedItem="{Binding Path=SelectedPredmet, UpdateSourceTrigger=PropertyChanged}"
                         AutoGenerateColumns="False" IsReadOnly="True">

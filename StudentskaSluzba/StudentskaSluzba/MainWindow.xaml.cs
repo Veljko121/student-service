@@ -18,6 +18,7 @@ using System.Windows.Shapes;
 using System.Windows.Threading;
 using StudentskaSluzba.Observer;
 using StudentskaSluzba.View;
+using System.Text.RegularExpressions;
 
 namespace StudentskaSluzba
 {
@@ -79,17 +80,23 @@ namespace StudentskaSluzba
         {
             this.StatusBarTextBlock.Text = "Studentska služba - Studenti";
 
+            StudentDataGrid.ItemsSource = Studenti;
+
             SelectedTab = 1;
         }
         private void TabPredmeti_Click(object sender, RoutedEventArgs e)
         {
             this.StatusBarTextBlock.Text = "Studentska služba - Predmeti";
 
+            PredmetDataGrid.ItemsSource = Predmeti;
+
             SelectedTab = 3;
         }
         private void TabProfesori_Click(object sender, RoutedEventArgs e)
         {
             this.StatusBarTextBlock.Text = "Studentska služba - Profesori";
+
+            ProfesorDataGrid.ItemsSource = Profesori;
 
             SelectedTab = 2;
         }
@@ -282,6 +289,103 @@ namespace StudentskaSluzba
         public void Update()
         {
             UpdateList();
+        }
+
+        private void Search_Click(object sender, RoutedEventArgs e)
+        {
+            string searchContent = SearchTextBox.Text;
+            string[] values = searchContent.Split(',');
+
+            switch (SelectedTab)
+            {
+                case 1:
+                    if (values.Length < 1 || values.Length > 3)
+                    {
+                        MessageBox.Show("Neispravna pretraga!");
+                        return;
+                    }
+                    else if (values.Length == 1)
+                    {
+                        values[0] = values[0].Trim();
+
+                        var filteredStudenti = Studenti.Where(student => student.Prezime.ToLower().Contains(values[0].ToLower()));
+
+                        StudentDataGrid.ItemsSource = filteredStudenti;
+                    }
+                    else if (values.Length == 2)
+                    {
+                        values[0] = values[0].Trim();
+                        values[1] = values[1].Trim();
+
+                        var filteredStudenti = Studenti.Where(student => student.Prezime.ToLower().Contains(values[0].ToLower()));
+                        filteredStudenti = filteredStudenti.Where(student => student.Ime.ToLower().Contains(values[1].ToLower()));
+
+                        StudentDataGrid.ItemsSource = filteredStudenti;
+                    }
+                    else
+                    {
+                        values[0] = values[0].Trim();
+                        values[1] = values[1].Trim();
+                        values[2] = values[2].Trim();
+
+                        var filteredStudenti = Studenti.Where(student => student.BrojIndeksa.ToLower().Contains(values[0].ToLower()));
+                        filteredStudenti = filteredStudenti.Where(student => student.Ime.ToLower().Contains(values[1].ToLower()));
+                        filteredStudenti = filteredStudenti.Where(student => student.Prezime.ToLower().Contains(values[2].ToLower()));
+
+                        StudentDataGrid.ItemsSource = filteredStudenti;
+                    }
+                    break;
+                case 2:
+                    if (values.Length < 1 || values.Length > 2)
+                    {
+                        MessageBox.Show("Neispravna pretraga!");
+                        return;
+                    }
+                    else if (values.Length == 1)
+                    {
+                        values[0] = values[0].Trim();
+
+                        var filteredProfesori = Profesori.Where(profesor => profesor.Prezime.ToLower().Contains(values[0].ToLower()));
+
+                        ProfesorDataGrid.ItemsSource = filteredProfesori;
+                    }
+                    else
+                    {
+                        values[0] = values[0].Trim();
+                        values[1] = values[1].Trim();
+
+                        var filteredProfesori = Profesori.Where(profesor => profesor.Prezime.ToLower().Contains(values[0].ToLower()));
+                        filteredProfesori = filteredProfesori.Where(profesor => profesor.Ime.ToLower().Contains(values[1].ToLower()));
+
+                        ProfesorDataGrid.ItemsSource = filteredProfesori;
+                    }
+                    break;
+                case 3:
+                    if (values.Length < 1 || values.Length > 2)
+                    {
+                        MessageBox.Show("Neispravna pretraga!");
+                        return;
+                    }
+                    else if (values.Length == 1)
+                    {
+                        values[0] = values[0].Trim();
+
+                        var filteredPredmeti = Predmeti.Where(predmet => predmet.Naziv.ToLower().Contains(values[0].ToLower()));
+
+                        PredmetDataGrid.ItemsSource = filteredPredmeti;
+                    }
+                    else
+                    {
+                        values[0] = values[0].Trim();
+                        values[1] = values[1].Trim();
+
+                        var filteredPredmeti = Predmeti.Where(predmet => predmet.Naziv.ToLower().Contains(values[0].ToLower()));
+                        filteredPredmeti = filteredPredmeti.Where(predmet => predmet.Sifra.ToLower().Contains(values[1].ToLower()));
+
+                        PredmetDataGrid.ItemsSource = filteredPredmeti;
+                    }
+                    break;
+            }
         }
     }
 }
