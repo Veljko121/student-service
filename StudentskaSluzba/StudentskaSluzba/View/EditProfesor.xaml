@@ -166,6 +166,25 @@
                 </Grid>
             </TabItem>
             <TabItem Header="Predmeti">
+                <StackPanel>
+                    <WrapPanel FlowDirection="LeftToRight">
+                       <!-- <Button Content="Dodaj predmet" IsCancel="True" HorizontalAlignment="Left" VerticalAlignment="Top"
+                    Margin="0, 10, 10, 10" Click="DodajPredmet_Click"/>
+                        <Button Content="Ukloni predmet" IsCancel="True" HorizontalAlignment="Left" VerticalAlignment="Top"
+                    Margin="0, 10, 10, 10" Click="ObrisiStudentPredmet_Click"/>-->
+                    </WrapPanel>
+                    <DataGrid x:Name="PredmetDataGrid" DockPanel.Dock="Bottom"
+                        ItemsSource="{Binding Path=Predmeti, UpdateSourceTrigger=PropertyChanged}"
+                        SelectedItem="{Binding Path=SelectedPredmet, UpdateSourceTrigger=PropertyChanged}"
+                        AutoGenerateColumns="False" IsReadOnly="True">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Sifra" Width="*" Binding="{Binding Sifra}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Naziv" Width="*" Binding="{Binding Naziv}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Godina" Width="*" Binding="{Binding GodinaStudija}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Semestar" Width="*" Binding="{Binding Semestar}"></DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </StackPanel>
             </TabItem>
         </TabControl>
     </Grid>
