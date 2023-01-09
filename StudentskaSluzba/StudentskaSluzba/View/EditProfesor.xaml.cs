@@ -2,6 +2,7 @@
 using StudentskaSluzba.Model;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -25,6 +26,7 @@ namespace StudentskaSluzba.View
     {
         private ProfesorController _ProfesorController;
         private AdresaController _AdresaContoller;
+        private PredmetController _PredmetController;
 
         public Profesor Profesor { get; set; }
         public Adresa AdresaStanovanja { get; set; }
@@ -32,13 +34,16 @@ namespace StudentskaSluzba.View
         public Profesor ProfesorOriginal { get; set; }
         public Adresa AdresaStanovanjaOriginal { get; set; }
         public Adresa AdresaKancelarijeOriginal { get; set; }
-        public EditProfesor(ProfesorController profesorController, AdresaController adresaController, Profesor SelectedProfesor)
+        public ObservableCollection<Predmet> Predmeti { get; set; }
+        public Predmet SelectedPredmet { get; set; }
+        public EditProfesor(ProfesorController profesorController, AdresaController adresaController, PredmetController predmetController, Profesor SelectedProfesor)
         {
             InitializeComponent();
             DataContext= this;
 
             _ProfesorController = profesorController;
             _AdresaContoller = adresaController;
+            _PredmetController = predmetController;
 
             ProfesorOriginal = SelectedProfesor;
             AdresaStanovanjaOriginal = adresaController.FindByID(ProfesorOriginal.AdresaStanovanjaId);
@@ -47,6 +52,8 @@ namespace StudentskaSluzba.View
             Profesor = new Profesor(ProfesorOriginal);
             AdresaStanovanja = new Adresa(AdresaStanovanjaOriginal);
             AdresaKancelarije = new Adresa(AdresaKancelarijeOriginal);
+
+            Predmeti = new ObservableCollection<Predmet>(SelectedProfesor.SpisakPredmeta);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

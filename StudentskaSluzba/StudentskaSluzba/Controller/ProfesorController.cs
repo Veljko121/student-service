@@ -13,9 +13,9 @@ namespace StudentskaSluzba.Controller
     {
         private ProfesorDAO _profesori;
 
-        public ProfesorController()
+        public ProfesorController(PredmetController predmetController)
         {
-            _profesori = new ProfesorDAO();
+            _profesori = new ProfesorDAO(predmetController.GetAllPredmeti());
         }
 
         public List<Profesor> GetAllProfesori()

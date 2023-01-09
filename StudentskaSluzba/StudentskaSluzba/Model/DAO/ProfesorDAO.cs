@@ -15,10 +15,22 @@ namespace StudentskaSluzba.Model.DAO
         private ProfesorStorage _storage;
         private List<Profesor> _profesori;
 
-        public ProfesorDAO()
+        public ProfesorDAO(List<Predmet> predmeti)
         {
             _storage = new ProfesorStorage();
             _profesori = _storage.Load();
+
+            foreach (Profesor profesor in _profesori)
+            {
+                foreach (Predmet predmet in predmeti)
+                {
+                    if (profesor.Id == predmet.PredmetniProfesorId)
+                    {
+                        profesor.SpisakPredmeta.Add(predmet);
+                    }
+                }
+            }
+
             _observers = new List<IObserver>();
         }
 

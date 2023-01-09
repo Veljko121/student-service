@@ -56,13 +56,13 @@ namespace StudentskaSluzba
             _StudentController.Subscribe(this);
             Studenti = new ObservableCollection<Student>(_StudentController.GetAllStudents());
 
-            _ProfesorController = new ProfesorController();
-            _ProfesorController.Subscribe(this);
-            Profesori = new ObservableCollection<Profesor>(_ProfesorController.GetAllProfesori());
-
             _PredmetController = new PredmetController(_OcenaController);
             _PredmetController.Subscribe(this);
             Predmeti = new ObservableCollection<Predmet>(_PredmetController.GetAllPredmeti());
+
+            _ProfesorController = new ProfesorController(_PredmetController);
+            _ProfesorController.Subscribe(this);
+            Profesori = new ObservableCollection<Profesor>(_ProfesorController.GetAllProfesori());
 
             _AdresaController = new AdresaController();
         }
@@ -138,7 +138,7 @@ namespace StudentskaSluzba
                 case 2:
                     if (SelectedProfesor != null)
                     {
-                        EditProfesor editProfesor = new EditProfesor(_ProfesorController, _AdresaController, SelectedProfesor);
+                        EditProfesor editProfesor = new EditProfesor(_ProfesorController, _AdresaController, _PredmetController, SelectedProfesor);
                         editProfesor.Show();
                     }
                     else
