@@ -1,5 +1,6 @@
 ﻿using StudentskaSluzba.Controller;
 using StudentskaSluzba.Model;
+using StudentskaSluzba.Observer;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -22,7 +23,7 @@ namespace StudentskaSluzba.View
     /// <summary>
     /// Interaction logic for EditProfesor.xaml
     /// </summary>
-    public partial class EditProfesor : Window, INotifyPropertyChanged
+    public partial class EditProfesor : Window, INotifyPropertyChanged, IObserver
     {
         private ProfesorController _ProfesorController;
         private AdresaController _AdresaContoller;
@@ -44,6 +45,7 @@ namespace StudentskaSluzba.View
             _ProfesorController = profesorController;
             _AdresaContoller = adresaController;
             _PredmetController = predmetController;
+            _PredmetController.Subscribe(this);
 
             ProfesorOriginal = SelectedProfesor;
             AdresaStanovanjaOriginal = adresaController.FindByID(ProfesorOriginal.AdresaStanovanjaId);
@@ -111,6 +113,56 @@ namespace StudentskaSluzba.View
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
             Close();
+        }
+
+        private void AddPredmet_Click(object sender, RoutedEventArgs e)
+        {
+            AddPredmetToProfesor addPredmetToProfesor = new AddPredmetToProfesor(_PredmetController, ProfesorOriginal);
+            addPredmetToProfesor.Show();
+        }
+
+        private void UpdateList()
+        {
+            Predmeti.Clear();
+            foreach (var ocena in ProfesorOriginal.SpisakPredmeta)
+            {
+                Predmeti.Add(ocena);
+            }
+        }
+
+        public void Update()
+        {
+            UpdateList();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (SelectedPredmet != null)
+            {
+                MessageBoxResult result = ConfirmPredmetDeletion();
+
+                if (result == MessageBoxResult.Yes)
+                {
+                    _PredmetController.UkloniPredmetZaProfesora(ProfesorOriginal, SelectedPredmet);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Odaberite predmet koji želite da obrišete.");
+            }
+        }
+
+        private MessageBoxResult ConfirmPredmetDeletion()
+        {
+            string ispis = SelectedPredmet.Sifra + " " + SelectedPredmet.Naziv;
+            string sMessageBoxText = $"Da li ste sigurni da želite da izbrišete predmet: {ispis}\n";
+            string sCaption = "Potvrda brisanja";
+
+            MessageBoxButton btnMessageBox = MessageBoxButton.YesNo;
+            MessageBoxImage icnMessageBox = MessageBoxImage.Warning;
+
+            MessageBoxResult result = MessageBox.Show(sMessageBoxText, sCaption, btnMessageBox, icnMessageBox);
+            return result;
         }
     }
 }

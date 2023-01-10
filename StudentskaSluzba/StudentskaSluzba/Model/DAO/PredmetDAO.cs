@@ -106,5 +106,36 @@ namespace StudentskaSluzba.Model.DAO
 
             return notPredmeti;
         }
+
+        public List<Predmet> GetPredmetiWhereNotProfesor(Profesor profesor)
+        {
+            List<Predmet> notPredmeti = new List<Predmet>();
+
+            foreach (Predmet predmet in _predmeti)
+            {
+                if (predmet.PredmetniProfesorId != profesor.Id)
+                {
+                    notPredmeti.Add(predmet);
+                }
+            }
+
+            return notPredmeti;
+        }
+
+        public void DodajPredmetProfesoru(Profesor profesor, Predmet predmet)
+        {
+            predmet.PredmetniProfesorId = profesor.Id;
+            profesor.SpisakPredmeta.Add(predmet);
+            _storage.Save(_predmeti);
+            NotifyObservers();
+        }
+
+        public void UkloniPredmetZaProfesora(Profesor profesor, Predmet predmet)
+        {
+            predmet.PredmetniProfesorId = -1;
+            profesor.SpisakPredmeta.Remove(predmet);
+            _storage.Save(_predmeti);
+            NotifyObservers();
+        }
     }
 }

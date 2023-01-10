@@ -1,4 +1,5 @@
-﻿using StudentskaSluzba.Observer;
+﻿using StudentskaSluzba.Controller;
+using StudentskaSluzba.Observer;
 using StudentskaSluzba.Storage;
 using System;
 using System.Collections.Generic;
@@ -94,6 +95,18 @@ namespace StudentskaSluzba.Model.DAO
         {
             student.NepolozeniIspiti.Remove(ocena);
             student.PolozeniIspiti.Add(ocena);
+            _storage.Save(_ocene);
+            NotifyObservers();
+        }
+
+        public void DodajPredmetStudentu(Student student, Ocena ocena, Predmet predmet)
+        {
+            ocena.Predmet = predmet;
+            ocena.PredmetId = predmet.Id;
+            ocena.Student = student;
+            ocena.StudentId = student.Id;
+            student.NepolozeniIspiti.Add(ocena);
+            _ocene.Add(ocena);
             _storage.Save(_ocene);
             NotifyObservers();
         }

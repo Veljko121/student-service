@@ -58,12 +58,13 @@ namespace StudentskaSluzba.View
         {
             if (SelectedPredmet != null)
             {
-                Ocena.Predmet = SelectedPredmet;
-                Ocena.PredmetId = SelectedPredmet.Id;
-                Ocena.Student = Student;
-                Ocena.StudentId = Student.Id;
-                Student.NepolozeniIspiti.Add(Ocena);
-                _OcenaController.Create(Ocena);
+                //Ocena.Predmet = SelectedPredmet;
+                //Ocena.PredmetId = SelectedPredmet.Id;
+                //Ocena.Student = Student;
+                //Ocena.StudentId = Student.Id;
+                //Student.NepolozeniIspiti.Add(Ocena);
+                //_OcenaController.Create(Ocena);
+                _OcenaController.DodajPredmetStudentu(Student, Ocena, SelectedPredmet);
 
                 Close();
             }

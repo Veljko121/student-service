@@ -42,5 +42,20 @@ namespace StudentskaSluzba.Controller
         {
             return _predmeti.GetPredmetiWhereNotStudent(ocene);
         }
+
+        public List<Predmet> GetPredmetiWhereNotProfesor(Profesor profesor)
+        {
+            return _predmeti.GetPredmetiWhereNotProfesor(profesor);
+        }
+
+        public void DodajPredmetProfesoru(Profesor profesor, Predmet predmet)
+        {
+            _predmeti.DodajPredmetProfesoru(profesor, predmet);
+        }
+
+        public void UkloniPredmetZaProfesora(Profesor profesor, Predmet predmet)
+        {
+            _predmeti.UkloniPredmetZaProfesora(profesor, predmet);
+        }
     }
 }

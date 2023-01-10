@@ -52,5 +52,10 @@ namespace StudentskaSluzba.Controller
         {
             _ocene.PoloziPredmet(student, ocena);
         }
+
+        public void DodajPredmetStudentu(Student student, Ocena ocena, Predmet predmet)
+        {
+            _ocene.DodajPredmetStudentu(student, ocena, predmet);
+        }
     }
 }
