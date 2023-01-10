@@ -1,14 +1,14 @@
-﻿<Window x:Class="StudentskaSluzba.View.AddStudentToPredmet"
+﻿<Window x:Class="StudentskaSluzba.View.AddPredmetToProfesor"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StudentskaSluzba.View"
         mc:Ignorable="d"
-        Title="Dodavanje studenta na predmet" Height="300" Width="300"
+        Title="Dodavaj predmet" Height="300" Width="300"
         WindowStartupLocation="CenterScreen">
     <Grid>
-       <!-- <StackPanel>
+        <!-- <StackPanel>
             <DataGrid DockPanel.Dock="Top" HeadersVisibility="None"
                         ItemsSource="{Binding Path=Predmeti, UpdateSourceTrigger=PropertyChanged}"
                         SelectedItem="{Binding Path=SelectedPredmet, UpdateSourceTrigger=PropertyChanged}"
@@ -33,7 +33,9 @@
             <DataGrid Grid.Row="0" HeadersVisibility="None"
                         ItemsSource="{Binding Path=Predmeti, UpdateSourceTrigger=PropertyChanged}"
                         SelectedItem="{Binding Path=SelectedPredmet, UpdateSourceTrigger=PropertyChanged}"
-                        AutoGenerateColumns="False" IsReadOnly="True">
+                        AutoGenerateColumns="False" IsReadOnly="True"
+                        ScrollViewer.CanContentScroll="True" 
+                        ScrollViewer.VerticalScrollBarVisibility="Auto">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Šifra" Width="*" Binding="{Binding Sifra}"></DataGridTextColumn>
                     <DataGridTextColumn Header="Naziv predmeta" Width="*" Binding="{Binding Naziv}"></DataGridTextColumn>
@@ -41,9 +43,9 @@
             </DataGrid>
             <WrapPanel Grid.Row="1" FlowDirection="RightToLeft">
                 <Button Content="Dodaj" IsCancel="True" HorizontalAlignment="Left" VerticalAlignment="Top"
-                    Margin="10, 10, 10, 10" Click="AddStudent_Click"/>
+                    Margin="10, 10, 10, 10" />
                 <Button Content="Odustani" IsCancel="True" HorizontalAlignment="Left" VerticalAlignment="Top"
-                    Margin="0, 10, 0, 10" Click="CancelButton_Click"/>
+                    Margin="0, 10, 0, 10" />
             </WrapPanel>
         </Grid>
     </Grid>
