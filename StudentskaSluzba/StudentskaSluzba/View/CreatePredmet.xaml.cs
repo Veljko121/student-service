@@ -52,7 +52,7 @@ namespace StudentskaSluzba.View
             }
             else
             {
-                MessageBox.Show("Predmet se ne može napraviti, jer nisu sva polja validno popunjena.");
+                MessageBox.Show("SelectedPredmet se ne može napraviti, jer nisu sva polja validno popunjena.");
             }
         }
 

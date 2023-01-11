@@ -57,5 +57,10 @@ namespace StudentskaSluzba.Controller
         {
             _predmeti.UkloniPredmetZaProfesora(profesor, predmet);
         }
+
+        public void DeleteProfesorFromPredmet(Predmet predmet)
+        {
+            _predmeti.DeleteProfesorFromPredmet(predmet);
+        }
     }
 }

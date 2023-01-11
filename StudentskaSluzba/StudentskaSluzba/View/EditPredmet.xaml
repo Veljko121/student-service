@@ -74,12 +74,11 @@
                     <ColumnDefinition></ColumnDefinition>
                     <ColumnDefinition></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <TextBox Grid.Row="0" Grid.Column="0" Height="20"
-                     Text="{Binding Path=Predmet.Profesor.Ime, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
-                     Validation.ErrorTemplate="{StaticResource ValidationTemplate}">
+                <TextBox x:Name="ProfesorTextBox" Grid.Row="0" Grid.Column="0" Height="20"
+                     IsReadOnly="True">
                 </TextBox>
-                <Button Width="20" HorizontalAlignment="Center" Grid.Row="0" Grid.Column="1" Content="+" IsCancel="True" Click="CancelButton_Click"/>
-                <Button Width="20" HorizontalAlignment="Center" Grid.Row="0" Grid.Column="2" Content="-" IsCancel="True" Click="CancelButton_Click"/>
+                <Button x:Name="Plus_Button" Width="20" HorizontalAlignment="Center" Grid.Row="0" Grid.Column="1" Content="+" IsCancel="True" Click="AddProfesor_Click"/>
+                <Button x:Name="Minus_Button" Width="20" HorizontalAlignment="Center" Grid.Row="0" Grid.Column="2" Content="-" IsCancel="True" Click="DelteProfesor_Click"/>
                 
             </Grid>
         </Grid>

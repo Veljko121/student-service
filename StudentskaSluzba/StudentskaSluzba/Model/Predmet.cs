@@ -135,6 +135,7 @@ namespace StudentskaSluzba.Model
             this.GodinaStudija = predmet.GodinaStudija;
             this.PredmetniProfesorId = predmet.PredmetniProfesorId;
             this.BrojESPB = predmet.BrojESPB;
+            this.PredmetniProfesor = predmet.PredmetniProfesor;
         }
 
         public string[] ToCSV()

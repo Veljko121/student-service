@@ -125,6 +125,7 @@ namespace StudentskaSluzba.Model.DAO
         public void DodajPredmetProfesoru(Profesor profesor, Predmet predmet)
         {
             predmet.PredmetniProfesorId = profesor.Id;
+            predmet.PredmetniProfesor = profesor;
             profesor.SpisakPredmeta.Add(predmet);
             _storage.Save(_predmeti);
             NotifyObservers();
@@ -134,6 +135,15 @@ namespace StudentskaSluzba.Model.DAO
         {
             predmet.PredmetniProfesorId = -1;
             profesor.SpisakPredmeta.Remove(predmet);
+            _storage.Save(_predmeti);
+            NotifyObservers();
+        }
+
+        public void DeleteProfesorFromPredmet(Predmet predmet)
+        {
+            predmet.PredmetniProfesor.SpisakPredmeta.Remove(predmet);
+            predmet.PredmetniProfesor = null;
+            predmet.PredmetniProfesorId = -1;
             _storage.Save(_predmeti);
             NotifyObservers();
         }

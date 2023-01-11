@@ -149,12 +149,12 @@ namespace StudentskaSluzba
                 case 3:
                     if (SelectedPredmet != null)
                     {
-                        EditPredmet editPredmet = new EditPredmet(_PredmetController, SelectedPredmet);
+                        EditPredmet editPredmet = new EditPredmet(_PredmetController, _ProfesorController, SelectedPredmet);
                         editPredmet.Show();
                     }
                     else
                     {
-                        MessageBox.Show("Odaberite Predmet koji želite da izmenite.");
+                        MessageBox.Show("Odaberite SelectedPredmet koji želite da izmenite.");
                     }
                     break;
             }
@@ -207,7 +207,7 @@ namespace StudentskaSluzba
                     }
                     else
                     {
-                        MessageBox.Show("Odaberite Predmet koji želite da obrišete.");
+                        MessageBox.Show("Odaberite SelectedPredmet koji želite da obrišete.");
                     }
                     break;
             }
@@ -242,7 +242,7 @@ namespace StudentskaSluzba
         private MessageBoxResult ConfirmPredmetDeletion()
         {
             string ispis = SelectedPredmet.ToString();
-            string sMessageBoxText = $"Da li ste sigurni da želite da izbrišete Predmet: \n{ispis}";
+            string sMessageBoxText = $"Da li ste sigurni da želite da izbrišete SelectedPredmet: \n{ispis}";
             string sCaption = "Potvrda brisanja";
 
             MessageBoxButton btnMessageBox = MessageBoxButton.YesNo;

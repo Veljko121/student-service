@@ -27,6 +27,7 @@ namespace StudentskaSluzba.Model.DAO
                     if (profesor.Id == predmet.PredmetniProfesorId)
                     {
                         profesor.SpisakPredmeta.Add(predmet);
+                        predmet.PredmetniProfesor = profesor;
                     }
                 }
             }

@@ -60,7 +60,7 @@ namespace StudentskaSluzba.View
             }
             else
             {
-                MessageBox.Show("Odaberite Predmet na koji želite da dodate studenta.");
+                MessageBox.Show("Odaberite predmet na koji želite da dodate studenta.");
             }
         }
 
